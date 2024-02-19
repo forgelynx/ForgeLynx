@@ -1,0 +1,28 @@
+.navbar {
+  z-index: 2;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+li {
+  display: inline;
+  float: left;
+}
+li a {
+  display: block;
+  padding: 20px;
+  font-size: 30px;
+  text-decoration: none;
+  color: white;
+}
+.text {
+  z-index: 2;
+}
+.forgelynx {
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  padding:20px
+  
+}
