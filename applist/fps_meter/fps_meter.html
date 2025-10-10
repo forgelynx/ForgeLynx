@@ -87,18 +87,9 @@
             display: inline-block;
         }
 
+        /* Remove misleading 'PRO' label */
         h1::after {
-            content: 'PRO';
-            position: absolute;
-            top: 0;
-            right: -60px;
-            font-size: 18px;
-            background: #0066FF;
-            color: #000;
-            padding: 2px 8px;
-            border-radius: 4px;
-            -webkit-text-fill-color: #000;
-            font-weight: 800;
+          display: none;
         }
 
         .tagline {
@@ -234,7 +225,7 @@
             <div >
                 <img src="fps_meter_app_logo.png" alt="FPS Meter Logo", class="app-logo">
             </div>
-            <h1>FPS Meter</h1>
+            <h1>FPS Meter Real-time Display</h1>
             <p class="tagline">Real-time FPS display anywhere on your screen</p>
             <a href="#download" class="cta-button">Download Now</a>
         </header>
@@ -264,13 +255,13 @@
             <div class="feature-card">
                 <h3 class="feature-title">Refresh Rate Checker</h3>
                 <p class="feature-description">
-                    Shows the screen refresh rate of your device to help you optimize your gaming experience.
+                    Shows the screen refresh rate of your device to help you optimize your gaming experience. Note: It displays your display's refresh rate, not game or GPU-specific FPS.
                 </p>
             </div>
         </section>
 
         <section class="download-section" id="download">
-            <h2 class="download-title">Download FPS Meter</h2>
+            <h2 class="download-title">Download FPS Meter Real-time Display</h2>
             <p class="download-description">Get lifetime access with just one payment for unlimited use. Monitor your device's performance in real-time.</p>
             <a href="https://play.google.com/store/apps/details?id=com.forge.fpsmeter" class="download-button">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1024px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
@@ -279,6 +270,7 @@
                     <strong>Google Play</strong>
                 </div>
             </a>
+            <p style="color:#888;font-size:14px;margin-top:10px;text-align:center;">Ratings, downloads, age rating, and price may change over time. Check Google Play for the latest details.</p>
         </section>
 
         <footer class="footer">
