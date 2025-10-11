@@ -35,34 +35,18 @@
     .logo img { max-width: 100%; height: auto; border-radius: 12px; }
     .title { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; }
     .subtitle { color: var(--on-surface-variant); margin-top: 6px; }
-    .cta-btn { display: inline-flex; align-items: center; gap: 12px; padding: 14px 20px; font-size: 16px; line-height: 1.2; white-space: nowrap; border-radius: 12px; text-decoration: none; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-variant)); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 24px rgba(103,80,164,0.35); transition: transform 0.12s ease-out, box-shadow 0.12s ease-out; }
-    .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(103,80,164,0.45); }
-    .cta-btn svg { width: 22px; height: 22px; opacity: 0.9; flex-shrink: 0; }
-    .cta-btn span { display: inline-block; }
-    .cta-btn svg { opacity: 0.9; }
-
-    main { padding: 32px 0 64px; }
-    .section { margin: 32px 0; }
-    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .card { background: var(--surface-variant); border: 1px solid var(--outline); border-radius: 16px; padding: 20px; }
-    .card h3 { margin: 0 0 8px; font-size: 18px; }
-    .card p { margin: 0; color: var(--on-surface-variant); }
-    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
-    .stat { background: linear-gradient(180deg, rgba(124,92,205,0.14), rgba(124,92,205,0.04)); border: 1px solid var(--outline); border-radius: 16px; padding: 16px; text-align: center; }
-    .stat .num { font-size: 22px; font-weight: 700; }
-    .stat .label { font-size: 13px; color: var(--on-surface-variant); }
-    .footer { border-top: 1px solid var(--outline); padding: 32px 0; text-align: center; color: var(--on-surface-variant); }
-    .footer a { color: var(--secondary); text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-
-    /* Tablet */
-    @media (max-width: 900px) {
-      .card-grid { grid-template-columns: 1fr 1fr; }
-      .app-head { grid-template-columns: 64px 1fr; grid-auto-flow: row; gap: 16px; }
-      .logo { width: 64px; height: 64px; }
-      .cta-btn { margin-top: 16px; }
-      .stats { grid-template-columns: 1fr 1fr; }
-    }
+    .cta-btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 20px; min-height: 44px; font-weight: 600; font-size: clamp(14px, 2.5vw, 16px); line-height: 1.2; border-radius: 14px; text-decoration: none; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-variant)); border: 1px solid rgba(255,255,255,0.10); box-shadow: 0 10px 28px rgba(103,80,164,0.35); transition: transform 0.12s ease-out, box-shadow 0.12s ease-out; white-space: normal; flex-wrap: wrap; text-align: center; overflow: visible; }
+    .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(103,80,164,0.45); }
+    .cta-btn:active { transform: translateY(0); box-shadow: 0 6px 18px rgba(103,80,164,0.30); }
+    .cta-btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(124,92,205,0.45), 0 10px 28px rgba(103,80,164,0.38); }
+    .cta-btn svg { width: 20px; height: 20px; opacity: 0.95; flex-shrink: 0; }
+    .cta-btn .label-full, .cta-btn .label-short { display: inline; overflow-wrap: anywhere; word-break: normal; }
+    .cta-btn .label-short { display: none; }
+    .cta-btn span { white-space: nowrap; }
+    .card-grid { grid-template-columns: 1fr; }
+    .card { padding: 16px; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { padding: 14px; }
 
     /* Mobile */
     @media (max-width: 600px) {
@@ -72,7 +56,9 @@
       .subtitle { font-size: 14px; }
       .app-head { grid-template-columns: 56px 1fr; gap: 14px; }
       .logo { width: 56px; height: 56px; border-radius: 16px; }
-      .cta-btn { width: 100%; justify-content: center; padding: 16px 20px; font-size: 16px; margin-top: 14px; white-space: normal; }
+      .app-head .cta-btn { grid-column: 1 / -1; }
+      .cta-btn { width: 100%; justify-content: center; padding: 16px 18px; font-size: 15px; margin-top: 14px; white-space: normal; flex-wrap: wrap; text-align: center; max-width: 100%; }
+      .cta-btn span { white-space: normal; }
       .card-grid { grid-template-columns: 1fr; }
       .card { padding: 16px; }
       .stats { grid-template-columns: 1fr; }
@@ -92,9 +78,10 @@
           <div class="title">GPS Speedometer Tracker</div>
           <div class="subtitle">Accurate, offline speed tracking with a clean Material 3 expressive UI</div>
         </div>
-        <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.gps.speedometer" target="_blank" rel="noopener noreferrer">
+        <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.gps.speedometer" target="_blank" rel="noopener noreferrer" aria-label="Download GPS Speedometer Tracker on Google Play">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
-          <span>Download on Google Play</span>
+          <span class="label-full">Download on Google Play</span>
+          <span class="label-short">Get on Google Play</span>
         </a>
       </div>
     </div>
@@ -142,3 +129,17 @@
   </footer>
 </body>
 </html>
+    /* Mobile */
+    @media (max-width: 600px) {
+      .container { padding: 0 16px; }
+      header { padding: 48px 0 24px; }
+      .title { font-size: 28px; }
+      .subtitle { font-size: 14px; }
+      .app-head { grid-template-columns: 56px 1fr; gap: 14px; }
+      .logo { width: 56px; height: 56px; border-radius: 16px; }
+      .cta-btn { width: 100%; justify-content: center; padding: 16px 18px; font-size: 15px; margin-top: 14px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .card { padding: 16px; }
+      .stats { grid-template-columns: 1fr; }
+      .stat { padding: 14px; }
+    }
