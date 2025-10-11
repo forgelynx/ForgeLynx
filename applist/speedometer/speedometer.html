@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GPS Speedometer Tracker</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="gps_speedomter_app_logo.png" type="image/png">
+  <style>
+    :root {
+      --surface: #0B0B0F;
+      --surface-variant: #16161D;
+      --on-surface: #E6E6F0;
+      --on-surface-variant: #B4B6C0;
+      --primary: #6750A4; /* Material 3 expressive purple */
+      --primary-variant: #7C5CCD;
+      --secondary: #00BFA5;
+      --outline: #2A2A38;
+      --success: #2ECC71;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Roboto Flex', system-ui, sans-serif; background: var(--surface); color: var(--on-surface); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    header {
+      position: relative;
+      padding: 64px 0 32px;
+      background: radial-gradient(1200px 500px at 10% -10%, rgba(124,92,205,0.25), transparent 60%),
+                 radial-gradient(800px 400px at 90% -20%, rgba(0,191,165,0.18), transparent 60%),
+                 linear-gradient(180deg, rgba(103,80,164,0.20), rgba(103,80,164,0.00));
+      border-bottom: 1px solid var(--outline);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--on-surface-variant); font-size: 14px; }
+    .app-head { display: grid; grid-template-columns: 80px 1fr auto; align-items: center; gap: 16px; margin-top: 18px; }
+    .logo { width: 80px; height: 80px; display: grid; place-items: center; border-radius: 20px; background: linear-gradient(135deg, #1C1C25, #15151C); border: 1px solid var(--outline); }
+    .title { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; }
+    .subtitle { color: var(--on-surface-variant); margin-top: 6px; }
+    .cta-btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 12px; text-decoration: none; color: #fff; background: linear-gradient(135deg, var(--primary), var(--primary-variant)); border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 8px 24px rgba(103,80,164,0.35); transition: transform 0.12s ease-out, box-shadow 0.12s ease-out; }
+    .cta-btn:hover { transform: translateY(-1px); box-shadow: 0 10px 28px rgba(103,80,164,0.45); }
+    .cta-btn svg { opacity: 0.9; }
+
+    main { padding: 32px 0 64px; }
+    .section { margin: 32px 0; }
+    .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { background: var(--surface-variant); border: 1px solid var(--outline); border-radius: 16px; padding: 20px; }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--on-surface-variant); }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 8px; }
+    .stat { background: linear-gradient(180deg, rgba(124,92,205,0.14), rgba(124,92,205,0.04)); border: 1px solid var(--outline); border-radius: 16px; padding: 16px; text-align: center; }
+    .stat .num { font-size: 22px; font-weight: 700; }
+    .stat .label { font-size: 13px; color: var(--on-surface-variant); }
+    .footer { border-top: 1px solid var(--outline); padding: 32px 0; text-align: center; color: var(--on-surface-variant); }
+    .footer a { color: var(--secondary); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    @media (max-width: 900px) { .card-grid { grid-template-columns: 1fr 1fr; } .app-head { grid-template-columns: 64px 1fr; grid-auto-flow: row; } .cta-btn { margin-top: 16px; } .stats { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="brand">Forge Lynx • Material 3 Expressive</div>
+      <div class="app-head">
+        <div class="logo" aria-hidden="true">
+          <img src="gps_speedomter_app_logo.png" alt="GPS Speedometer App Logo" style="width:42px;height:42px;border-radius:8px;" />
+        </div>
+        <div>
+          <div class="title">GPS Speedometer Tracker</div>
+          <div class="subtitle">Accurate, offline speed tracking with a clean Material 3 expressive UI</div>
+        </div>
+        <a class="cta-btn" href="https://play.google.com/store/apps/details?id=com.gps.speedometer" target="_blank" rel="noopener noreferrer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.61 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z"/></svg>
+          <span>Download on Google Play</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="section">
+        <div class="card-grid">
+          <div class="card"><h3>Fully Offline</h3><p>Works without internet. All processing is on-device; your data never leaves your phone.</p></div>
+          <div class="card"><h3>Accurate GPS Speed</h3><p>Real-time speed with smoothing, supports km/h and mph units.</p></div>
+          <div class="card"><h3>Trip Insights</h3><p>View max/average speed and session duration — stored locally only.</p></div>
+          <div class="card"><h3>Material 3 Expressive</h3><p>Modern typography, color, and motion aligned with Material 3 expressive design.</p></div>
+          <div class="card"><h3>Paid App</h3><p>One-time purchase. No ads, no subscriptions.</p></div>
+          <div class="card"><h3>Battery Friendly</h3><p>Optimized for low power impact during continuous tracking.</p></div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="stats">
+          <div class="stat"><div class="num">Paid</div><div class="label">Price</div></div>
+          <div class="stat"><div class="num">Everyone</div><div class="label">Age Rating</div></div>
+          <div class="stat"><div class="num">Offline</div><div class="label">Data</div></div>
+          <div class="stat"><div class="num">GPS</div><div class="label">Sensor</div></div>
+        </div>
+        <p style="color:var(--on-surface-variant);font-size:14px;margin-top:8px;text-align:center">Store listing details (price, age rating, etc.) may change. Please check Google Play for the latest information.</p>
+      </section>
+
+      <section class="section">
+        <div class="card">
+          <h3>Safety & Accuracy</h3>
+          <p>Always pay attention to the road. Accuracy depends on GPS signal quality, device hardware, and environment. Do not use the app while driving; mount your phone safely.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>Need help or have feedback?</div>
+      <div style="margin-top:8px">
+        <a href="pp.html" class="footer-link">Privacy Policy & Terms</a> · 
+        <a href="mailto:forgelynxx@gmail.com" class="footer-link">Contact Support</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
