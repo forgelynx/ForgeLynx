@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shizuku FPS Meter - App Details</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        :root {
+            --primary: #6750A4;
+            --primary-variant: #7A5CCD;
+            --surface: #121212;
+            --surface-variant: #1E1E1E;
+            --on-surface: #E6E1E5;
+            --on-surface-variant: #CAC4D0;
+            --outline: rgba(255,255,255,0.12);
+        }
+        body {
+            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+            background: var(--surface);
+            color: var(--on-surface);
+            min-height: 100vh;
+            padding: 24px;
+            line-height: 1.5;
+            background-image:
+              radial-gradient(800px 400px at 20% 20%, rgba(103,80,164,0.20), transparent 60%),
+              radial-gradient(900px 500px at 80% 80%, rgba(122,92,205,0.15), transparent 65%);
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header {
+            background: color-mix(in oklab, var(--surface) 70%, var(--primary) 30%);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--outline);
+            border-radius: 28px;
+            padding: 56px;
+            text-align: center;
+            margin-bottom: 32px;
+            box-shadow: 0 24px 60px rgba(103,80,164,0.25);
+        }
+        .title {
+            font-size: 44px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: white;
+            margin-bottom: 12px;
+        }
+        .subtitle { font-size: 18px; color: var(--on-surface-variant); margin-bottom: 24px; }
+        .cta-button {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 16px;
+            background: var(--primary);
+            color: white; text-decoration: none; font-weight: 600;
+            box-shadow: 0 10px 24px rgba(103,80,164,0.35);
+        }
+        .cta-button:active { transform: translateY(1px); }
+        .section { background: var(--surface-variant); border: 1px solid var(--outline); border-radius: 24px; padding: 28px; margin-bottom: 24px; }
+        .section-title { font-size: 24px; color: white; margin-bottom: 14px; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+        .feature-card { background: #151515; border: 1px solid var(--outline); border-radius: 22px; padding: 18px; }
+        .feature-title { font-weight: 700; color: white; margin-bottom: 8px; }
+        .feature-description { color: var(--on-surface-variant); }
+        .download-section { text-align: center; }
+        .download-title { font-size: 22px; color: white; margin-bottom: 8px; }
+        .download-description { color: var(--on-surface-variant); margin-bottom: 18px; }
+        .download-button { display: inline-flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 16px; border: 1px solid var(--outline); text-decoration: none; color: white; background: #161616; }
+        .download-button img { height: 40px; }
+        .footer { text-align: center; padding: 36px 0; color: var(--on-surface-variant); font-size: 14px; }
+        .footer a { color: var(--primary); text-decoration: none; }
+    </style>
+    <meta name="description" content="Shizuku FPS Meter uses Shizuku in background to power a precise FPS overlay. No user data collected. Requires overlay permission.">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">Shizuku FPS Meter</h1>
+            <p class="subtitle">Shizuku-powered FPS overlay with Material 3 expressive design</p>
+            <a href="https://play.google.com/store/apps/details?id=com.bytes.fpsmeter" class="cta-button">Download on Google Play</a>
+        </header>
+
+        <section class="section">
+            <h2 class="section-title">About this app</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-title">Shizuku Integration</div>
+                    <div class="feature-description">Runs with Shizuku in the background to access system-level APIs required for stable FPS overlay functionality.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">Overlay FPS Counter</div>
+                    <div class="feature-description">Displays a floating FPS indicator above other apps with configurable position, size, and colors.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">No Data Collection</div>
+                    <div class="feature-description">Does not collect, store, or share any user data. No sign-up, no analytics.</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-title">Material 3 Expressive</div>
+                    <div class="feature-description">Rounded, vibrant, and responsive UI aligned with Material 3 expressive guidelines.</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section download-section" id="download">
+            <h3 class="download-title">Download Shizuku FPS Meter</h3>
+            <p class="download-description">Package name: com.bytes.fpsmeter</p>
+            <a href="https://play.google.com/store/apps/details?id=com.bytes.fpsmeter" class="download-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Google_Play_Store_badge_EN.svg/1024px-Google_Play_Store_badge_EN.svg.png" alt="Google Play">
+                <div>
+                    <span>GET IT ON</span>
+                    <strong>Google Play</strong>
+                </div>
+            </a>
+            <p style="color:#9E9AA7;font-size:13px;margin-top:10px;">Details like rating and price can change over time. Check Play Store for latest info.</p>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Permissions</h2>
+            <p class="feature-description">Required: Display over other apps (overlay) to render the FPS indicator.</p>
+            <p class="feature-description">Optional: Post notifications to show status or quick controls.</p>
+            <p class="feature-description">Background: Uses Shizuku service when enabled to access necessary system-level APIs. User must start Shizuku and grant access.</p>
+        </section>
+
+        <footer class="footer">
+            <p>© 2025 Bytes Developer</p>
+            <p><a href="pp.html">Privacy Policy</a> | <a href="pp.html#terms">Terms and Conditions</a> | <a href="mailto:forgelynxx@gmail.com?subject=Shizuku FPS Meter - Contact">Contact</a></p>
+        </footer>
+    </div>
+</body>
+</html>
