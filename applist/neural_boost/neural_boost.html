@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Boost - AI Powered Gaming Optimization</title>
+    <meta name="description"
+        content="Experience the next generation of gaming with Neural Boost. AI-driven performance optimization, real-time metrics, and hardware-level precision.">
+    <link rel="icon" href="neural_boost_logo.png" type="image/png">
+    <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --accent-primary: #00F5FF;
+            --accent-secondary: #00BFA5;
+            --accent-gradient: linear-gradient(135deg, #00F5FF, #00BFA5);
+            --bg-darker: #050505;
+            --neon-glow: 0 0 15px rgba(0, 245, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--bg-darker);
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+
+        .neural-header {
+            text-align: center;
+            padding: 5rem 0;
+            background: radial-gradient(circle at center, rgba(0, 245, 255, 0.08) 0%, transparent 70%);
+            position: relative;
+        }
+
+        .neural-logo {
+            width: 160px;
+            height: 160px;
+            border-radius: 32px;
+            box-shadow: 0 0 30px rgba(0, 245, 255, 0.2);
+            margin-bottom: 2rem;
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .neural-logo:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 50px rgba(0, 245, 255, 0.4);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+
+        /* Neural Dashboard Metrics */
+        .metrics-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .metric-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(0, 245, 255, 0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(15px);
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent-gradient);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .metric-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .metric-value {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            text-shadow: var(--neon-glow);
+        }
+
+        .metric-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Neural OS Button */
+        .btn-neural {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--accent-gradient);
+            color: var(--bg-darker);
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: var(--neon-glow);
+        }
+
+        .btn-neural:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 245, 255, 0.5);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            background: rgba(0, 245, 255, 0.03);
+            border-color: rgba(0, 245, 255, 0.2);
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 245, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        /* Scanline Effect */
+        .scanline {
+            width: 100%;
+            height: 100px;
+            z-index: 9999;
+            background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 245, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+            opacity: 0.1;
+            position: absolute;
+            bottom: 100%;
+            pointer-events: none;
+            animation: scanline 6s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { bottom: 100%; }
+            100% { bottom: -100px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+
+    <div style="position: fixed; top: 25px; left: 25px; z-index: 1000;">
+        <a href="../../index.html"
+            style="display: inline-flex; align-items: center; gap: 0.6rem; color: #FFFFFF; font-weight: 600; padding: 0.6rem 1.4rem; background: rgba(255, 255, 255, 0.05); border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 0.9rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            <span>Back to Home</span>
+        </a>
+    </div>
+
+    <main class="container">
+        <section class="neural-header">
+            <img src="neural_boost_logo.png" alt="Neural Boost Logo" class="neural-logo">
+            <h1 class="fade-in">NEURAL BOOST</h1>
+            <p class="tagline fade-in">Advanced gaming optimization powered by Google Gemini AI. Synchronize your system for the ultimate gaming experience.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.neural.boost" class="btn-neural fade-in">
+                <span>Engage Neural Boost</span>
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+            </a>
+        </section>
+
+        <section class="metrics-container fade-in">
+            <div class="metric-card">
+                <div class="metric-value" id="fps-val">120</div>
+                <div class="metric-label">Real-time FPS</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value" id="ping-val">12</div>
+                <div class="metric-label">Network Ping (ms)</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">98%</div>
+                <div class="metric-label">RAM Efficiency</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-value">Low</div>
+                <div class="metric-label">System Latency</div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">Core Performance Modules</h2>
+            <div class="feature-grid">
+                <div class="feature-box fade-in">
+                    <div class="feature-icon">🤖</div>
+                    <h3>Gemini AI Chatbot</h3>
+                    <p style="color: var(--text-secondary);">Your AI gaming companion. Get real-time game strategies and technical suggestions powered by Gemini 2.0 Flash.</p>
+                </div>
+                <div class="feature-box fade-in" style="animation-delay: 0.1s">
+                    <div class="feature-icon">📊</div>
+                    <h3>Smart HUD Overlays</h3>
+                    <p style="color: var(--text-secondary);">Monitor FPS and Network Ping anywhere on your screen with highly customizable, neon-glow overlays that don't block your view.</p>
+                </div>
+                <div class="feature-box fade-in" style="animation-delay: 0.2s">
+                    <div class="feature-icon">🔕</div>
+                    <h3>Intelligent DND Mode</h3>
+                    <p style="color: var(--text-secondary);">Stay in the zone. Automatically block distracting notifications and calls while the Neural Engine is active during gameplay.</p>
+                </div>
+                <div class="feature-box fade-in" style="animation-delay: 0.3s">
+                    <div class="feature-icon">🚀</div>
+                    <h3>One-Tap Booster</h3>
+                    <p style="color: var(--text-secondary);">Kill background processes and reallocate CPU/RAM resources to your current game for maximum stable performance.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="padding: 6rem 0 3rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div style="margin-bottom: 2rem;">
+                <a href="pp.html" style="color: var(--text-secondary); margin: 0 1.5rem; text-decoration: none; transition: color 0.3s ease;">Neural Protocol (Privacy)</a>
+                <a href="pp.html#terms" style="color: var(--text-secondary); margin: 0 1.5rem; text-decoration: none; transition: color 0.3s ease;">Core Directives (Terms)</a>
+                <a href="mailto:support@neuralboost.ai" style="color: var(--text-secondary); margin: 0 1.5rem; text-decoration: none; transition: color 0.3s ease;">Node Support</a>
+            </div>
+            <p style="color: var(--text-secondary); opacity: 0.5;">&copy; 2025 Lean Bytes Labs. Powered by Kinetic Cockpit Design System.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simulated real-time neural data
+        setInterval(() => {
+            const fpsVal = document.getElementById('fps-val');
+            const pingVal = document.getElementById('ping-val');
+            
+            fpsVal.innerText = (118 + Math.floor(Math.random() * 5)).toString();
+            pingVal.innerText = (10 + Math.floor(Math.random() * 6)).toString();
+        }, 800);
+
+        // Simple Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+
+</html>
