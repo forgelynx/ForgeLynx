@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Widget: Living Gallery - App Details</title>
+  <meta name="description"
+    content="Experience your photos in a new way with Photo Widget: Living Gallery. Beautiful shapes, scheduled rotations, and a privacy-first local-only experience.">
+  <meta property="og:title" content="Photo Widget: Living Gallery">
+  <meta property="og:description" content="Bring your home screen to life with dynamic photo widgets and custom shapes.">
+  <meta property="og:image" content="photo_widget_logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    :root {
+      --accent-primary: #FF7043;
+      --accent-secondary: #D84315;
+      --accent-dim: #BF360C;
+      --bg-deep: #0C0C0C;
+      --glass-bg: rgba(28, 20, 18, 0.4);
+      --glass-border: rgba(255, 112, 67, 0.15);
+      --text-on-surface: #FFF5F2;
+      --text-dim: #BCAAA4;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-on-surface);
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .display-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* Ambient Glows */
+    .ambient-glow-1 {
+      position: fixed;
+      top: -250px;
+      left: -250px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(255, 112, 67, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .ambient-glow-2 {
+      position: fixed;
+      bottom: -250px;
+      right: -250px;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(216, 67, 21, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .app-header {
+      text-align: center;
+      padding: 6rem 0 4rem;
+      position: relative;
+    }
+
+    .app-logo-large {
+      width: 140px;
+      height: 140px;
+      border-radius: 32px;
+      box-shadow: 0 20px 40px rgba(255, 112, 67, 0.3);
+      margin-bottom: 2rem;
+      border: 1px solid var(--glass-border);
+      background: white;
+    }
+
+    /* Bento Grid */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 1.5rem;
+      margin: 3rem 0;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 1.5rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(255, 112, 67, 0.15);
+    }
+
+    .feature-large {
+      grid-column: span 2;
+      grid-row: span 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+    }
+
+    .shape-preview-container {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+    }
+
+    .shape-item {
+        width: 60px;
+        height: 60px;
+        background: var(--accent-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: white;
+        transition: transform 0.3s ease;
+    }
+
+    .shape-item:hover { transform: scale(1.1); }
+
+    .shape-blob { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
+    .shape-star { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
+    .shape-circle { border-radius: 50%; }
+    .shape-rect { border-radius: 16px; }
+
+    .stat-label {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent-primary);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .download-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+      color: white;
+      padding: 1.2rem 2.5rem;
+      border-radius: 20px;
+      font-weight: 800;
+      font-family: 'Space Grotesk', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(255, 112, 67, 0.3);
+      text-decoration: none;
+    }
+
+    .download-badge:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 15px 35px rgba(255, 112, 67, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      .bento-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .feature-large {
+        grid-column: span 2;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <header
+    style="position: absolute; top: 20px; left: 20px; z-index: 100; background: transparent; border: none; padding: 0;">
+    <a href="../apps.html"
+      style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-dim); font-weight: 600; padding: 0.8rem 1.2rem; background: var(--glass-bg); border-radius: 50px; backdrop-filter: blur(15px); border: 1px solid var(--glass-border); text-decoration: none; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" />
+      </svg>
+      Back to Apps
+    </a>
+  </div>
+
+  <main>
+    <section class="app-header">
+      <div class="container">
+        <img src="photo_widget_logo.png" alt="Photo Widget Logo" class="app-logo-large fade-in">
+        <h1 class="fade-in" style="animation-delay: 0.1s; font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 0.5rem;">Living Gallery</h1>
+        <p class="fade-in"
+          style="animation-delay: 0.2s; font-size: 1.2rem; color: var(--text-dim); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Breathe life into your home screen with dynamic photo widgets and artistic shapes.</p>
+        <a href="https://play.google.com/store/apps/details?id=com.photo.widget" class="download-badge fade-in"
+          style="animation-delay: 0.3s" target="_blank" rel="noopener noreferrer">
+          <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+            <path
+              d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.09 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.92 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+          </svg>
+          Google Play
+        </a>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="bento-grid fade-in">
+        <!-- Artistic Shapes -->
+        <div class="glass-card feature-large">
+          <h2 style="font-size: 2rem; margin-bottom: 1rem;">Artistic Geometry</h2>
+          <p style="color: var(--text-dim);">Escape the grid. Display your memories in unique shapes like Blobs, Stars, Circles, and more. Perfectly matched to Material You.</p>
+          <div class="shape-preview-container">
+              <div class="shape-item shape-blob"></div>
+              <div class="shape-item shape-star"></div>
+              <div class="shape-item shape-circle"></div>
+              <div class="shape-item shape-rect"></div>
+          </div>
+        </div>
+
+        <!-- Adaptive Engine -->
+        <div class="glass-card">
+          <div class="stat-label">Update Core</div>
+          <div class="stat-value">Precise</div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">Uses exact alarms for millisecond-perfect photo rotations.</p>
+        </div>
+
+        <div class="glass-card">
+          <div class="stat-label">Privacy Status</div>
+          <div class="stat-value">100% Local</div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">No servers, no tracking. Your photos never leave your device.</p>
+        </div>
+
+        <div class="glass-card" style="grid-column: span 2;">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+              <div class="stat-label">Customization</div>
+              <div class="stat-value">Infinite</div>
+            </div>
+            <div style="text-align: right;">
+              <div class="stat-label">Themes</div>
+              <div class="stat-value">Dynamic</div>
+            </div>
+          </div>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem;">Supports Material You dynamic coloring for a seamless OS experience.</p>
+        </div>
+      </div>
+
+      <div class="glass-card fade-in" style="margin-bottom: 4rem; padding: 3rem;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Your Living Gallery</h2>
+        <p style="color: var(--text-dim); margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
+          Why settle for one photo? Create a schedule and watch your home screen evolve throughout the day. Whether it's a "Daily Muse" or a "Summer Memories" reel, Living Gallery keeps your inspiration fresh.
+        </p>
+        <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span style="font-weight: 600;">Smart Rotation</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span style="font-weight: 600;">Shape Editor</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.8rem;">
+                <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <span style="font-weight: 600;">Battery Friendly</span>
+            </div>
+        </div>
+      </div>
+
+      <h2 class="section-title" style="margin-top: 6rem; font-size: 2.5rem;">Core Features</h2>
+      <div class="feature-grid">
+        <div class="glass-card fade-in">
+          <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🖼️</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Multi-Widget Support</h3>
+          <p style="color: var(--text-dim); line-height: 1.6;">Create as many widgets as you want, each with its own theme and schedule.</p>
+        </div>
+        <div class="glass-card fade-in" style="animation-delay: 0.1s">
+          <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">✨</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Artistic Presets</h3>
+          <p style="color: var(--text-dim); line-height: 1.6;">Dozens of handcrafted shapes and border styles to match any wallpaper.</p>
+        </div>
+        <div class="glass-card fade-in" style="animation-delay: 0.2s">
+          <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🔒</div>
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Deep Privacy</h3>
+          <p style="color: var(--text-dim); line-height: 1.6;">No internet permission required. All your photos remain entirely on your device.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="margin-top: 8rem; padding: 4rem 0; border-top: 1px solid var(--glass-border); background: rgba(12, 12, 12, 0.8);">
+    <div class="container" style="text-align: center;">
+      <div style="margin-bottom: 3rem;">
+        <a href="pp.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Privacy Policy</a>
+        <a href="tc.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Terms of Service</a>
+        <a href="mailto:leanbytes@gmail.com" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Support</a>
+      </div>
+      <p style="color: var(--text-dim); font-size: 0.9rem; opacity: 0.6;">&copy; 2026 Lean Bytes. Crafting digital experiences.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
+</body>
+
+</html>
