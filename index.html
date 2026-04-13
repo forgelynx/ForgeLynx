@@ -1,336 +1,275 @@
 <!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lean Bytes - Mobile App Development</title>
-    <meta name="description"
-        content="Lean Bytes builds lean, efficient mobile applications that solve real problems. Explore our apps like Countdown Widget, Habit Tracker, and more.">
-    <meta property="og:title" content="Lean Bytes - Mobile App Development">
-    <meta property="og:description"
-        content="Crafting lean, efficient digital solutions. Check out our latest Android apps.">
-    <meta property="og:image" content="brand_logo_header.png">
-    <link rel="shortcut icon" type="image/x-icon" href="brand_logo_header.png" />
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Page specific styles */
-        .hero {
-            text-align: center;
-            padding: 6rem 0;
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, #FFFFFF 0%, #B8BCC8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto 3rem;
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .app-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            object-fit: contain;
-            background: var(--bg-tertiary);
-            /* Fallback */
-        }
-
-        .app-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-primary);
-        }
-
-        .app-card p {
-            color: var(--text-secondary);
-            margin-bottom: 1.5rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            padding: 1rem 1.5rem;
-            background: var(--bg-secondary);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            color: var(--text-secondary);
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--accent-primary);
-            color: white;
-            border-color: var(--accent-primary);
-            transform: translateY(-3px);
-        }
-
-        .social-icon {
-            width: 24px;
-            height: 24px;
-        }
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lean Bytes | Building Beautifully Designed Apps</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "on-primary": "#00594f",
+                "background": "#070e1c",
+                "tertiary-dim": "#5bf083",
+                "on-secondary": "#005d52",
+                "error-container": "#9f0519",
+                "error-dim": "#d7383b",
+                "secondary-dim": "#5eead4",
+                "inverse-primary": "#006b60",
+                "error": "#ff716c",
+                "tertiary-fixed": "#6bff8f",
+                "tertiary-fixed-dim": "#5bf083",
+                "on-primary-container": "#002b26",
+                "primary-fixed": "#6af2de",
+                "on-secondary-fixed": "#00483f",
+                "on-secondary-container": "#ddfff6",
+                "surface-container": "#11192a",
+                "on-tertiary-fixed": "#004a1d",
+                "on-surface": "#e2e8fc",
+                "primary-container": "#10b7a5",
+                "secondary": "#6ef9e2",
+                "primary-fixed-dim": "#5ae4d0",
+                "on-primary-fixed": "#00443c",
+                "on-tertiary": "#00692c",
+                "surface-dim": "#070e1c",
+                "surface": "#070e1c",
+                "on-error": "#490006",
+                "secondary-fixed-dim": "#5eead4",
+                "on-background": "#e2e8fc",
+                "primary-dim": "#5ae4d0",
+                "on-surface-variant": "#a4abbe",
+                "inverse-on-surface": "#4e5566",
+                "surface-container-highest": "#1c263a",
+                "surface-container-lowest": "#000000",
+                "on-secondary-fixed-variant": "#00675b",
+                "on-error-container": "#ffa8a3",
+                "on-tertiary-fixed-variant": "#006a2d",
+                "surface-tint": "#6af2de",
+                "on-primary-fixed-variant": "#006359",
+                "surface-bright": "#212c42",
+                "secondary-fixed": "#6ef9e2",
+                "tertiary-container": "#6bff8f",
+                "surface-container-low": "#0b1323",
+                "inverse-surface": "#f9f9ff",
+                "secondary-container": "#006b5e",
+                "outline-variant": "#414858",
+                "tertiary": "#c5ffc9",
+                "surface-container-high": "#161f32",
+                "outline": "#6f7587",
+                "surface-variant": "#1c263a",
+                "on-tertiary-container": "#005f28",
+                "primary": "#6af2de"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "fontFamily": {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #070e1c; color: #e2e8fc; }
+        .glass { backdrop-filter: blur(24px); background-color: rgba(33, 44, 66, 0.6); }
+        .glow-shadow { box-shadow: 0 0 48px rgba(20, 184, 166, 0.1); }
+        .no-line { border: none !important; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
     </style>
 </head>
-
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Lean Bytes</div>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#apps">Apps</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <main>
-        <section id="home" class="hero container">
-            <h1 class="fade-in" style="animation-delay: 0.1s">Crafting Digital Experiences</h1>
-            <p class="fade-in" style="animation-delay: 0.3s">We build lean, efficient mobile applications that solve
-                real problems</p>
-            <a href="#apps" class="btn btn-primary fade-in" style="animation-delay: 0.5s">Explore Our Apps</a>
-        </section>
-
-        <section id="apps" class="section container">
-            <h2 class="section-title">Published Apps</h2>
-            <div class="apps-grid">
-                <!-- Countdown Widget -->
-                <div class="card app-card fade-in">
-                    <img src="applist/countdownwid/countdown_app_logo.png" alt="Countdown App Logo" class="app-icon">
-                    <h3>Countdown Timer Widget</h3>
-                    <p>Modern countdown widget for your home screen with days and time left for special events. Fully
-                        customizable with Material You theme support.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/countdownwid/countdownwidget.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.forge.countdownwidget"
-                            class="btn btn-outline" target="_blank" rel="noopener noreferrer"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Google Play</a>
+<body class="selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<nav class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-xl shadow-[0_0_24px_rgba(20,184,166,0.1)]">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto font-['Inter'] font-medium tracking-tight">
+<div class="text-xl font-bold tracking-tighter text-slate-100">Lean Bytes</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-400 hover:text-slate-200 transition-colors hover:backdrop-brightness-125 transition-all duration-300" href="#">Products</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors hover:backdrop-brightness-125 transition-all duration-300" href="#">Philosophy</a>
+<a class="text-slate-400 hover:text-slate-200 transition-colors hover:backdrop-brightness-125 transition-all duration-300" href="#">About</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="bg-primary-container text-on-primary-container px-5 py-2 rounded-xl font-bold scale-95 active:scale-90 transition-transform hover:backdrop-brightness-125">Get Started</button>
+</div>
+</div>
+</nav>
+<main>
+<section class="relative pt-48 pb-32 overflow-hidden px-8">
+<div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="max-w-7xl mx-auto text-center relative z-10">
+<h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-8 leading-[0.9] max-w-4xl mx-auto italic">
+                    Building useful, <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-tertiary">beautifully designed</span> apps.
+                </h1>
+<p class="text-on-surface-variant text-xl md:text-2xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                    I craft tools and software products that simplify your digital life through high-precision digital craft.
+                </p>
+<div class="flex flex-col md:flex-row justify-center items-center gap-6">
+<button class="px-8 py-4 bg-gradient-to-br from-primary to-secondary text-on-primary font-bold rounded-xl text-lg shadow-[0_0_20px_rgba(106,242,222,0.3)] hover:scale-105 transition-transform" onclick="window.location.href='applist/apps.html'">
+                        Explore Products
+                    </button>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div class="max-w-xl">
+<span class="label-md uppercase tracking-widest text-primary font-bold mb-4 block">The Ecosystem</span>
+<h2 class="text-5xl font-bold tracking-tighter">Tools built for clarity.</h2>
+</div>
+<div class="text-on-surface-variant max-w-sm">
+                        Curated collection of micro-SaaS applications focused on single-purpose utility.
                     </div>
-                </div>
-
-                <!-- Habit Tracker -->
-                <div class="card app-card fade-in" style="animation-delay: 0.2s">
-                    <img src="applist/habit_tracker/habit_tracker_app_logo.png" alt="Habit Tracker App Logo"
-                        class="app-icon">
-                    <h3>Habit Flow</h3>
-                    <p>Track daily habits with streaks and home screen widgets. Clean, minimalistic UI with customizable
-                        tasks and reminders.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/habit_tracker/habit_tracker.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.bytes.habittracker"
-                            class="btn btn-outline" target="_blank" rel="noopener noreferrer"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Google Play</a>
-                    </div>
-                </div>
-
-
-
-                <!-- Neural Boost -->
-                <div class="card app-card fade-in" style="animation-delay: 0.4s">
-                    <img src="applist/neural_boost/neural_boost_logo.png" alt="Neural Boost App Logo"
-                        class="app-icon">
-                    <h3>Neural Boost</h3>
-                    <p>Advanced gaming optimization powered by Gemini AI. Custom overlays and notification blocking for a premium, uninterrupted gaming experience.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/neural_boost/neural_boost.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.neural.boost"
-                            class="btn btn-outline" target="_blank" rel="noopener noreferrer"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Google Play</a>
-                    </div>
-                </div>
-
-                <!-- Velocity (GPS Speedometer) -->
-                <div class="card app-card fade-in" style="animation-delay: 0.6s">
-                    <img src="applist/speedometer/gps_speedometer_app_logo.png" alt="Velocity App Logo"
-                        class="app-icon">
-                    <h3>Velocity</h3>
-                    <p>High-precision, offline speed tracking with a modern aerodynamic Material 3 interface. Engineered for accuracy and battery efficiency.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/speedometer/speedometer.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.gps.velocity"
-                            class="btn btn-outline" target="_blank" rel="noopener noreferrer"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Google Play</a>
-                    </div>
-                </div>
-
-                <!-- Shizuku FPS Meter -->
-                <div class="card app-card fade-in" style="animation-delay: 0.8s">
-                    <img src="applist/shizuku_fps_meter/shizuku_fps_meter_app_logo.png" alt="Shizuku FPS Meter App Logo"
-                        class="app-icon">
-                    <h3>Shizuku FPS Meter</h3>
-                    <p>Shizuku-powered overlay FPS counter. No data collection. Material 3 expressive design.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/shizuku_fps_meter/shizuku_fps_meter.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.bytes.fpsmeter"
-                            class="btn btn-outline" target="_blank" rel="noopener noreferrer"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Google Play</a>
-                    </div>
-                </div>
-
-                <!-- Expense Tracker -->
-                <div class="card app-card fade-in" style="animation-delay: 1.0s">
-                    <img src="applist/expense_tracker/expense_tracker_app_logo.png" alt="Expense Tracker App Logo"
-                        class="app-icon">
-                    <h3>Expense Tracker</h3>
-                    <p>Track your daily expenses and manage finances with a modern, dark-themed dashboard.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/expense_tracker/expense_tracker.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.ai.expenses" class="btn btn-outline"
-                            target="_blank" rel="noopener noreferrer"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">Google Play</a>
-                    </div>
-                </div>
-
-                <!-- Todos & Notes -->
-                <div class="card app-card fade-in" style="animation-delay: 1.2s">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAHklEQVR4Ae3BAQ0AAADCoPdPbQ8HFAAAAAAAAAAAAADwzCBUAABXOwgXAAAAAElFTkSuQmCC"
-                        alt="Todos & Notes App Logo" class="app-icon">
-                    <h3>Todos & Notes</h3>
-                    <p>A lightweight productivity app for quickly jotting down tasks and notes in one place.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/todos_and_notes/todos_and_notes.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.todos.notes" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;" target="_blank" rel="noopener noreferrer">Google Play</a>
-                    </div>
-                </div>
-
-                <!-- Living Gallery -->
-                <div class="card app-card fade-in" style="animation-delay: 1.4s">
-                    <img src="applist/photo_widget/photo_widget_logo.png" alt="Living Gallery Logo" class="app-icon">
-                    <h3>Living Gallery</h3>
-                    <p>Breathe life into your home screen with dynamic photo widgets and artistic shapes. 100% private and local-only.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/photo_widget/photo_widget.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="https://play.google.com/store/apps/details?id=com.photo.widget" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;" target="_blank" rel="noopener noreferrer">Google Play</a>
-                    </div>
-                </div>
-
-                <!-- Serene Interval -->
-                <div class="card app-card fade-in" style="animation-delay: 1.6s">
-                    <img src="applist/serene_interval_countdown/serene_logo.png" alt="Serene Interval Logo" class="app-icon">
-                    <h3>Serene Interval</h3>
-                    <p>Tranquil interval tracking with a premium glassmorphic interface. Designed for deep work and meditation.</p>
-                    <div style="display: flex; gap: 1rem;">
-                        <a href="applist/serene_interval_countdown/serene_interval_countdown.html" class="btn btn-primary"
-                            style="font-size: 0.9rem; padding: 0.6rem 1.2rem;">View Details</a>
-                        <a href="#" class="btn btn-outline" style="font-size: 0.9rem; padding: 0.6rem 1.2rem;" target="_blank" rel="noopener noreferrer">Google Play</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="social-links fade-in">
-                <a class="social-link" href="https://github.com/sohailxi" target="_blank" rel="noopener noreferrer">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.36 6.86 9.72.5.09.68-.22.68-.49 0-.24-.01-.86-.01-1.69-2.8.62-3.39-1.37-3.39-1.37-.46-1.18-1.13-1.49-1.13-1.49-.92-.64.07-.63.07-.63 1.02.07 1.56 1.06 1.56 1.06.9 1.57 2.36 1.12 2.94.86.09-.66.35-1.11.63-1.37-2.24-.26-4.6-1.13-4.6-5.03 0-1.11.39-2.02 1.04-2.73-.1-.27-.45-1.37.1-2.85 0 0 .85-.28 2.78 1.04.81-.23 1.69-.35 2.56-.35.87 0 1.75.12 2.56.35 1.93-1.32 2.78-1.04 2.78-1.04.55 1.48.2 2.58.1 2.85.65.71 1.04 1.62 1.04 2.73 0 3.91-2.36 4.77-4.61 5.03.36.31.68.92.68 1.86 0 1.34-.01 2.42-.01 2.75 0 .27.18.59.69.49A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z" />
-                    </svg>
-                    <span>GitHub</span>
-                </a>
-                <a class="social-link" href="mailto:leanbytes0@gmail.com">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4.99L12 13 4 8.99V6l8 4.01L20 6v2.99z" />
-                    </svg>
-                    <span>Email</span>
-                </a>
-                <a class="social-link" href="https://twitter.com/sohailxdev" target="_blank" rel="noopener noreferrer">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M22.46 6c-.77.35-1.6.59-2.46.69a4.2 4.2 0 0 0 1.85-2.32 8.39 8.39 0 0 1-2.67 1.02A4.2 4.2 0 0 0 12.07 9c0 .33.04.66.12.98A11.93 11.93 0 0 1 3.1 5.6a4.21 4.21 0 0 0 1.3 5.62 4.15 4.15 0 0 1-1.9-.52v.05a4.2 4.2 0 0 0 3.37 4.12c-.47.13-.96.16-1.46.06a4.21 4.21 0 0 0 3.93 2.92A8.42 8.42 0 0 1 2 19.54 11.88 11.88 0 0 0 8.29 21c7.5 0 11.61-6.22 11.61-11.61 0-.18-.01-.36-.02-.54A8.27 8.27 0 0 0 22.46 6z" />
-                    </svg>
-                    <span>Twitter</span>
-                </a>
-                <a class="social-link" href="https://instagram.com/sohailxi" target="_blank" rel="noopener noreferrer">
-                    <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM17.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3z" />
-                    </svg>
-                    <span>Instagram</span>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Lean Bytes. Crafting lean, efficient digital solutions.</p>
-            <p>Email: leanbytes0@gmail.com </p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Intersection Observer for fade-in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-
-</html>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 rounded-[16px] bg-surface-container border border-outline-variant/15 hover:scale-[1.02] hover:bg-surface-bright transition-all duration-300 glow-shadow group">
+<div class="w-12 h-12 bg-primary-container/20 rounded-lg flex items-center justify-center mb-6 text-primary">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="text-2xl font-bold mb-3">Living Gallery</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Dynamic photo widgets designed to bring your digital library to life on your home screen.</p>
+<button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" onclick="window.location.href='applist/photo_widget/photo_widget.html'">
+                            Learn more <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="p-8 rounded-[16px] bg-surface-container border border-outline-variant/15 hover:scale-[1.02] hover:bg-surface-bright transition-all duration-300 glow-shadow group">
+<div class="w-12 h-12 bg-tertiary-container/20 rounded-lg flex items-center justify-center mb-6 text-tertiary">
+<span class="material-symbols-outlined" data-icon="dataset">dataset</span>
+</div>
+<h3 class="text-2xl font-bold mb-3">Neural Boost</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">AI-powered performance synchronization for the modern developer workflow.</p>
+<button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" onclick="window.location.href='applist/neural_boost/neural_boost.html'">
+                            Learn more <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+<div class="p-8 rounded-[16px] bg-surface-container border border-outline-variant/15 hover:scale-[1.02] hover:bg-surface-bright transition-all duration-300 glow-shadow group">
+<div class="w-12 h-12 bg-secondary-container/20 rounded-lg flex items-center justify-center mb-6 text-secondary">
+<span class="material-symbols-outlined" data-icon="lock">lock</span>
+</div>
+<h3 class="text-2xl font-bold mb-3">Habit Flow</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Build better habits with zero-knowledge tracking and biometric-first authentication.</p>
+<button class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" onclick="window.location.href='applist/habit_tracker/habit_tracker.html'">
+                            Learn more <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="bg-surface-container rounded-3xl overflow-hidden flex flex-col lg:flex-row items-center gap-12 border border-outline-variant/15">
+<div class="p-12 lg:p-20 lg:w-1/2">
+<span class="label-md uppercase tracking-widest text-tertiary font-bold mb-6 block">Spotlight Product</span>
+<h2 class="text-5xl font-bold tracking-tighter mb-8">Serene Interval</h2>
+<ul class="space-y-4 mb-10 text-on-surface-variant">
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+                                Desktop &amp; Mobile Sync
+                            </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+                                Customizable Glassmorphic Themes
+                            </li>
+<li class="flex items-center gap-3">
+<span class="material-symbols-outlined text-tertiary" data-icon="check_circle">check_circle</span>
+                                Low Latency WebSocket Updates
+                            </li>
+</ul>
+<button class="px-8 py-4 bg-primary text-on-primary font-bold rounded-xl text-lg hover:brightness-110 transition-all" onclick="window.location.href='applist/serene_interval_countdown/serene_interval_countdown.html'">
+                            Get the Widget
+                        </button>
+</div>
+<div class="lg:w-1/2 p-8 lg:p-12 w-full">
+<div class="glass rounded-2xl p-1 shadow-2xl relative">
+<img alt="App Mockup" class="rounded-xl w-full h-[400px] object-cover" data-alt="Modern sleek digital interface showing a glowing countdown timer with a dark navy blue background and teal highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuvoTEMTMk6lyziEExAzVdpLO1oUCui1IEBXF6PnLlu3ScYHLw06SWnwzTbdKpYiXYKScRZ3jMEpfnEErHN-0hoDMtuTQLbXJuh8QxuDGduN4RFma01LYSWbB4nCAYQvzqtwIAn1YTqV503b_e19IB2tzlJfEnh-ZL3m-kN4421RToFsWf5pEvMLvZQjbu0C0P_btNfBt75Ct24rPr55UYAQWRsRRa-AWmrjOJf6Wktim7OdY8nn7nw1z5D0U1YEprNAL7zP_N4K6X"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent pointer-events-none"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8 bg-surface">
+<div class="max-w-7xl mx-auto text-center">
+<span class="label-md uppercase tracking-widest text-primary font-bold mb-6 block">Our Ethos</span>
+<h2 class="text-6xl font-extrabold tracking-tighter mb-24">Crafting Simplicity</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-20">
+<div class="flex flex-col items-center">
+<div class="mb-8 text-primary/40">
+<span class="material-symbols-outlined !text-7xl" data-icon="category">category</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Simple Tools</h3>
+<p class="text-on-surface-variant max-w-xs mx-auto">Eliminating the noise to focus on what actually moves the needle for users.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="mb-8 text-primary/40">
+<span class="material-symbols-outlined !text-7xl" data-icon="brush">brush</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Clean UI</h3>
+<p class="text-on-surface-variant max-w-xs mx-auto">Interfaces that feel like a breath of fresh air, respecting your mental bandwidth.</p>
+</div>
+<div class="flex flex-col items-center">
+<div class="mb-8 text-primary/40">
+<span class="material-symbols-outlined !text-7xl" data-icon="architecture">architecture</span>
+</div>
+<h3 class="text-2xl font-bold mb-4">Thoughtful Design</h3>
+<p class="text-on-surface-variant max-w-xs mx-auto">Every pixel and interaction is considered to ensure a seamless experience.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="py-32 px-8">
+<div class="max-w-4xl mx-auto text-center">
+<div class="mb-12">
+<img alt="Avatar" class="w-32 h-32 rounded-full object-cover mx-auto ring-4 ring-primary-container ring-offset-4 ring-offset-background" data-alt="Professional portrait of a developer in a dark studio setting with soft side lighting and modern aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRkQDLIu_M7bO6RX-_zZvj2GFlVkpVIdfdFIhF0iNiuKv7xrNTckSoIsEUAkjAKi7lh-tKTnMrNarQhA7ZIF_qcY8hHvyxTSR5JVFlg7RdHSCDWMjg8K78uq9PcHbaCBw8x8zcXTCNBuUjIgf63JyT_6dsXrICA4Gr30Es2Nk1XsikJUr2PmTUkF_De_pBVKDD26xl2II78yeRgEjLYsk4KE8N3HUXxvpO3AfqsbJ3oN2Rsrwmsy7MH7RJponrlQRvXN10HqI4AKJg"/>
+</div>
+<h2 class="text-4xl font-bold tracking-tighter mb-8 italic">Behind the Builder</h2>
+<p class="text-xl text-on-surface-variant leading-relaxed italic">
+                    "I believe that software should be a joy to use, not a chore to navigate. As a solo creator, I pour my heart into the details—from the logic under the hood to the way a button glows on hover. My goal is to create digital companions that help you do more by doing less."
+                </p>
+</div>
+</section>
+<section class="py-24 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="rounded-[32px] p-12 md:p-24 text-center relative overflow-hidden bg-gradient-to-br from-[#14B8A6] to-[#22C55E]">
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 40px 40px;"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-6xl font-extrabold tracking-tighter text-on-primary-container mb-12 leading-tight">
+                            Ready to build something <br/>together?
+                        </h2>
+<button class="px-12 py-6 bg-slate-950 text-primary font-extrabold rounded-2xl text-xl shadow-2xl hover:scale-105 transition-transform">
+                            Get Started
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-slate-950 w-full border-t border-slate-800/30">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-7xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-bold text-slate-200 mb-2">Lean Bytes</div>
+<p class="text-slate-500 text-sm">© 2026 Lean Bytes. All rights reserved.</p>
+</div>
+<div class="flex gap-12 text-sm font-['Inter'] tracking-wide uppercase">
+<div class="flex flex-col gap-4">
+<a class="text-slate-500 hover:text-teal-400 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-teal-400 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-4">
+<a class="text-slate-500 hover:text-teal-400 transition-colors opacity-80 hover:opacity-100" href="#">Twitter</a>
+<a class="text-slate-500 hover:text-teal-400 transition-colors opacity-80 hover:opacity-100" href="#">GitHub</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

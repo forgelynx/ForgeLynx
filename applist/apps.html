@@ -1,145 +1,329 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="dark" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Apps - Lean Bytes</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Lean Bytes Ecosystem | Explore Applications</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                    "on-primary": "#00594f",
+                    "background": "#070e1c",
+                    "tertiary-dim": "#5bf083",
+                    "on-secondary": "#005d52",
+                    "error-container": "#9f0519",
+                    "error-dim": "#d7383b",
+                    "secondary-dim": "#5eead4",
+                    "inverse-primary": "#006b60",
+                    "error": "#ff716c",
+                    "tertiary-fixed": "#6bff8f",
+                    "tertiary-fixed-dim": "#5bf083",
+                    "on-primary-container": "#002b26",
+                    "primary-fixed": "#6af2de",
+                    "on-secondary-fixed": "#00483f",
+                    "on-secondary-container": "#ddfff6",
+                    "surface-container": "#11192a",
+                    "on-tertiary-fixed": "#004a1d",
+                    "on-surface": "#e2e8fc",
+                    "primary-container": "#10b7a5",
+                    "secondary": "#6ef9e2",
+                    "primary-fixed-dim": "#5ae4d0",
+                    "on-primary-fixed": "#00443c",
+                    "on-tertiary": "#00692c",
+                    "surface-dim": "#070e1c",
+                    "surface": "#070e1c",
+                    "on-error": "#490006",
+                    "secondary-fixed-dim": "#5eead4",
+                    "on-background": "#e2e8fc",
+                    "primary-dim": "#5ae4d0",
+                    "on-surface-variant": "#a4abbe",
+                    "inverse-on-surface": "#4e5566",
+                    "surface-container-highest": "#1c263a",
+                    "surface-container-lowest": "#000000",
+                    "on-secondary-fixed-variant": "#00675b",
+                    "on-error-container": "#ffa8a3",
+                    "on-tertiary-fixed-variant": "#006a2d",
+                    "surface-tint": "#6af2de",
+                    "on-primary-fixed-variant": "#006359",
+                    "surface-bright": "#212c42",
+                    "secondary-fixed": "#6ef9e2",
+                    "tertiary-container": "#6bff8f",
+                    "surface-container-low": "#0b1323",
+                    "inverse-surface": "#f9f9ff",
+                    "secondary-container": "#006b5e",
+                    "outline-variant": "#414858",
+                    "tertiary": "#c5ffc9",
+                    "surface-container-high": "#161f32",
+                    "outline": "#6f7587",
+                    "surface-variant": "#1c263a",
+                    "on-tertiary-container": "#005f28",
+                    "primary": "#6af2de"
+                },
+                "fontFamily": {
+                    "headline": ["Inter"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+                }
+              },
+            },
+          }
+    </script>
     <style>
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .app-card {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-            text-decoration: none;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        .app-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-primary);
-        }
-
-        .app-icon-placeholder {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-gradient);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            flex-shrink: 0;
-        }
-
-        .app-info h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .app-info p {
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: #070e1c; color: #e2e8fc; min-height: 100vh; }
+        .glass { backdrop-filter: blur(24px); background-color: rgba(33, 44, 66, 0.4); }
+        .glow-shadow:hover { box-shadow: 0 0 40px rgba(20, 184, 166, 0.15); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070e1c; }
+        ::-webkit-scrollbar-thumb { background: #1c263a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6af2de; }
     </style>
 </head>
+<body class="selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
 
-<body>
-    <div style="position: absolute; top: 25px; left: 25px; z-index: 1000;">
-        <a href="../index.html"
-            style="display: inline-flex; align-items: center; gap: 0.6rem; color: #FFFFFF; font-weight: 600; padding: 0.6rem 1.4rem; background: rgba(255, 255, 255, 0.05); border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px); text-decoration: none; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-size: 0.9rem; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="filter: drop-shadow(0 0 2px rgba(255,255,255,0.3));">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
-            </svg>
-            <span>Back to Home</span>
+    <!-- Floating Back Button -->
+    <div class="fixed top-8 left-8 z-50">
+        <a href="../index.html" class="glass px-6 py-3 rounded-full flex items-center gap-3 border border-outline-variant/20 text-on-surface hover:text-primary transition-all hover:scale-105 active:scale-95 shadow-2xl">
+            <span class="material-symbols-outlined">arrow_back</span>
+            <span class="font-bold tracking-tight">Back to Home</span>
         </a>
     </div>
 
-    <main class="container section">
-        <h1 class="section-title" style="text-align: center; margin-top: 2rem;">Our Applications</h1>
-            <a href="photo_widget/photo_widget.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #FF7043, #D84315);">🖼️</div>
-                <div class="app-info">
-                    <h3>Living Gallery</h3>
-                    <p>Dynamic photo widgets</p>
-                </div>
-            </a>
-            <a href="countdownwid/countdownwidget.html" class="app-card">
-                <div class="app-icon-placeholder">⏳</div>
-                <div class="app-info">
-                    <h3>Countdown Timer Widget</h3>
-                    <p>Track your special events</p>
-                </div>
-            </a>
-            <a href="countdownwidpro/countdownwidget.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #00BFA5, #008A73);">✨</div>
-                <div class="app-info">
-                    <h3>Countdown Widget Pro</h3>
-                    <p>Premium event tracking</p>
-                </div>
-            </a>
-            <a href="fps_meter/fps_meter.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #0066FF, #0033CC);">📊
-                </div>
-                <div class="app-info">
-                    <h3>FPS Meter</h3>
-                    <p>Real-time performance display</p>
+    <!-- Header Section -->
+    <header class="pt-32 pb-16 px-8 relative overflow-hidden">
+        <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <span class="label-md uppercase tracking-[0.3em] text-primary font-bold mb-6 block opacity-80">Ecosystem</span>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
+                Our <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-tertiary">Applications</span>
+            </h1>
+            <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+                A highly-curated collection of tools designed for precision, clarity, and digital focus.
+            </p>
+            
+            <!-- Search Bar -->
+            <div class="max-w-md mx-auto relative group">
+                <input type="text" id="appSearch" placeholder="Search applications..." 
+                       class="w-full bg-surface-container/50 border border-outline-variant/15 rounded-2xl px-12 py-4 focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none placeholder:text-on-surface-variant/40">
+                <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 group-focus-within:text-primary transition-colors">search</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- App Gallery Grid -->
+    <main class="max-w-7xl mx-auto px-8 pb-32 relative z-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="appContainer">
+            
+            <!-- App Card 1: Living Gallery -->
+            <a href="photo_widget/photo_widget.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#FF7043] to-[#D84315] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">🖼️</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Living Gallery</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Dynamic photo widgets that transform your device into a cinematic digital canvas.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
                 </div>
             </a>
 
-            <a href="neural_boost/neural_boost.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #00F5FF, #00BFA5);">🧠
-                </div>
-                <div class="app-info">
-                    <h3>Neural Boost</h3>
-                    <p>AI-powered performance sync</p>
-                </div>
-            </a>
-            <a href="habit_tracker/habit_tracker.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #4A90E2, #357ABD);">📝
-                </div>
-                <div class="app-info">
-                    <h3>Habit Flow</h3>
-                    <p>Build better habits</p>
-                </div>
-            </a>
-            <a href="speedometer/speedometer.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #6750A4, #7C5CCD);">⚡</div>
-                <div class="app-info">
-                    <h3>GPS Speedometer</h3>
-                    <p>Accurate speed tracking</p>
+            <!-- App Card 2: Serene Interval -->
+            <a href="serene_interval_countdown/serene_interval_countdown.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#4D626C] to-[#00BFA5] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">⌛</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Serene Interval</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Tranquil interval tracking and countdown widgets with a focus on mental clarity.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
                 </div>
             </a>
-            <a href="shizuku_fps_meter/shizuku_fps_meter.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #6750A4, #7C5CCD);">🔧
-                </div>
-                <div class="app-info">
-                    <h3>Shizuku FPS Meter</h3>
-                    <p>Precise Shizuku-powered overlay</p>
+
+            <!-- App Card 3: Neural Boost -->
+            <a href="neural_boost/neural_boost.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#00F5FF] to-[#00BFA5] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">🧠</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Neural Boost</h3>
+                        <p class="text-on-surface-variant leading-relaxed">AI-powered synchronization tools optimized for high-performance development.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
                 </div>
             </a>
-            <a href="serene_interval_countdown/serene_interval_countdown.html" class="app-card">
-                <div class="app-icon-placeholder" style="background: linear-gradient(135deg, #4D626C, #00BFA5);">⌛</div>
-                <div class="app-info">
-                    <h3>Serene Interval</h3>
-                    <p>Tranquil interval tracking</p>
+
+            <!-- App Card 4: FPS Meter -->
+            <a href="fps_meter/fps_meter.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#0066FF] to-[#0033CC] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">📊</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">FPS Meter</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Real-time performance monitoring and display for mobile gaming enthusiasts.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
                 </div>
             </a>
+
+            <!-- App Card 5: Habit Flow -->
+            <a href="habit_tracker/habit_tracker.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#4A90E2] to-[#357ABD] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">📝</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Habit Flow</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Build and maintain life-changing habits through simple, consistent tracking.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App Card 6: GPS Speedometer -->
+            <a href="speedometer/speedometer.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#6750A4] to-[#7C5CCD] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">⚡</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">GPS Speedometer</h3>
+                        <p class="text-on-surface-variant leading-relaxed">High-precision speed tracking with customizable analog and digital gauges.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App Card 7: Expense Tracker -->
+            <a href="expense_tracker/expense_tracker.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#22C55E] to-[#16A34A] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">💰</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Expense Tracker</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Sleek financial oversight to help you master your personal economy with ease.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App Card 8: Todos & Notes -->
+            <a href="todos_and_notes/todos_and_notes.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#F59E0B] to-[#D97706] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">🗒️</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Todos & Notes</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Minimalist task management designed for focused thought and clear action.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App Card 9: Shizuku FPS Meter -->
+            <a href="shizuku_fps_meter/shizuku_fps_meter.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#6366F1] to-[#4F46E5] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">🔧</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Shizuku FPS</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Advanced system performance monitoring powered by Shizuku integration.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App Card 10: Countdown Widget -->
+            <a href="countdownwid/countdownwidget.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#EC4899] to-[#DB2777] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
+                        <span class="text-3xl">⏳</span>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Countdown Lite</h3>
+                        <p class="text-on-surface-variant leading-relaxed">The essential tracker for your upcoming life events and milestones.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- App Card 11: Countdown Pro -->
+            <a href="countdownwidpro/countdownwidget.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass border-primary/20 bg-primary/5">
+                    <div class="w-16 h-16 bg-gradient-to-br from-[#00BFA5] to-[#008A73] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500 relative">
+                        <span class="text-3xl">✨</span>
+                        <div class="absolute -top-2 -right-2 bg-primary text-on-primary text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-tighter">Pro</div>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Countdown Pro</h3>
+                        <p class="text-on-surface-variant leading-relaxed">Premium event tracking with advanced customizations and glassmorphic themes.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </main>
-</body>
 
+    <!-- Footer -->
+    <footer class="py-12 border-t border-outline-variant/10 text-center">
+        <p class="text-on-surface-variant/50 text-sm tracking-widest uppercase">© 2026 Lean Bytes Ecosystem</p>
+    </footer>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('appSearch');
+        const appCards = document.querySelectorAll('.app-card');
+        
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            appCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                if (title.includes(term) || desc.includes(term)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
 </html>
