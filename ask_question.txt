@@ -1,0 +1,1 @@
+Should we also add the top navigation bar to the 'Products' (apps.html) page for consistency, or keep its current floating back button?
