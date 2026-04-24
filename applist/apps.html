@@ -109,9 +109,14 @@
                 A highly-curated collection of tools designed for precision, clarity, and digital focus.
             </p>
             
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="apps.html" class="text-primary font-bold text-sm uppercase tracking-widest border-b-2 border-primary pb-1">Catalog</a>
+                <a href="portfolio.html" class="text-on-surface-variant hover:text-primary transition-colors font-bold text-sm uppercase tracking-widest">Detailed Portfolio</a>
+            </div>
+            
             <!-- Search Bar -->
             <div class="max-w-md mx-auto relative group">
-                <input type="text" id="appSearch" placeholder="Search applications..." 
+                <input type="text" id="appSearch" placeholder="Search by name or technical feature..." 
                        class="w-full bg-surface-container/50 border border-outline-variant/15 rounded-2xl px-12 py-4 focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none placeholder:text-on-surface-variant/40">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 group-focus-within:text-primary transition-colors">search</span>
             </div>
@@ -121,6 +126,23 @@
     <!-- App Gallery Grid -->
     <main class="max-w-7xl mx-auto px-8 pb-32 relative z-10">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="appContainer">
+            
+            <!-- App Card: CashTrack -->
+            <a href="cashtrack/cashtrack.html" class="app-card group">
+                <div class="p-8 rounded-[24px] bg-[#0F172A] border border-[#FF8A6A]/10 hover:border-[#FF8A6A]/30 transition-all duration-500 h-full flex flex-col glow-shadow glass border-[#FF8A6A]/20 bg-[#FF8A6A]/5">
+                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500 relative overflow-hidden">
+                        <img src="cashtrack/logo.png" alt="CashTrack" class="w-full h-full object-cover">
+                        <div class="absolute -top-2 -right-2 bg-[#FF8A6A] text-[#020617] text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-tighter">New</div>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-[#FF8A6A] transition-colors">CashTrack</h3>
+                        <p class="text-on-surface-variant leading-relaxed">AI-driven financial oversight leveraging the Spendr Framework for automated SMS synchronization.</p>
+                    </div>
+                    <div class="mt-10 flex items-center text-[#FF8A6A] font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
+                    </div>
+                </div>
+            </a>
             
             <!-- App Card 1: Living Gallery -->
             <a href="photo_widget/photo_widget.html" class="app-card group">

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>Privacy Policy - CashTrack</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+        :root {
+            --accent: #FF8A6A;
+            --bg-dark: #0F172A;
+            --surface: #1E293B;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border: rgba(255, 138, 106, 0.2);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            margin: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 138, 106, 0.05) 0%, transparent 40%);
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 50px;
+            background: var(--surface);
+            border-radius: 24px;
+            border: 1px solid var(--border);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(255, 103, 67, 0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin: 0;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-top: 40px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 12px;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+        }
+
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-bottom: 40px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            opacity: 0.6;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="cashtrack.html" class="back-link">← Back to App</a>
+        <header>
+            <img src="logo.png" alt="CashTrack Logo" class="logo-img">
+            <h1>Privacy Policy</h1>
+            <p style="opacity: 0.5; font-size: 0.9rem;">Effective Date: April 24, 2026</p>
+        </header>
+
+        <section>
+            <h2>1. Introduction</h2>
+            <p>Welcome to <span class="highlight">CashTrack</span> (also referred to as "Spendr" in our design framework). We are committed to protecting your personal and financial data. This Privacy Policy explains how we collect, use, and safeguard your information within our mobile application.</p>
+        </section>
+
+        <section>
+            <h2>2. Information We Collect</h2>
+            <p>To provide a seamless financial tracking experience, we collect the following types of information:</p>
+            <ul>
+                <li><span class="highlight">Account Information</span>: Name, email address, and profile photo provided during account creation via Google or Email.</li>
+                <li><span class="highlight">Financial Data</span>: Transaction history, categories, and budget limits that you enter manually or are captured via SMS.</li>
+                <li><span class="highlight">SMS Metadata</span>: If you grant permission, the app parses bank-related SMS messages locally on your device to extract transaction details.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Local-First Processing</h2>
+            <p>We prioritize your privacy by adopting a <span class="highlight">Local-First</span> architecture. Most of your financial data is stored securely on your device using an encrypted Room database. We do not upload your raw financial records to our servers unless you explicitly enable cloud synchronization.</p>
+        </section>
+
+        <section>
+            <h2>4. AI Insights & Gemini</h2>
+            <p>CashTrack uses the <span class="highlight">Google Gemini API</span> to provide intelligent financial advice. When you request AI insights, relevant (anonymized) transaction summaries are sent to Google's servers for processing. This data is transmitted via encrypted HTTPS tunnels and is used solely to generate your personalized advice.</p>
+        </section>
+
+        <section>
+            <h2>5. Permissions and Their Use</h2>
+            <ul>
+                <li><span class="highlight">RECEIVE_SMS / READ_SMS</span>: Used exclusively for the "Automated Tracking" feature to capture bank transaction alerts.</li>
+                <li><span class="highlight">RECORD_AUDIO</span>: Used for the optional voice-command feature to add expenses hands-free.</li>
+                <li><span class="highlight">USE_BIOMETRIC</span>: Used to lock the app behind your device's fingerprint or face recognition for extra security.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Data Security</h2>
+            <p>We use industry-standard security measures, including Firebase Authentication and local database encryption, to protect your data. However, you are responsible for maintaining the security of your device and account credentials.</p>
+        </section>
+
+        <section>
+            <h2>7. Your Rights</h2>
+            <p>You have the right to access, update, or delete your data at any time. You can clear all local data through the app settings or request account deletion by contacting us at <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a>.</p>
+        </section>
+
+        <section>
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions about this Privacy Policy, please reach out to: <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Lean Bytes &bull; Built with Privacy in Mind</p>
+    </footer>
+</body>
+
+</html>

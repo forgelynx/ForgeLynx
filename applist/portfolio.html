@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Lean Bytes Portfolio | Technical Transparency</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#00594f",
+                        "background": "#070e1c",
+                        "surface-container": "#11192a",
+                        "on-surface": "#e2e8fc",
+                        "primary": "#6af2de",
+                        "on-surface-variant": "#a4abbe",
+                        "outline-variant": "#414858",
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #070e1c; color: #e2e8fc; }
+        .glass { backdrop-filter: blur(24px); background-color: rgba(33, 44, 66, 0.4); }
+        .permission-pill { 
+            @apply px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase border border-primary/20 bg-primary/5 text-primary;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-primary/30 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-md border-b border-slate-800/20">
+        <div class="flex justify-between items-center px-12 py-5 w-full">
+            <a href="../index.html" class="text-2xl font-extrabold tracking-tighter text-slate-100 italic">Lean Bytes</a>
+            <div class="flex items-center space-x-8">
+                <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest" href="apps.html">Catalog</a>
+                <a class="text-primary font-medium text-sm uppercase tracking-widest border-b-2 border-primary pb-1" href="portfolio.html">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-32 pb-32 px-8">
+        <div class="max-w-6xl mx-auto">
+            <header class="mb-20 text-center">
+                <span class="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Transparency First</span>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6">Detailed Portfolio</h1>
+                <p class="text-on-surface-variant text-xl max-w-2xl mx-auto leading-relaxed">
+                    A deep dive into our application ecosystem, focusing on features, required permissions, and data privacy.
+                </p>
+            </header>
+
+            <!-- Portfolio List -->
+            <div class="space-y-12">
+                
+                <!-- CashTrack (Spendr) -->
+                <section class="glass p-8 md:p-12 rounded-[40px] border border-outline-variant/10 hover:border-[#FF8A6A]/30 transition-all duration-500 group">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
+                            <img src="cashtrack/logo.png" alt="CashTrack" class="rounded-3xl shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="flex-grow">
+                            <div class="flex flex-wrap items-center gap-4 mb-4">
+                                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">CashTrack</h2>
+                                <span class="px-3 py-1 rounded-full bg-[#FF8A6A] text-[#020617] text-[10px] font-black uppercase tracking-tighter">Design System: Spendr</span>
+                            </div>
+                            <p class="text-on-surface-variant text-lg mb-8 leading-relaxed max-w-3xl">
+                                AI-driven financial oversight leveraging the Spendr Design Framework. High-precision transaction tracking with automated SMS synchronization and Gemini Pro integration.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                                <div>
+                                    <h3 class="text-sm font-bold text-[#FF8A6A] uppercase tracking-widest mb-4">Core Features</h3>
+                                    <ul class="space-y-2 text-sm text-on-surface/80">
+                                        <li class="flex items-center gap-2"><span class="text-[#FF8A6A]">✦</span> Automated SMS Data Extraction</li>
+                                        <li class="flex items-center gap-2"><span class="text-[#FF8A6A]">✦</span> AI Spending Advice (Gemini Pro)</li>
+                                        <li class="flex items-center gap-2"><span class="text-[#FF8A6A]">✦</span> Biometric Secure Vault</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-[#FF8A6A] uppercase tracking-widest mb-4">Data Compliance</h3>
+                                    <p class="text-sm text-on-surface/80 leading-relaxed">
+                                        Encrypted Room DB storage. Local-first architecture ensures that financial records and transaction metadata never leave the application sandbox.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-2 mb-10">
+                                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mr-2">Permissions:</span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase border border-[#FF8A6A]/20 bg-[#FF8A6A]/5 text-[#FF8A6A]">RECEIVE_SMS</span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase border border-[#FF8A6A]/20 bg-[#FF8A6A]/5 text-[#FF8A6A]">READ_SMS</span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase border border-[#FF8A6A]/20 bg-[#FF8A6A]/5 text-[#FF8A6A]">RECORD_AUDIO</span>
+                                <span class="px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase border border-[#FF8A6A]/20 bg-[#FF8A6A]/5 text-[#FF8A6A]">USE_BIOMETRIC</span>
+                            </div>
+
+                            <a href="cashtrack/cashtrack.html" class="inline-flex items-center gap-3 text-[#FF8A6A] font-bold hover:gap-5 transition-all">
+                                View Technical Landing Page <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Living Gallery -->
+                <section class="glass p-8 md:p-12 rounded-[40px] border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-gradient-to-br from-[#FF7043] to-[#D84315] rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="text-5xl">🖼️</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Living Gallery</h2>
+                            <p class="text-on-surface-variant text-lg mb-8 leading-relaxed max-w-3xl">
+                                Dynamic photo widgets that transform your device into a cinematic digital canvas. Supports Material You and custom geometric shapes.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                                <div>
+                                    <h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Core Features</h3>
+                                    <ul class="space-y-2 text-sm text-on-surface/80">
+                                        <li class="flex items-center gap-2"><span class="text-primary">✦</span> Millisecond-precise Photo Rotations</li>
+                                        <li class="flex items-center gap-2"><span class="text-primary">✦</span> Artistic Geometric Shape Masking</li>
+                                        <li class="flex items-center gap-2"><span class="text-primary">✦</span> Dynamic Material You Themes</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Data Handling</h3>
+                                    <p class="text-sm text-on-surface/80 leading-relaxed">
+                                        100% Local experience. No network permissions requested. Photos are read directly from local storage with minimal caching.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-2 mb-10">
+                                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mr-2">Permissions:</span>
+                                <span class="permission-pill">READ_MEDIA_IMAGES</span>
+                                <span class="permission-pill">SCHEDULE_EXACT_ALARM</span>
+                            </div>
+
+                            <a href="photo_widget/photo_widget.html" class="inline-flex items-center gap-3 text-primary font-bold hover:gap-5 transition-all">
+                                View Technical Landing Page <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Habit Flow -->
+                <section class="glass p-8 md:p-12 rounded-[40px] border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-gradient-to-br from-[#4A90E2] to-[#357ABD] rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                            <span class="text-5xl">📝</span>
+                        </div>
+                        <div class="flex-grow">
+                            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Habit Flow</h2>
+                            <p class="text-on-surface-variant text-lg mb-8 leading-relaxed max-w-3xl">
+                                Build life-changing habits with zero-knowledge tracking and biometric-first authentication.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                                <div>
+                                    <h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Core Features</h3>
+                                    <ul class="space-y-2 text-sm text-on-surface/80">
+                                        <li class="flex items-center gap-2"><span class="text-primary">✦</span> Cross-device Cloud Sync</li>
+                                        <li class="flex items-center gap-2"><span class="text-primary">✦</span> Biometric App Locking</li>
+                                        <li class="flex items-center gap-2"><span class="text-primary">✦</span> Interactive Habit Widgets</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h3 class="text-sm font-bold text-primary uppercase tracking-widest mb-4">Data Handling</h3>
+                                    <p class="text-sm text-on-surface/80 leading-relaxed">
+                                        Optional Google Cloud Sync. Uses Firebase Authentication. Local data is encrypted when Biometric Lock is enabled.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-wrap items-center gap-2 mb-10">
+                                <span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mr-2">Permissions:</span>
+                                <span class="permission-pill">USE_BIOMETRIC</span>
+                                <span class="permission-pill">INTERNET</span>
+                                <span class="permission-pill">POST_NOTIFICATIONS</span>
+                            </div>
+
+                            <a href="habit_tracker/habit_tracker.html" class="inline-flex items-center gap-3 text-primary font-bold hover:gap-5 transition-all">
+                                View Technical Landing Page <span class="material-symbols-outlined">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- More apps can be added here following the same template -->
+
+            </div>
+
+            <footer class="mt-32 text-center text-on-surface-variant/40 text-xs uppercase tracking-[0.5em]">
+                &copy; 2026 Lean Bytes &bull; Engineering Excellence
+            </footer>
+        </div>
+    </main>
+</body>
+
+</html>
