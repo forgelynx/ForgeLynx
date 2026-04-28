@@ -67,9 +67,24 @@
             padding-bottom: 12px;
         }
 
+        h3 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
         p, li {
             color: var(--text-secondary);
             font-size: 1.05rem;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
         }
 
         .highlight {
@@ -100,6 +115,17 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 12px;
+                padding: 28px 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -109,57 +135,180 @@
         <header>
             <img src="logo.png" alt="CashTrack Logo" class="logo-img">
             <h1>Terms of Service</h1>
-            <p style="opacity: 0.5; font-size: 0.9rem;">Last Updated: April 24, 2026</p>
+            <p style="opacity: 0.5; font-size: 0.9rem;">Last Updated: April 28, 2026</p>
         </header>
 
         <section>
             <h2>1. Acceptance of Terms</h2>
-            <p>By downloading or using <span class="highlight">CashTrack</span>, you agree to be bound by these Terms of Service. If you do not agree to these terms, please do not use the application.</p>
+            <p>By downloading, installing, or using <span class="highlight">CashTrack</span> (the "App"), developed and operated by <span class="highlight">Lean Bytes</span>, you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not install or use the App.</p>
         </section>
 
         <section>
             <h2>2. Description of Service</h2>
-            <p>CashTrack is a personal finance management tool that provides automated transaction tracking, manual expense logging, and AI-driven financial insights. The service is provided "as is" and is subject to availability.</p>
-        </section>
-
-        <section>
-            <h2>3. Automated Tracking Disclaimer</h2>
-            <p>The automated tracking feature relies on parsing SMS notifications from financial institutions. We do not guarantee the accuracy or completeness of the data extracted. Users are responsible for verifying all transactions manually.</p>
-        </section>
-
-        <section>
-            <h2>4. AI Advice Disclaimer</h2>
-            <p>Financial insights provided by the integrated AI (Gemini) are for <span class="highlight">informational purposes only</span>. They do not constitute professional financial, investment, or legal advice. Lean Bytes is not liable for any financial decisions made based on AI-generated suggestions.</p>
-        </section>
-
-        <section>
-            <h2>5. User Conduct</h2>
-            <p>You agree not to:</p>
+            <p>CashTrack is a personal finance management application available on Android and iOS, built with Compose Multiplatform. The App provides the following features:</p>
             <ul>
-                <li>Use the app for any illegal or unauthorized purpose.</li>
-                <li>Attempt to reverse-engineer or extract the source code of the app.</li>
-                <li>Interfere with or disrupt the integrity or performance of the service.</li>
+                <li><span class="highlight">Manual Transaction Tracking</span>: Record income and expense transactions with details including merchant, amount, category, date, and notes through a multi-step entry process.</li>
+                <li><span class="highlight">Dashboard & Analytics</span>: View your total balance, income/expense breakdowns, spending charts (area charts, bar charts), budget progress tracking, top spending categories, and recent transaction summaries.</li>
+                <li><span class="highlight">Transaction History</span>: Browse, search, filter (by category, type, or period), and sort your full transaction history. Delete transactions by swiping.</li>
+                <li><span class="highlight">Analytics & Reports</span>: Access KPI overviews (spent, income, savings), categorical breakdowns with donut charts, 30-day spending trends, and weekly comparison charts.</li>
+                <li><span class="highlight">Budget Management</span>: Set a monthly budget limit and track spending progress against it, with visual indicators and warnings.</li>
+                <li><span class="highlight">Category Management</span>: Use built-in expense/income categories or create custom categories with custom icons and colors.</li>
+                <li><span class="highlight">AI-Powered Smart Input</span>: Add transactions via voice commands (speech-to-text processed by device, then parsed by Google Gemini AI) or receipt scanning (OCR via Google ML Kit, then parsed by Google Gemini AI).</li>
+                <li><span class="highlight">AI Chat Assistant</span>: An integrated AI assistant powered by Google Gemini that provides personalized financial insights based on your transaction data.</li>
+                <li><span class="highlight">SMS Auto-Tracking</span> (Android only): Automatically detect and parse bank transaction SMS messages to log transactions.</li>
+                <li><span class="highlight">Smart Insights</span>: Context-aware financial advice banners on the dashboard based on your spending patterns.</li>
+                <li><span class="highlight">Notifications</span>: Optional push notifications, weekly spending summaries, and budget alert notifications.</li>
+                <li><span class="highlight">Security</span>: Optional biometric/device-credential lock (Face ID, fingerprint, or PIN) for app access.</li>
+                <li><span class="highlight">Customization</span>: Currency selection (multiple supported currencies), theme mode (light, dark, system), and profile editing.</li>
+                <li><span class="highlight">Cloud Backup</span>: Transactions and settings are synced to Google Cloud Firestore under your anonymous account for backup and recovery.</li>
+                <li><span class="highlight">Premium Features</span>: Certain advanced features may require a premium subscription (advanced analytics, recurring transactions, budget goals, export reports, AI spending coach, encrypted backup).</li>
+            </ul>
+            <p>The service is provided "as is" and is subject to availability.</p>
+        </section>
+
+        <section>
+            <h2>3. User Account</h2>
+            <p>CashTrack uses <span class="highlight">Firebase Anonymous Authentication</span> to create an account for you automatically. No personal login credentials (email, password, or phone number) are required. Your account is identified by an anonymous unique ID tied to your device.</p>
+            <p>You are responsible for maintaining the security of your device. If you lose access to your device, you may lose access to your cloud-synced data associated with that anonymous account.</p>
+        </section>
+
+        <section>
+            <h2>4. SMS Auto-Tracking Disclaimer</h2>
+            <p>The SMS Auto-Tracking feature relies on parsing incoming SMS messages from financial institutions using AI-powered text analysis (Google Gemini). Please note:</p>
+            <ul>
+                <li>We do <span class="highlight">not guarantee</span> the accuracy or completeness of data extracted from SMS messages.</li>
+                <li>Transaction amounts, merchant names, and categories may be incorrectly parsed.</li>
+                <li>Users are responsible for verifying and correcting all automatically captured transactions.</li>
+                <li>The feature only works when enabled in Settings and the required SMS permissions are granted.</li>
+                <li>Raw SMS messages are not stored by CashTrack — only the extracted transaction data is saved.</li>
             </ul>
         </section>
 
         <section>
+            <h2>5. AI Features Disclaimer</h2>
+            <p>CashTrack uses <span class="highlight">Google Gemini AI</span> to power several features. Please understand the following:</p>
+
+            <h3>5.1 AI Chat Assistant</h3>
+            <ul>
+                <li>Financial insights and answers provided by the AI assistant are for <span class="highlight">informational purposes only</span>.</li>
+                <li>They do not constitute professional financial, investment, tax, or legal advice.</li>
+                <li>Your transaction data (summaries, not raw data) is sent to Google's servers to generate responses.</li>
+                <li>Chat conversations are not stored persistently and are cleared on app close.</li>
+            </ul>
+
+            <h3>5.2 Voice Input & Receipt Scanning</h3>
+            <ul>
+                <li>Voice-to-text is processed by your device's native speech recognition engine.</li>
+                <li>Receipt text is extracted on-device using Google ML Kit OCR.</li>
+                <li>The resulting text is sent to Google Gemini for transaction parsing.</li>
+                <li>Results may be inaccurate. Always review AI-suggested transactions before saving.</li>
+            </ul>
+
+            <h3>5.3 Smart Insights</h3>
+            <ul>
+                <li>Dashboard insights are generated locally based on your spending data and budget settings.</li>
+                <li>They are general observations, not personalized financial advice.</li>
+            </ul>
+
+            <p><span class="highlight">Lean Bytes is not liable</span> for any financial decisions made based on AI-generated suggestions, insights, or advice.</p>
+        </section>
+
+        <section>
             <h2>6. Premium Subscriptions</h2>
-            <p>Certain features may require a premium subscription. Subscriptions are managed through the respective App Store or Play Store and are subject to their billing terms.</p>
+            <ul>
+                <li>Certain features may require a <span class="highlight">Premium subscription</span>, available as Monthly ($4.99/mo) or Yearly ($2.99/mo, billed annually) plans.</li>
+                <li>Premium subscriptions include a 7-day free trial and a 30-day money-back guarantee.</li>
+                <li>Subscriptions are managed and billed through the respective App Store (Apple) or Google Play Store and are subject to their billing terms and refund policies.</li>
+                <li>You can cancel your subscription at any time through the store's subscription management interface.</li>
+                <li>Premium features include: Advanced Analytics, Recurring Transactions, Budget Goals, Export Reports (CSV & PDF), Bank-Level Security (encrypted backup), and AI Spending Coach.</li>
+            </ul>
         </section>
 
         <section>
-            <h2>7. Limitation of Liability</h2>
-            <p>To the maximum extent permitted by law, Lean Bytes shall not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use CashTrack, including but not limited to financial loss or data breach.</p>
+            <h2>7. User Conduct</h2>
+            <p>By using CashTrack, you agree not to:</p>
+            <ul>
+                <li>Use the App for any illegal, unauthorized, or fraudulent purpose.</li>
+                <li>Attempt to reverse-engineer, decompile, disassemble, or extract the source code of the App.</li>
+                <li>Interfere with or disrupt the integrity or performance of the App or its backend services.</li>
+                <li>Attempt to gain unauthorized access to CashTrack's servers, databases, or third-party services.</li>
+                <li>Use automated systems (bots, scrapers) to interact with the App.</li>
+                <li>Submit false, misleading, or harmful data through any input method (manual, voice, SMS, or receipt).</li>
+                <li>Abuse the AI features by submitting prompts intended to generate harmful, offensive, or inappropriate content.</li>
+            </ul>
         </section>
 
         <section>
-            <h2>8. Changes to Terms</h2>
-            <p>We reserve the right to modify these terms at any time. Your continued use of the application after changes are posted constitutes your acceptance of the revised terms.</p>
+            <h2>8. Data & Privacy</h2>
+            <p>Your use of CashTrack is also governed by our <a href="pp.html" style="color: var(--accent);">Privacy Policy</a>, which describes how we collect, use, and protect your data. Key points include:</p>
+            <ul>
+                <li>CashTrack uses a <span class="highlight">local-first architecture</span> — your data is stored primarily on your device.</li>
+                <li>Certain data is synced to <span class="highlight">Google Cloud Firestore</span> for backup under your anonymous account.</li>
+                <li>AI features send data to <span class="highlight">Google's servers</span> for processing.</li>
+                <li>Crash reports are collected via <span class="highlight">Firebase Crashlytics</span>.</li>
+                <li>You can delete all local data at any time via Settings or request cloud data deletion by contacting us.</li>
+            </ul>
         </section>
 
         <section>
-            <h2>9. Contact Information</h2>
-            <p>For any legal inquiries, please contact: <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a></p>
+            <h2>9. Intellectual Property</h2>
+            <p>All content, design, code, graphics, logos, and trademarks associated with CashTrack are the intellectual property of <span class="highlight">Lean Bytes</span>. You may not reproduce, distribute, modify, or create derivative works from any part of the App without our prior written consent.</p>
+        </section>
+
+        <section>
+            <h2>10. Third-Party Services</h2>
+            <p>CashTrack relies on third-party services including Google Firebase (Authentication, Firestore, Crashlytics), Google Gemini AI, and Google ML Kit. These services are governed by their own terms of service and privacy policies. We are not responsible for the availability, accuracy, or conduct of these third-party services.</p>
+        </section>
+
+        <section>
+            <h2>11. Disclaimer of Warranties</h2>
+            <p>CashTrack is provided <span class="highlight">"AS IS"</span> and <span class="highlight">"AS AVAILABLE"</span> without warranties of any kind, either express or implied. We do not warrant that:</p>
+            <ul>
+                <li>The App will be uninterrupted, error-free, or free of viruses or other harmful components.</li>
+                <li>AI-generated outputs (transaction parsing, financial insights, chat responses) will be accurate, complete, or reliable.</li>
+                <li>SMS parsing will correctly extract all transaction details from every banking SMS format.</li>
+                <li>Data synced to the cloud will be preserved indefinitely or be immune to loss.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>12. Limitation of Liability</h2>
+            <p>To the maximum extent permitted by applicable law, <span class="highlight">Lean Bytes</span> and its developers, officers, and affiliates shall not be liable for any direct, indirect, incidental, special, consequential, or punitive damages resulting from:</p>
+            <ul>
+                <li>Your use or inability to use CashTrack.</li>
+                <li>Financial losses arising from reliance on AI-generated financial advice, insights, or transaction parsing.</li>
+                <li>Inaccurate or missed transactions from SMS auto-tracking, voice input, or receipt scanning.</li>
+                <li>Data loss due to device failure, cloud service outages, or account deletion.</li>
+                <li>Unauthorized access to your device or account resulting from your failure to secure your device.</li>
+                <li>Any actions taken based on information provided by the App's AI features.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>13. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless Lean Bytes from any claims, damages, losses, or expenses (including reasonable attorney fees) arising from your use of CashTrack, violation of these Terms, or infringement of any rights of a third party.</p>
+        </section>
+
+        <section>
+            <h2>14. Termination</h2>
+            <p>We reserve the right to suspend or terminate your access to CashTrack at any time, with or without cause, including but not limited to violation of these Terms. Upon termination, your right to use the App ceases immediately. Local data on your device remains accessible until you uninstall the app.</p>
+        </section>
+
+        <section>
+            <h2>15. Changes to Terms</h2>
+            <p>We reserve the right to modify these Terms at any time. When we make changes, we will update the "Last Updated" date at the top of this page. Your continued use of CashTrack after changes are posted constitutes your acceptance of the revised Terms. We encourage you to review these Terms periodically.</p>
+        </section>
+
+        <section>
+            <h2>16. Governing Law</h2>
+            <p>These Terms shall be governed by and construed in accordance with the laws of India, without regard to conflict of law principles. Any disputes arising from or related to these Terms shall be resolved in the courts of competent jurisdiction in India.</p>
+        </section>
+
+        <section>
+            <h2>17. Contact Information</h2>
+            <p>For any questions, concerns, or legal inquiries regarding these Terms of Service, please contact:</p>
+            <p><span class="highlight">Lean Bytes</span><br>
+            Email: <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a></p>
         </section>
     </div>
 

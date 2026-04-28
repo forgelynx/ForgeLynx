@@ -67,9 +67,24 @@
             padding-bottom: 12px;
         }
 
+        h3 {
+            font-size: 1.15rem;
+            color: var(--text-primary);
+            margin-top: 24px;
+            margin-bottom: 8px;
+        }
+
         p, li {
             color: var(--text-secondary);
             font-size: 1.05rem;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        li {
+            margin-bottom: 8px;
         }
 
         .highlight {
@@ -100,6 +115,39 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px 14px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        th {
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                margin: 20px 12px;
+                padding: 28px 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
     </style>
 </head>
 
@@ -109,56 +157,206 @@
         <header>
             <img src="logo.png" alt="CashTrack Logo" class="logo-img">
             <h1>Privacy Policy</h1>
-            <p style="opacity: 0.5; font-size: 0.9rem;">Effective Date: April 24, 2026</p>
+            <p style="opacity: 0.5; font-size: 0.9rem;">Effective Date: April 28, 2026</p>
         </header>
 
         <section>
             <h2>1. Introduction</h2>
-            <p>Welcome to <span class="highlight">CashTrack</span> (also referred to as "Spendr" in our design framework). We are committed to protecting your personal and financial data. This Privacy Policy explains how we collect, use, and safeguard your information within our mobile application.</p>
+            <p>Welcome to <span class="highlight">CashTrack</span>, a personal finance tracking application developed and operated by <span class="highlight">Lean Bytes</span>. We are committed to protecting your personal and financial data. This Privacy Policy explains how we collect, use, process, store, and safeguard your information when you use our mobile application on Android and iOS platforms.</p>
+            <p>By using CashTrack, you agree to the data practices described in this policy. If you do not agree, please discontinue use of the application.</p>
         </section>
 
         <section>
             <h2>2. Information We Collect</h2>
-            <p>To provide a seamless financial tracking experience, we collect the following types of information:</p>
+            <p>CashTrack collects different types of information depending on the features you use:</p>
+
+            <h3>2.1 Account & Profile Information</h3>
             <ul>
-                <li><span class="highlight">Account Information</span>: Name, email address, and profile photo provided during account creation via Google or Email.</li>
-                <li><span class="highlight">Financial Data</span>: Transaction history, categories, and budget limits that you enter manually or are captured via SMS.</li>
-                <li><span class="highlight">SMS Metadata</span>: If you grant permission, the app parses bank-related SMS messages locally on your device to extract transaction details.</li>
+                <li><span class="highlight">Display Name</span>: The name you provide during onboarding or edit in your profile settings.</li>
+                <li><span class="highlight">Anonymous Account ID</span>: CashTrack uses Firebase Anonymous Authentication to create a unique anonymous identifier for your account. No email address, phone number, or password is required.</li>
+            </ul>
+
+            <h3>2.2 Financial Data (User-Entered)</h3>
+            <ul>
+                <li><span class="highlight">Transactions</span>: Merchant/description, amount, date/time, category, type (expense or income), and optional notes that you manually enter.</li>
+                <li><span class="highlight">Budget Settings</span>: Your monthly budget limit and currency preference.</li>
+                <li><span class="highlight">Categories</span>: Both built-in and custom categories you create, including category names, icons, and colors.</li>
+            </ul>
+
+            <h3>2.3 SMS Data (Optional – Android Only)</h3>
+            <ul>
+                <li>If you enable <span class="highlight">SMS Auto-Tracking</span>, the app listens for incoming SMS messages from financial institutions (e.g., bank transaction alerts).</li>
+                <li>SMS message bodies are parsed <span class="highlight">on-device</span> and then sent to Google Gemini AI for structured extraction of transaction details (merchant, amount, category, type).</li>
+                <li>We do not store the raw SMS content on our servers. Only the extracted transaction data is saved locally and optionally synced to the cloud.</li>
+            </ul>
+
+            <h3>2.4 Voice Input Data (Optional)</h3>
+            <ul>
+                <li>When you use the <span class="highlight">Voice Input</span> feature, your speech is processed by the device's native speech recognition engine to convert it to text.</li>
+                <li>The transcribed text is then sent to <span class="highlight">Google Gemini AI</span> to extract transaction details.</li>
+                <li>We do not store audio recordings. Only the resulting transaction data is saved.</li>
+            </ul>
+
+            <h3>2.5 Receipt Scanning Data (Optional)</h3>
+            <ul>
+                <li>When you use the <span class="highlight">Scan Receipt</span> feature, the selected image is processed on-device using <span class="highlight">Google ML Kit OCR</span> (Text Recognition) to extract text from the receipt.</li>
+                <li>The extracted text is then sent to <span class="highlight">Google Gemini AI</span> for structured parsing into transaction details.</li>
+                <li>We do not store receipt images on our servers. Only the resulting transaction data is saved.</li>
+            </ul>
+
+            <h3>2.6 AI Chat Data</h3>
+            <ul>
+                <li>When you use the <span class="highlight">AI Assistant</span> (chat) feature, a summary of your financial data (currency, budget, spending totals by category, and recent transactions) is sent alongside your question to <span class="highlight">Google Gemini AI</span> to generate personalized financial insights.</li>
+                <li>Chat conversations are stored <span class="highlight">in-memory only</span> during your app session. They are not persisted to disk or synced to the cloud and are cleared when you close the app or clear the chat.</li>
+            </ul>
+
+            <h3>2.7 App Settings & Preferences</h3>
+            <ul>
+                <li>Currency preference, notification toggles (push notifications, weekly summary, budget alerts), biometric lock toggle, theme mode (light/dark/system), and SMS tracking toggle.</li>
+                <li>These are stored locally using <span class="highlight">DataStore</span> and the local Room database, and may be synced to the cloud.</li>
+            </ul>
+
+            <h3>2.8 Crash & Diagnostic Data</h3>
+            <ul>
+                <li>CashTrack uses <span class="highlight">Firebase Crashlytics</span> to automatically collect crash reports and non-fatal error logs. This data includes device information, OS version, and stack traces to help us diagnose and fix issues.</li>
+                <li>No personally identifiable financial data is included in crash reports.</li>
             </ul>
         </section>
 
         <section>
-            <h2>3. Local-First Processing</h2>
-            <p>We prioritize your privacy by adopting a <span class="highlight">Local-First</span> architecture. Most of your financial data is stored securely on your device using an encrypted Room database. We do not upload your raw financial records to our servers unless you explicitly enable cloud synchronization.</p>
+            <h2>3. How We Store Your Data</h2>
+
+            <h3>3.1 Local-First Architecture</h3>
+            <p>CashTrack prioritizes your privacy by adopting a <span class="highlight">Local-First</span> architecture:</p>
+            <ul>
+                <li><span class="highlight">Room Database</span>: All transactions, categories, and settings are stored locally on your device in a Room (SQLite) database.</li>
+                <li><span class="highlight">DataStore</span>: App preferences (biometric lock status, SMS tracking toggle) are stored locally using Android DataStore.</li>
+            </ul>
+
+            <h3>3.2 Cloud Synchronization</h3>
+            <p>CashTrack uses <span class="highlight">Google Cloud Firestore</span> to sync certain data to the cloud for backup purposes:</p>
+            <ul>
+                <li><span class="highlight">Transactions</span>: When you add or delete a transaction, it is synced to Firestore under your anonymous user account.</li>
+                <li><span class="highlight">Settings</span>: When you update settings, they are synced to Firestore.</li>
+                <li>Cloud data is associated with your <span class="highlight">anonymous Firebase user ID</span> — no personal identifiers such as email or phone number are linked to this data.</li>
+            </ul>
         </section>
 
         <section>
-            <h2>4. AI Insights & Gemini</h2>
-            <p>CashTrack uses the <span class="highlight">Google Gemini API</span> to provide intelligent financial advice. When you request AI insights, relevant (anonymized) transaction summaries are sent to Google's servers for processing. This data is transmitted via encrypted HTTPS tunnels and is used solely to generate your personalized advice.</p>
+            <h2>4. Third-Party Services</h2>
+            <p>CashTrack integrates with the following third-party services. Each service has its own privacy policy governing how it handles data:</p>
+
+            <table>
+                <tr>
+                    <th>Service</th>
+                    <th>Provider</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td>Firebase Authentication</td>
+                    <td>Google</td>
+                    <td>Anonymous user identity</td>
+                </tr>
+                <tr>
+                    <td>Cloud Firestore</td>
+                    <td>Google</td>
+                    <td>Cloud data backup & sync</td>
+                </tr>
+                <tr>
+                    <td>Firebase Crashlytics</td>
+                    <td>Google</td>
+                    <td>Crash reporting & diagnostics</td>
+                </tr>
+                <tr>
+                    <td>Gemini API</td>
+                    <td>Google</td>
+                    <td>AI-powered transaction parsing, financial advice, and chat</td>
+                </tr>
+                <tr>
+                    <td>ML Kit (Text Recognition)</td>
+                    <td>Google</td>
+                    <td>On-device receipt OCR</td>
+                </tr>
+            </table>
+
+            <p>All data transmitted to Google services is sent via <span class="highlight">encrypted HTTPS</span> connections. For more information, please see <a href="https://policies.google.com/privacy" style="color: var(--accent);">Google's Privacy Policy</a>.</p>
         </section>
 
         <section>
             <h2>5. Permissions and Their Use</h2>
+            <p>CashTrack requests only the permissions necessary for specific features. Each permission is optional and can be denied without affecting core functionality:</p>
             <ul>
-                <li><span class="highlight">RECEIVE_SMS / READ_SMS</span>: Used exclusively for the "Automated Tracking" feature to capture bank transaction alerts.</li>
-                <li><span class="highlight">RECORD_AUDIO</span>: Used for the optional voice-command feature to add expenses hands-free.</li>
-                <li><span class="highlight">USE_BIOMETRIC</span>: Used to lock the app behind your device's fingerprint or face recognition for extra security.</li>
+                <li><span class="highlight">RECEIVE_SMS / READ_SMS</span> (Android only): Used exclusively for the "SMS Auto-Tracking" feature to capture incoming bank transaction alerts in real-time and automatically log transactions. This permission is only active when you enable SMS tracking in Settings.</li>
+                <li><span class="highlight">RECORD_AUDIO</span>: Used for the "Voice Input" feature in the Smart Input screen, allowing you to add transactions by speaking naturally. Audio is processed locally by the device's speech recognition engine — we do not record or store audio files.</li>
+                <li><span class="highlight">READ_EXTERNAL_STORAGE</span> (Android ≤ 12): Used for the "Scan Receipt" feature to allow you to select a receipt image from your device's gallery for OCR scanning.</li>
+                <li><span class="highlight">POST_NOTIFICATIONS</span> (Android 13+): Used to deliver push notifications, weekly spending summaries, and budget alert notifications when you enable them in Settings.</li>
+                <li><span class="highlight">Biometric Authentication</span> (Face ID / Fingerprint): Used to lock the app behind your device's biometric authentication (Face ID, fingerprint, or device credential) for extra security. Biometric data is processed entirely by your device's operating system — CashTrack never accesses or stores biometric data.</li>
             </ul>
         </section>
 
         <section>
-            <h2>6. Data Security</h2>
-            <p>We use industry-standard security measures, including Firebase Authentication and local database encryption, to protect your data. However, you are responsible for maintaining the security of your device and account credentials.</p>
+            <h2>6. How We Use Your Information</h2>
+            <p>We use the information we collect for the following purposes:</p>
+            <ul>
+                <li><span class="highlight">Provide Core Functionality</span>: Track your income and expenses, display analytics and charts, manage categories, and monitor budget progress.</li>
+                <li><span class="highlight">AI-Powered Features</span>: Parse voice commands and receipt scans into transactions, provide smart financial insights on the home screen, and answer your financial questions via the AI chat assistant.</li>
+                <li><span class="highlight">Notifications</span>: Send weekly spending summaries and budget overspending alerts when you opt in.</li>
+                <li><span class="highlight">Cloud Backup</span>: Sync your data to Firestore so it can be recovered or accessed across devices.</li>
+                <li><span class="highlight">Crash Diagnostics</span>: Identify and fix bugs and improve app stability.</li>
+                <li><span class="highlight">Personalization</span>: Remember your currency, theme, display name, and notification preferences.</li>
+            </ul>
         </section>
 
         <section>
-            <h2>7. Your Rights</h2>
-            <p>You have the right to access, update, or delete your data at any time. You can clear all local data through the app settings or request account deletion by contacting us at <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a>.</p>
+            <h2>7. Data Retention</h2>
+            <ul>
+                <li><span class="highlight">Local Data</span>: Stored on your device indefinitely until you clear it via "Clear All Data" in Settings, or uninstall the app.</li>
+                <li><span class="highlight">Cloud Data</span>: Retained in Firestore until you delete your account or request deletion. Data is associated with your anonymous Firebase user ID.</li>
+                <li><span class="highlight">AI Chat History</span>: Stored in-memory only; automatically cleared on app close.</li>
+                <li><span class="highlight">Crash Reports</span>: Retained by Firebase Crashlytics per Google's standard retention period (typically 90 days).</li>
+            </ul>
         </section>
 
         <section>
-            <h2>8. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please reach out to: <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a></p>
+            <h2>8. Data Security</h2>
+            <p>We implement the following security measures to protect your data:</p>
+            <ul>
+                <li><span class="highlight">Local Database</span>: Transaction and settings data is stored in a local Room database on your device.</li>
+                <li><span class="highlight">Network Encryption</span>: All data transmitted to Firebase and Google AI services uses HTTPS/TLS encryption.</li>
+                <li><span class="highlight">Anonymous Authentication</span>: Firebase Authentication uses anonymous sign-in, so no email or password is stored or transmitted.</li>
+                <li><span class="highlight">Biometric Lock</span>: When enabled, the app requires your device's biometric authentication (fingerprint, Face ID, or device credential) each time it is opened.</li>
+                <li><span class="highlight">No Raw Data Transmission</span>: Raw SMS messages, audio recordings, and receipt images are processed locally; only structured transaction data is sent to the cloud.</li>
+            </ul>
+            <p>However, you are responsible for maintaining the security of your device and ensuring it has appropriate security measures (screen lock, up-to-date OS, etc.).</p>
+        </section>
+
+        <section>
+            <h2>9. Children's Privacy</h2>
+            <p>CashTrack is not designed for or directed at children under the age of 13. We do not knowingly collect personal information from children. If we learn that we have inadvertently collected data from a child under 13, we will take steps to delete that data promptly.</p>
+        </section>
+
+        <section>
+            <h2>10. Your Rights</h2>
+            <p>You have the following rights regarding your data:</p>
+            <ul>
+                <li><span class="highlight">Access & View</span>: All your financial data is visible within the app at all times (transactions, analytics, settings).</li>
+                <li><span class="highlight">Edit & Update</span>: You can update your profile name, currency, budget, categories, and other settings at any time.</li>
+                <li><span class="highlight">Delete Transactions</span>: You can swipe-to-delete individual transactions from the transaction history.</li>
+                <li><span class="highlight">Clear All Data</span>: You can erase all local data through the "Clear All Data" option in Settings.</li>
+                <li><span class="highlight">Account Deletion</span>: You can request full account and cloud data deletion by contacting us at <a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a>.</li>
+                <li><span class="highlight">Revoke Permissions</span>: You can revoke any permission (SMS, microphone, notifications) at any time through your device's system settings.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>11. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. When we do, we will update the "Effective Date" at the top of this page. We encourage you to review this policy periodically. Your continued use of CashTrack after changes are posted constitutes acceptance of the updated policy.</p>
+        </section>
+
+        <section>
+            <h2>12. Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us at:</p>
+            <p><a href="mailto:leanbytes0@gmail.com" style="color: var(--accent);">leanbytes0@gmail.com</a></p>
         </section>
     </div>
 
