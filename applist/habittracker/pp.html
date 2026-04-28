@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>HabitTracker - Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            background: #070E1C;
+            color: #FFFFFF;
+            min-height: 100vh;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            background: rgba(17, 25, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(135deg, #14B8A6, #4F46E5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: #94A3B8;
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            background: rgba(17, 25, 42, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 48px;
+            margin-bottom: 32px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .section h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            color: #14B8A6;
+            letter-spacing: -1px;
+        }
+
+        .section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 32px 0 16px 0;
+            color: #F8FAFC;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #94A3B8;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .highlight-box {
+            background: rgba(20, 184, 166, 0.05);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 24px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 48px;
+            color: #64748B;
+            font-size: 14px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #14B8A6;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to App</a>
+        
+        <header>
+            <div class="logo">HabitTracker</div>
+            <p class="subtitle">Privacy Policy</p>
+        </header>
+
+        <section class="section">
+            <p style="font-style: italic; margin-bottom: 32px;">Effective Date: April 28, 2026</p>
+            
+            <h2>Introduction</h2>
+            <p>
+                At HabitTracker, we believe your habits are a private part of your personal journey. This Privacy Policy outlines how we handle your information with a focus on maximum transparency and user control.
+            </p>
+
+            <h2>Data Collection & Storage</h2>
+            <div class="highlight-box">
+                <p><strong>Local Storage:</strong> HabitTracker uses an on-device Room database to store your habits and logs. This data is processed locally to provide fast, offline-first performance.</p>
+                <p><strong>Cloud Synchronization:</strong> We use Supabase (PostgreSQL) for cross-device synchronization. When enabled, your habit configurations (name, emoji, frequency, goals) and completion logs are stored on secure servers.</p>
+            </div>
+
+            <h3>Technical Transparency</h3>
+            <p>
+                We implement <strong>Row Level Security (RLS)</strong> at the database level. This technical safeguard ensures that even at the infrastructure layer, your data is isolated and can only be accessed by your authenticated account.
+            </p>
+
+            <h3>Third-Party Services</h3>
+            <p>
+                To maintain app stability and improve user experience, we utilize:
+                <ul>
+                    <li><strong>Google Firebase:</strong> For anonymous crash reporting (Crashlytics) and basic usage analytics.</li>
+                    <li><strong>Supabase:</strong> For secure authentication and data synchronization.</li>
+                </ul>
+            </p>
+
+            <h3>Device Permissions</h3>
+            <p>
+                The app requires the following permissions for its core functionality:
+                <ul>
+                    <li><strong>POST_NOTIFICATIONS:</strong> To deliver your scheduled habit reminders.</li>
+                    <li><strong>RECEIVE_BOOT_COMPLETED:</strong> To automatically reschedule your reminders after your device restarts.</li>
+                    <li><strong>INTERNET:</strong> To synchronize your data with the cloud (if enabled).</li>
+                </ul>
+            </p>
+
+            <h2>Data Retention & Deletion</h2>
+            <p>
+                You have full control over your data. You can delete individual habits or your entire account directly from the app settings. Account deletion triggers a <strong>cascade delete</strong> on our servers, immediately and permanently removing all your habits and logs from Supabase.
+            </p>
+
+            <h2>Contact Us</h2>
+            <p>
+                For any questions regarding your privacy, please contact us at <a href="mailto:leanbytes0@gmail.com" style="color: #14B8A6;">leanbytes0@gmail.com</a>.
+            </p>
+        </section>
+
+        <div class="footer">
+            &copy; 2026 Lean Bytes. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>
