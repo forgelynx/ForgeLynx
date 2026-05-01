@@ -130,7 +130,7 @@
         </header>
 
         <section class="section">
-            <p style="font-style: italic; margin-bottom: 32px;">Effective Date: April 28, 2026</p>
+            <p style="font-style: italic; margin-bottom: 32px;">Effective Date: May 1, 2026</p>
             
             <h2>Introduction</h2>
             <p>
@@ -140,7 +140,8 @@
             <h2>Data Collection & Storage</h2>
             <div class="highlight-box">
                 <p><strong>Local Storage:</strong> HabitTracker uses an on-device Room database to store your habits and logs. This data is processed locally to provide fast, offline-first performance.</p>
-                <p><strong>Cloud Synchronization:</strong> We use Supabase (PostgreSQL) for cross-device synchronization. When enabled, your habit configurations (name, emoji, frequency, goals) and completion logs are stored on secure servers.</p>
+                <p><strong>Cloud Synchronization:</strong> We use Supabase (PostgreSQL) for cross-device synchronization. This is an opt-in feature that stores your habit configurations and completion logs on secure servers.</p>
+                <p><strong>Data Export:</strong> You can export your habit history at any time in CSV or JSON format. This export is generated locally on your device.</p>
             </div>
 
             <h3>Technical Transparency</h3>
@@ -154,7 +155,13 @@
                 <ul>
                     <li><strong>Google Firebase:</strong> For anonymous crash reporting (Crashlytics) and basic usage analytics.</li>
                     <li><strong>Supabase:</strong> For secure authentication and data synchronization.</li>
+                    <li><strong>Google Play Store / Apple App Store:</strong> For processing subscription payments.</li>
                 </ul>
+            </p>
+
+            <h3>Subscriptions & Payments</h3>
+            <p>
+                HabitTracker offers a Premium subscription. All financial transactions are handled securely by the respective app store (Google or Apple). We do not collect or store your payment card details or bank information. We only receive confirmation of your subscription status to unlock premium features.
             </p>
 
             <h3>Device Permissions</h3>
