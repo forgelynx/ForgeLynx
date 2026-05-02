@@ -342,6 +342,11 @@ footer {
     font-size: 2.2rem;
 }
 
+.card-logo.fallback-icon {
+    background: linear-gradient(135deg, rgba(106, 242, 222, 0.12), rgba(74, 144, 226, 0.18));
+    color: var(--accent-secondary);
+}
+
 .card-title {
     font-size: 1.4rem;
     font-weight: 800;
@@ -362,3 +367,70 @@ footer {
 }
 
 /* Ensure Carousel items are duplicated in HTML for infinite effect */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .carousel-track {
+        animation: none;
+    }
+}
+
+@media (max-width: 768px) {
+    nav > div,
+    footer > div {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    nav a {
+        letter-spacing: 0.08em !important;
+    }
+
+    nav .text-2xl {
+        font-size: 1.25rem !important;
+    }
+
+    nav .space-x-6 > :not([hidden]) ~ :not([hidden]),
+    nav .md\:space-x-10 > :not([hidden]) ~ :not([hidden]) {
+        margin-left: 1rem !important;
+    }
+
+    section {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .browser-frame {
+        border-radius: 14px;
+    }
+
+    .browser-address {
+        display: none;
+    }
+
+    .carousel-container {
+        padding: 1.5rem 1rem;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+    }
+
+    .carousel-track {
+        gap: 1rem;
+        animation: none;
+    }
+
+    .carousel-card {
+        width: 280px;
+        padding: 1.5rem;
+        border-radius: 18px;
+        scroll-snap-align: start;
+    }
+}

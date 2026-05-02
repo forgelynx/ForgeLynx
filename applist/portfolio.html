@@ -30,7 +30,37 @@
         body { font-family: 'Inter', sans-serif; background-color: #070e1c; color: #e2e8fc; }
         .glass { backdrop-filter: blur(24px); background-color: rgba(33, 44, 66, 0.4); }
         .permission-pill { 
-            @apply px-3 py-1 rounded-full text-[10px] font-bold tracking-tighter uppercase border border-primary/20 bg-primary/5 text-primary;
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            border: 1px solid rgba(106, 242, 222, 0.2);
+            background: rgba(106, 242, 222, 0.05);
+            color: #6af2de;
+            padding: 0.25rem 0.75rem;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            nav > div {
+                padding: 1rem !important;
+            }
+
+            nav a {
+                font-size: 0.72rem !important;
+                letter-spacing: 0.12em !important;
+            }
+
+            nav .text-2xl {
+                font-size: 1.25rem !important;
+            }
+
+            main {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
         }
     </style>
 </head>
@@ -41,9 +71,10 @@
     <nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-md border-b border-slate-800/20">
         <div class="flex justify-between items-center px-12 py-5 w-full">
             <a href="../index.html" class="text-2xl font-extrabold tracking-tighter text-slate-100 italic">Lean Bytes</a>
-            <div class="flex items-center space-x-8">
+            <div class="flex items-center md:space-x-10 space-x-4">
                 <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest" href="apps.html">Catalog</a>
                 <a class="text-primary font-medium text-sm uppercase tracking-widest border-b-2 border-primary pb-1" href="portfolio.html">Portfolio</a>
+                <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest" href="../about.html">About</a>
             </div>
         </div>
     </nav>
@@ -62,7 +93,7 @@
             <div class="space-y-12">
                 
                 <!-- CashTrack (Spendr) -->
-                <section class="glass p-8 md:p-12 rounded-[40px] border border-outline-variant/10 hover:border-[#FF8A6A]/30 transition-all duration-500 group">
+                <section class="glass p-8 md:p-12 rounded-[20px] border border-outline-variant/10 hover:border-[#FF8A6A]/30 transition-all duration-500 group">
                     <div class="flex flex-col md:flex-row gap-12">
                         <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
                             <img src="cashtrack/logo.png" alt="CashTrack" class="rounded-3xl shadow-2xl group-hover:scale-105 transition-transform duration-500">
@@ -109,10 +140,10 @@
                 </section>
 
                 <!-- Living Gallery -->
-                <section class="glass p-8 md:p-12 rounded-[40px] border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
+                <section class="glass p-8 md:p-12 rounded-[20px] border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
                     <div class="flex flex-col md:flex-row gap-12">
-                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-gradient-to-br from-[#FF7043] to-[#D84315] rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="text-5xl">🖼️</span>
+                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-3xl overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-500 border border-primary/10">
+                            <img src="photo_widget/photo_widget_logo.png" alt="Living Gallery" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-grow">
                             <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Living Gallery</h2>
@@ -151,10 +182,10 @@
                 </section>
 
                 <!-- Habit Flow -->
-                <section class="glass p-8 md:p-12 rounded-[40px] border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
+                <section class="glass p-8 md:p-12 rounded-[20px] border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 group">
                     <div class="flex flex-col md:flex-row gap-12">
-                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-gradient-to-br from-[#4A90E2] to-[#357ABD] rounded-3xl flex items-center justify-center shadow-2xl group-hover:scale-105 transition-transform duration-500">
-                            <span class="text-5xl">📝</span>
+                        <div class="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-3xl overflow-hidden shadow-2xl group-hover:scale-105 transition-transform duration-500 border border-primary/10">
+                            <img src="habit_tracker/habit_tracker_app_logo.png" alt="Habit Flow" class="w-full h-full object-cover">
                         </div>
                         <div class="flex-grow">
                             <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Habit Flow</h2>
@@ -186,7 +217,7 @@
                                 <span class="permission-pill">POST_NOTIFICATIONS</span>
                             </div>
 
-                            <a href="habit_tracker/habit_tracker.html" class="inline-flex items-center gap-3 text-primary font-bold hover:gap-5 transition-all">
+                            <a href="habittracker/index.html" class="inline-flex items-center gap-3 text-primary font-bold hover:gap-5 transition-all">
                                 View Technical Landing Page <span class="material-symbols-outlined">arrow_forward</span>
                             </a>
                         </div>

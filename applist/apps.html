@@ -79,23 +79,67 @@
         .glass { backdrop-filter: blur(24px); background-color: rgba(33, 44, 66, 0.4); }
         .glow-shadow:hover { box-shadow: 0 0 40px rgba(20, 184, 166, 0.15); }
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .app-tile {
+            border-radius: 18px;
+            background: rgba(17, 25, 42, 0.72);
+            border: 1px solid rgba(65, 72, 88, 0.24);
+            min-height: 100%;
+        }
+        .app-logo {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .app-chip {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 999px;
+            border: 1px solid rgba(106, 242, 222, 0.18);
+            background: rgba(106, 242, 222, 0.06);
+            color: #a4fff0;
+            padding: 0.35rem 0.65rem;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .app-action {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .fallback-logo {
+            background: linear-gradient(135deg, rgba(106, 242, 222, 0.14), rgba(74, 144, 226, 0.18));
+            color: #6af2de;
+        }
         
         /* Custom scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #070e1c; }
         ::-webkit-scrollbar-thumb { background: #1c263a; border-radius: 10px; }
         ::-webkit-scrollbar-thumb:hover { background: #6af2de; }
+
+        @media (max-width: 768px) {
+            .page-nav > div { padding: 1rem !important; }
+            .page-nav-links { gap: 1rem; }
+            .page-nav a { font-size: 0.72rem; letter-spacing: 0.12em; }
+            header { padding: 7rem 1rem 3rem; }
+            main { padding-left: 1rem !important; padding-right: 1rem !important; }
+            .app-tile { border-radius: 16px; padding: 1.35rem !important; }
+        }
     </style>
 </head>
 <body class="selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
 
-    <!-- Floating Back Button -->
-    <div class="fixed top-8 left-8 z-50">
-        <a href="../index.html" class="glass px-6 py-3 rounded-full flex items-center gap-3 border border-outline-variant/20 text-on-surface hover:text-primary transition-all hover:scale-105 active:scale-95 shadow-2xl">
-            <span class="material-symbols-outlined">arrow_back</span>
-            <span class="font-bold tracking-tight">Back to Home</span>
-        </a>
-    </div>
+    <!-- Navigation -->
+    <nav class="page-nav fixed top-0 w-full z-50 bg-slate-950/50 backdrop-blur-md border-b border-slate-800/30">
+        <div class="flex justify-between items-center px-12 py-5 w-full">
+            <a href="../index.html" class="text-2xl font-extrabold tracking-tighter text-slate-100 italic">Lean Bytes</a>
+            <div class="page-nav-links flex items-center md:space-x-10 space-x-4">
+                <a class="text-primary font-bold text-sm uppercase tracking-widest border-b-2 border-primary pb-1" href="apps.html">Catalog</a>
+                <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest" href="portfolio.html">Portfolio</a>
+                <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest" href="../about.html">About</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Header Section -->
     <header class="pt-32 pb-16 px-8 relative overflow-hidden">
@@ -105,14 +149,9 @@
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
                 Our <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-tertiary">Applications</span>
             </h1>
-            <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p class="text-on-surface-variant text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
                 A highly-curated collection of tools designed for precision, clarity, and digital focus.
             </p>
-            
-            <div class="flex justify-center gap-6 mb-8">
-                <a href="apps.html" class="text-primary font-bold text-sm uppercase tracking-widest border-b-2 border-primary pb-1">Catalog</a>
-                <a href="portfolio.html" class="text-on-surface-variant hover:text-primary transition-colors font-bold text-sm uppercase tracking-widest">Detailed Portfolio</a>
-            </div>
             
             <!-- Search Bar -->
             <div class="max-w-md mx-auto relative group">
@@ -129,16 +168,20 @@
             
             <!-- App Card: CashTrack -->
             <a href="cashtrack/cashtrack.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-[#0F172A] border border-[#FF8A6A]/10 hover:border-[#FF8A6A]/30 transition-all duration-500 h-full flex flex-col glow-shadow glass border-[#FF8A6A]/20 bg-[#FF8A6A]/5">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500 relative overflow-hidden">
+                <div class="app-tile p-8 hover:border-[#FF8A6A]/40 transition-all duration-300 h-full flex flex-col glow-shadow border-[#FF8A6A]/20 bg-[#FF8A6A]/5">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
                         <img src="cashtrack/logo.png" alt="CashTrack" class="w-full h-full object-cover">
                         <div class="absolute -top-2 -right-2 bg-[#FF8A6A] text-[#020617] text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-tighter">New</div>
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-[#FF8A6A] transition-colors">CashTrack</h3>
                         <p class="text-on-surface-variant leading-relaxed">AI-driven financial oversight leveraging the Spendr Framework for automated SMS synchronization.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Finance</span>
+                            <span class="app-chip">SMS Sync</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-[#FF8A6A] font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-[#FF8A6A] font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -146,16 +189,20 @@
             
             <!-- App Card: HabitTracker -->
             <a href="habittracker/index.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-[#070E1C] border border-[#14B8A6]/10 hover:border-[#14B8A6]/30 transition-all duration-500 h-full flex flex-col glow-shadow glass border-[#14B8A6]/20 bg-[#14B8A6]/5">
-                    <div class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500 relative overflow-hidden">
+                <div class="app-tile p-8 hover:border-[#14B8A6]/40 transition-all duration-300 h-full flex flex-col glow-shadow border-[#14B8A6]/20 bg-[#14B8A6]/5">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
                         <img src="habittracker/logo.png" alt="HabitTracker" class="w-full h-full object-cover">
                         <div class="absolute -top-2 -right-2 bg-[#14B8A6] text-[#020617] text-[10px] font-black px-2 py-1 rounded-full uppercase tracking-tighter">New</div>
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-[#14B8A6] transition-colors">HabitTracker</h3>
                         <p class="text-on-surface-variant leading-relaxed">Master your routine with precision. Intelligent streaks, visual progress, and absolute privacy.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Habits</span>
+                            <span class="app-chip">Private</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-[#14B8A6] font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-[#14B8A6] font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -163,15 +210,19 @@
             
             <!-- App Card 1: Living Gallery -->
             <a href="photo_widget/photo_widget.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#FF7043] to-[#D84315] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">🖼️</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="photo_widget/photo_widget_logo.png" alt="Living Gallery" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Living Gallery</h3>
                         <p class="text-on-surface-variant leading-relaxed">Dynamic photo widgets that transform your device into a cinematic digital canvas.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Widgets</span>
+                            <span class="app-chip">Photos</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -179,15 +230,19 @@
 
             <!-- App Card 2: Serene Interval -->
             <a href="serene_interval_countdown/serene_interval_countdown.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#4D626C] to-[#00BFA5] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">⌛</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="serene_interval_countdown/serene_logo.png" alt="Serene Interval" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Serene Interval</h3>
                         <p class="text-on-surface-variant leading-relaxed">Tranquil interval tracking and countdown widgets with a focus on mental clarity.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Timer</span>
+                            <span class="app-chip">Widgets</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -195,15 +250,19 @@
 
             <!-- App Card 3: Neural Boost -->
             <a href="neural_boost/neural_boost.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#00F5FF] to-[#00BFA5] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">🧠</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="neural_boost/neural_boost_logo.png" alt="Neural Boost" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Neural Boost</h3>
                         <p class="text-on-surface-variant leading-relaxed">AI-powered synchronization tools optimized for high-performance development.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">AI</span>
+                            <span class="app-chip">Performance</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -211,31 +270,39 @@
 
             <!-- App Card 4: FPS Meter -->
             <a href="fps_meter/fps_meter.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#0066FF] to-[#0033CC] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">📊</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="fps_meter/fps_meter_app_logo.png" alt="FPS Meter" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">FPS Meter</h3>
                         <p class="text-on-surface-variant leading-relaxed">Real-time performance monitoring and display for mobile gaming enthusiasts.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Gaming</span>
+                            <span class="app-chip">Monitor</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
             </a>
 
             <!-- App Card 5: Habit Flow -->
-            <a href="habit_tracker/habit_tracker.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#4A90E2] to-[#357ABD] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">📝</span>
+            <a href="habittracker/index.html" class="app-card group">
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="habit_tracker/habit_tracker_app_logo.png" alt="Habit Flow" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Habit Flow</h3>
                         <p class="text-on-surface-variant leading-relaxed">Build and maintain life-changing habits through simple, consistent tracking.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Habits</span>
+                            <span class="app-chip">Focus</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -243,15 +310,19 @@
 
             <!-- App Card 6: GPS Speedometer -->
             <a href="speedometer/speedometer.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#6750A4] to-[#7C5CCD] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">⚡</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="speedometer/gps_speedometer_app_logo.png" alt="GPS Speedometer" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">GPS Speedometer</h3>
                         <p class="text-on-surface-variant leading-relaxed">High-precision speed tracking with customizable analog and digital gauges.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">GPS</span>
+                            <span class="app-chip">Travel</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -259,15 +330,19 @@
 
             <!-- App Card 7: Expense Tracker -->
             <a href="expense_tracker/expense_tracker.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#22C55E] to-[#16A34A] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">💰</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="expense_tracker/expense_tracker_app_logo.png" alt="Expense Tracker" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Expense Tracker</h3>
                         <p class="text-on-surface-variant leading-relaxed">Sleek financial oversight to help you master your personal economy with ease.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Budget</span>
+                            <span class="app-chip">Money</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -275,15 +350,19 @@
 
             <!-- App Card 8: Todos & Notes -->
             <a href="todos_and_notes/todos_and_notes.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#F59E0B] to-[#D97706] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">🗒️</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo fallback-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <span class="material-symbols-outlined !text-4xl">edit_note</span>
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Todos & Notes</h3>
                         <p class="text-on-surface-variant leading-relaxed">Minimalist task management designed for focused thought and clear action.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Tasks</span>
+                            <span class="app-chip">Notes</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -291,15 +370,19 @@
 
             <!-- App Card 9: Shizuku FPS Meter -->
             <a href="shizuku_fps_meter/shizuku_fps_meter.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#6366F1] to-[#4F46E5] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">🔧</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="shizuku_fps_meter/shizuku_fps_meter_app_logo.png" alt="Shizuku FPS" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Shizuku FPS</h3>
                         <p class="text-on-surface-variant leading-relaxed">Advanced system performance monitoring powered by Shizuku integration.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Shizuku</span>
+                            <span class="app-chip">FPS</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
@@ -307,15 +390,19 @@
 
             <!-- App Card 10: Countdown Widget -->
             <a href="countdownwid/countdownwidget.html" class="app-card group">
-                <div class="p-8 rounded-[24px] bg-surface-container border border-outline-variant/10 hover:border-primary/30 transition-all duration-500 h-full flex flex-col glow-shadow glass">
-                    <div class="w-16 h-16 bg-gradient-to-br from-[#EC4899] to-[#DB2777] rounded-2xl flex items-center justify-center mb-8 shadow-lg group-hover:scale-110 transition-transform duration-500">
-                        <span class="text-3xl">⏳</span>
+                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
+                    <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+                        <img src="countdownwid/countdown_app_logo.png" alt="Countdown Widget" class="w-full h-full object-cover">
                     </div>
                     <div class="flex-grow">
                         <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Countdown Widget</h3>
                         <p class="text-on-surface-variant leading-relaxed">The essential tracker for your upcoming life events and milestones.</p>
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <span class="app-chip">Countdown</span>
+                            <span class="app-chip">Events</span>
+                        </div>
                     </div>
-                    <div class="mt-10 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-all transform translate-x-[-10px] group-hover:translate-x-0">
+                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
                         Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
                     </div>
                 </div>
