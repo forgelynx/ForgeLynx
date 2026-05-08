@@ -8,12 +8,36 @@
   <meta name="description"
     content="Experience your photos in a new way with Photo Widget: Living Gallery. Beautiful shapes, scheduled rotations, and a privacy-first local-only experience.">
   <meta property="og:title" content="Photo Widget: Living Gallery">
-  <meta property="og:description" content="Bring your home screen to life with dynamic photo widgets and custom shapes.">
+  <meta property="og:description"
+    content="Bring your home screen to life with dynamic photo widgets and custom shapes.">
   <meta property="og:image" content="photo_widget_logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+      n.queue = []; t = b.createElement(e); t.async = !0;
+      t.src = v; s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }(window, document, 'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1571117490654190');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1571117490654190&ev=PageView&noscript=1" /></noscript>
+  <!-- End Meta Pixel Code -->
+
   <style>
     :root {
       --accent-primary: #0061A6;
@@ -33,7 +57,10 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3, .display-font {
+    h1,
+    h2,
+    h3,
+    .display-font {
       font-family: 'Space Grotesk', sans-serif;
     }
 
@@ -111,30 +138,43 @@
     }
 
     .shape-preview-container {
-        display: flex;
-        gap: 1rem;
-        margin-top: 2rem;
-        flex-wrap: wrap;
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
     }
 
     .shape-item {
-        width: 60px;
-        height: 60px;
-        background: var(--accent-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.2rem;
-        color: white;
-        transition: transform 0.3s ease;
+      width: 60px;
+      height: 60px;
+      background: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: white;
+      transition: transform 0.3s ease;
     }
 
-    .shape-item:hover { transform: scale(1.1); }
+    .shape-item:hover {
+      transform: scale(1.1);
+    }
 
-    .shape-blob { border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%; }
-    .shape-star { clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); }
-    .shape-circle { border-radius: 50%; }
-    .shape-rect { border-radius: 16px; }
+    .shape-blob {
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+    }
+
+    .shape-star {
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .shape-circle {
+      border-radius: 50%;
+    }
+
+    .shape-rect {
+      border-radius: 16px;
+    }
 
     .stat-label {
       color: var(--text-dim);
@@ -185,6 +225,7 @@
       .bento-grid {
         grid-template-columns: 1fr 1fr;
       }
+
       .feature-large {
         grid-column: span 2;
       }
@@ -211,9 +252,12 @@
     <section class="app-header">
       <div class="container">
         <img src="photo_widget_logo.png" alt="Photo Widget Logo" class="app-logo-large fade-in">
-        <h1 class="fade-in" style="animation-delay: 0.1s; font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 0.5rem;">Living Gallery</h1>
+        <h1 class="fade-in"
+          style="animation-delay: 0.1s; font-size: 3.5rem; letter-spacing: -1px; margin-bottom: 0.5rem;">Living Gallery
+        </h1>
         <p class="fade-in"
-          style="animation-delay: 0.2s; font-size: 1.2rem; color: var(--text-dim); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">Breathe life into your home screen with dynamic photo widgets and artistic shapes.</p>
+          style="animation-delay: 0.2s; font-size: 1.2rem; color: var(--text-dim); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+          Breathe life into your home screen with dynamic photo widgets and artistic shapes.</p>
         <a href="https://play.google.com/store/apps/details?id=com.photo.widget" class="download-badge fade-in"
           style="animation-delay: 0.3s" target="_blank" rel="noopener noreferrer">
           <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
@@ -230,12 +274,13 @@
         <!-- Artistic Shapes -->
         <div class="glass-card feature-large">
           <h2 style="font-size: 2rem; margin-bottom: 1rem;">Artistic Geometry</h2>
-          <p style="color: var(--text-dim);">Escape the grid. Display your memories in unique shapes like Blobs, Stars, Circles, and more. Perfectly matched to Material You.</p>
+          <p style="color: var(--text-dim);">Escape the grid. Display your memories in unique shapes like Blobs, Stars,
+            Circles, and more. Perfectly matched to Material You.</p>
           <div class="shape-preview-container">
-              <div class="shape-item shape-blob"></div>
-              <div class="shape-item shape-star"></div>
-              <div class="shape-item shape-circle"></div>
-              <div class="shape-item shape-rect"></div>
+            <div class="shape-item shape-blob"></div>
+            <div class="shape-item shape-star"></div>
+            <div class="shape-item shape-circle"></div>
+            <div class="shape-item shape-rect"></div>
           </div>
         </div>
 
@@ -243,13 +288,15 @@
         <div class="glass-card">
           <div class="stat-label">Update Core</div>
           <div class="stat-value">Precise</div>
-          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">Uses exact alarms for millisecond-perfect photo rotations.</p>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">Uses exact alarms for
+            millisecond-perfect photo rotations.</p>
         </div>
 
         <div class="glass-card">
           <div class="stat-label">Privacy Status</div>
           <div class="stat-value">100% Local</div>
-          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">No servers, no tracking. Your photos never leave your device.</p>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">No servers, no tracking. Your photos
+            never leave your device.</p>
         </div>
 
         <div class="glass-card" style="grid-column: span 2;">
@@ -263,28 +310,39 @@
               <div class="stat-value">Dynamic</div>
             </div>
           </div>
-          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem;">Supports Material You dynamic coloring for a seamless OS experience.</p>
+          <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 0.5rem;">Supports Material You dynamic
+            coloring for a seamless OS experience.</p>
         </div>
       </div>
 
       <div class="glass-card fade-in" style="margin-bottom: 4rem; padding: 3rem;">
         <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; letter-spacing: -1px;">Your Living Gallery</h2>
         <p style="color: var(--text-dim); margin-bottom: 1.5rem; font-size: 1.1rem; line-height: 1.8;">
-          Why settle for one photo? Create a schedule and watch your home screen evolve throughout the day. Whether it's a "Daily Muse" or a "Summer Memories" reel, Living Gallery keeps your inspiration fresh.
+          Why settle for one photo? Create a schedule and watch your home screen evolve throughout the day. Whether it's
+          a "Daily Muse" or a "Summer Memories" reel, Living Gallery keeps your inspiration fresh.
         </p>
         <div style="display: flex; gap: 2rem; flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <span style="font-weight: 600;">Smart Rotation</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <span style="font-weight: 600;">Shape Editor</span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 0.8rem;">
-                <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
-                <span style="font-weight: 600;">Battery Friendly</span>
-            </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <span style="font-weight: 600;">Smart Rotation</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <span style="font-weight: 600;">Shape Editor</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 0.8rem;">
+            <svg width="24" height="24" fill="var(--accent-primary)" viewBox="0 0 24 24">
+              <path
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+            </svg>
+            <span style="font-weight: 600;">Battery Friendly</span>
+          </div>
         </div>
       </div>
 
@@ -293,30 +351,40 @@
         <div class="glass-card fade-in">
           <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🖼️</div>
           <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Multi-Widget Support</h3>
-          <p style="color: var(--text-dim); line-height: 1.6;">Create as many widgets as you want, each with its own theme and schedule.</p>
+          <p style="color: var(--text-dim); line-height: 1.6;">Create as many widgets as you want, each with its own
+            theme and schedule.</p>
         </div>
         <div class="glass-card fade-in" style="animation-delay: 0.1s">
           <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">✨</div>
           <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Artistic Presets</h3>
-          <p style="color: var(--text-dim); line-height: 1.6;">Dozens of handcrafted shapes and border styles to match any wallpaper.</p>
+          <p style="color: var(--text-dim); line-height: 1.6;">Dozens of handcrafted shapes and border styles to match
+            any wallpaper.</p>
         </div>
         <div class="glass-card fade-in" style="animation-delay: 0.2s">
           <div style="font-size: 2.5rem; margin-bottom: 1.5rem;">🔒</div>
           <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Deep Privacy</h3>
-          <p style="color: var(--text-dim); line-height: 1.6;">No internet permission required. All your photos remain entirely on your device.</p>
+          <p style="color: var(--text-dim); line-height: 1.6;">No internet permission required. All your photos remain
+            entirely on your device.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <footer style="margin-top: 8rem; padding: 4rem 0; border-top: 1px solid var(--glass-border); background: rgba(12, 12, 12, 0.8);">
+  <footer
+    style="margin-top: 8rem; padding: 4rem 0; border-top: 1px solid var(--glass-border); background: rgba(12, 12, 12, 0.8);">
     <div class="container" style="text-align: center;">
       <div style="margin-bottom: 3rem;">
-        <a href="pp.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Privacy Policy</a>
-        <a href="tc.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Terms of Service</a>
-        <a href="mailto:leanbytes0@gmail.com" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Support</a>
+        <a href="pp.html"
+          style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Privacy
+          Policy</a>
+        <a href="tc.html"
+          style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Terms
+          of Service</a>
+        <a href="mailto:leanbytes0@gmail.com"
+          style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem;">Support</a>
       </div>
-      <p style="color: var(--text-dim); font-size: 0.9rem; opacity: 0.6;">&copy; 2026 Lean Bytes. Crafting digital experiences.</p>
+      <p style="color: var(--text-dim); font-size: 0.9rem; opacity: 0.6;">&copy; 2026 Lean Bytes. Crafting digital
+        experiences.</p>
     </div>
   </footer>
 
