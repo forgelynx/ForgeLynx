@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turbo Boost | Pro Gaming Performance</title>
+    <meta name="description" content="Elevate your gaming experience with Turbo Boost. Real-time performance monitoring, AI-powered optimization, and seamless gameplay.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #FF3B30;
+            --accent-glow: rgba(255, 59, 48, 0.4);
+            --bg-base: #0A0A0B;
+            --bg-surface: #141416;
+            --text-main: #FFFFFF;
+            --text-dim: #94A3B8;
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* --- UI Elements --- */
+        .btn-primary {
+            background: var(--accent);
+            color: #FFF;
+            padding: 1rem 2.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 20px var(--accent-glow);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 35px var(--accent-glow);
+            filter: brightness(1.1);
+        }
+
+        /* --- Header / Hero --- */
+        .hero {
+            position: relative;
+            padding: 8rem 0 6rem;
+            text-align: center;
+            background: radial-gradient(circle at top center, rgba(255, 59, 48, 0.08) 0%, transparent 70%);
+        }
+
+        .hero-logo {
+            width: 140px;
+            height: 140px;
+            margin-bottom: 2.5rem;
+            filter: drop-shadow(0 0 25px var(--accent-glow));
+            border-radius: 32px;
+            border: 2px solid var(--accent);
+            padding: 10px;
+            background: var(--bg-surface);
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            background: linear-gradient(180deg, #FFF 0%, rgba(255,255,255,0.7) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-dim);
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* --- Stats/Metrics --- */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 6rem;
+        }
+
+        .stat-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 28px;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            border-color: var(--accent);
+        }
+
+        .stat-value {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-dim);
+        }
+
+        /* --- Features --- */
+        .features {
+            padding-bottom: 8rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .feature-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 3rem;
+            border-radius: 36px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 59, 48, 0.04);
+            border-color: var(--accent);
+            transform: translateY(-12px);
+        }
+
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 59, 48, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 2.5rem;
+            box-shadow: inset 0 0 10px rgba(255, 59, 48, 0.1);
+        }
+
+        .feature-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* --- Footer --- */
+        footer {
+            border-top: 1px solid var(--glass-border);
+            padding: 6rem 0 4rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 3rem;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin: 0 1.8rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .copyright {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            opacity: 0.5;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- Animations --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Scanline Effect --- */
+        .scanline {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            position: fixed;
+            top: 0;
+            left: 0;
+            opacity: 0.2;
+            z-index: 999;
+            pointer-events: none;
+            animation: scan 8s linear infinite;
+        }
+
+        @keyframes scan {
+            0% { top: -10%; }
+            100% { top: 110%; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="scanline"></div>
+
+    <div style="position: absolute; top: 35px; left: 35px; z-index: 100;">
+        <a href="../../index.html" style="color: #FFF; text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 0.6rem; opacity: 0.6; transition: all 0.3s; font-size: 0.95rem;">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
+            BACK
+        </a>
+    </div>
+
+    <header class="hero">
+        <div class="container">
+            <img src="app_logo.webp" alt="Turbo Boost Logo" class="hero-logo">
+            <h1 class="reveal">TURBO BOOST</h1>
+            <p class="reveal">Next-generation gaming optimization for Android. Eliminate latency, stabilize frame rates, and unleash your device's true potential.</p>
+            <div class="reveal">
+                <a href="https://play.google.com/store/apps/details?id=com.neural.boost.pro" class="btn-primary">
+                    Download for Android
+                    <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24" style="margin-left: 8px;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="stats-grid">
+            <div class="stat-card reveal">
+                <div class="stat-value" id="val-fps">120</div>
+                <div class="stat-label">Frame Rate (FPS)</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-value" id="val-ping">14</div>
+                <div class="stat-label">Network Ping (ms)</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-value">Peak</div>
+                <div class="stat-label">Performance</div>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-value">Stable</div>
+                <div class="stat-label">Device Temp</div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="section-title">
+                <h2 class="reveal">Performance Redefined</h2>
+                <p class="reveal" style="color: var(--text-dim);">Engineered for competitive mobile gaming.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🏎️</div>
+                    <h3>Turbo Engine</h3>
+                    <p>Aggressive resource allocation. Our engine dynamically prioritizes active games, suppressing background task interference for a frictionless experience.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Precision HUD</h3>
+                    <p>Live telemetry at a glance. Floating, high-contrast overlays provide critical FPS, RAM, and Latency data without obscuring your field of vision.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Turbo AI</h3>
+                    <p>Intelligent gaming assistance powered by Google Gemini. Get instantaneous walkthroughs, meta strategies, and technical fixes mid-game.</p>
+                </div>
+                <div class="feature-card reveal">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Focus Mode</h3>
+                    <p>Eliminate distractions. Intelligent notification filtering blocks intrusive alerts while maintaining critical system connectivity.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="pp.html">Privacy Policy</a>
+                <a href="pp.html#terms">Terms of Service</a>
+                <a href="mailto:leanbytes0@gmail.com">Support Node</a>
+            </div>
+            <p class="copyright">&copy; 2026 Lean Bytes Labs. Turbo Boost is a professional utility for performance management.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal Logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Simulated Metrics
+        setInterval(() => {
+            const fps = document.getElementById('val-fps');
+            const ping = document.getElementById('val-ping');
+            if (fps) fps.innerText = Math.floor(118 + Math.random() * 7);
+            if (ping) ping.innerText = Math.floor(11 + Math.random() * 5);
+        }, 1200);
+    </script>
+</body>
+
+</html>
