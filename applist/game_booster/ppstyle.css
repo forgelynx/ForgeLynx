@@ -1,0 +1,223 @@
+/* CSS RESET =========== */
+@import url("https://fonts.googleapis.com/css2?family=Gabarito&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Gabarito", sans-serif; /* let's use sth better */
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select,
+optgroup {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* overflow-wrap: break-word; */
+  text-wrap: balance; /* new props */
+}
+p {
+  line-height: 1.6;
+  color: rgb(198, 198, 198);
+  font-size: 15px;
+}
+.bold {
+  font-weight: bold;
+  color: rgb(213, 213, 213);
+}
+button,
+select {
+  text-transform: none;
+}
+::selection {
+  color: black;
+  background-color: rgb(173, 249, 231);
+}
+
+body {
+  background-color: #000213;
+  color: rgba(255, 255, 255, 0.9);
+  /* font-family: Ariel, sans-serif; */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 20px 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+
+  transition-duration: 0.2s;
+}
+
+.logo {
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0.95;
+  margin-bottom: 20px;
+}
+
+.logo span {
+  color: cyan;
+}
+
+.menu a {
+  color: rgb(48, 228, 228);
+  font-size: 1.2rem;
+  text-decoration: none;
+  margin: 0 15px;
+  opacity: 0.95;
+  transition: opacity 0.3s ease;
+}
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.menu a:hover {
+  opacity: 1;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 3px 0;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2,
+h3 {
+  opacity: 0.95;
+}
+h2 {
+  color: rgb(0, 208, 208);
+  font-size: 1.7rem;
+}
+h3 {
+    color: black;
+  font-size: 1.4rem;
+  margin: 30px 0 -5px 0;
+  
+}
+.innera {
+  color: rgb(0, 213, 213);
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.05);
+  text-align: center;
+  padding: 20px 0 50px 0;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: rgb(48, 228, 228);
+  text-decoration: none;
+  opacity: 0.95;
+  font-size: 1.2rem;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 1098.98px) {
+  /* here */
+  /* CSS: menu-icon */
+
+  .menu {
+    width: 100%;
+  }
+  .menu-icon {
+    margin: auto;
+    width: 35px;
+    aspect-ratio: 1;
+    position: relative;
+    transition-duration: 0.2s;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .menu-icon span {
+    display: block;
+    width: 80%;
+    height: 3px;
+    background-color: cyan;
+    border-radius: 1rem;
+  }
+
+  .menu-icon + .menu-items {
+    height: 0;
+    opacity: 0;
+  }
+
+  .menu-icon.clicked + .menu-items {
+    opacity: 1;
+    width: 70%;
+    margin: auto;
+    max-width: 300px;
+    height: 250px;
+    transition-duration: 0.2s;
+
+    display: flex;
+    flex-flow: column;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 1000px) {
+  .footer-links {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 600px) {
+  footer {
+    padding: 20px 0 30px 0;
+  }
+}
