@@ -4,10 +4,21 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Shizuku Game Booster — Support</title>
+    <title>Shizuku Game Booster — Support & Policies</title>
     <link rel="icon" href="shizuku_game_booster_app_logo.png" type="image/png">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #0f0f11;
+            --surface-color: rgba(30, 30, 34, 0.6);
+            --surface-border: rgba(255, 255, 255, 0.08);
+            --primary-accent: #8A2BE2; /* Purple/Blue accent */
+            --primary-glow: rgba(138, 43, 226, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0ab;
+            --text-muted: #6e6e77;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -15,190 +26,290 @@
         }
 
         body {
-            font-family: 'Roboto', system-ui, -apple-system, sans-serif;
-            background: #121212;
-            color: #E6E1E5;
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
             line-height: 1.6;
-            background-image:
-                radial-gradient(600px 300px at 20% 30%, rgba(103, 80, 164, 0.18), transparent 55%),
-                radial-gradient(800px 400px at 80% 70%, rgba(122, 92, 205, 0.12), transparent 60%);
+            overflow-x: hidden;
+        }
+
+        /* Animated Background Gradients */
+        .bg-glow {
+            position: fixed;
+            width: 60vw;
+            height: 60vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 60%);
+            top: -20vw;
+            left: -20vw;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: pulse 8s infinite alternate;
+        }
+
+        .bg-glow-2 {
+            position: fixed;
+            width: 50vw;
+            height: 50vw;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(103, 80, 164, 0.2) 0%, transparent 60%);
+            bottom: -10vw;
+            right: -10vw;
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.5;
+            animation: pulse 10s infinite alternate-reverse;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+            100% { transform: scale(1.1) translate(20px, 20px); opacity: 0.6; }
         }
 
         header {
-            background: rgba(24, 24, 24, 0.75);
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        nav {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem 5%;
             display: flex;
             justify-content: center;
             align-items: center;
+            border-bottom: 1px solid var(--surface-border);
+            background: rgba(15, 15, 17, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
-            font-size: 26px;
+            font-size: 1.5rem;
             font-weight: 700;
-            color: #FFFFFF;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
+            background: linear-gradient(135deg, #fff, #b3b3b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
         }
 
         .container {
             max-width: 900px;
-            margin: 32px auto;
-            padding: 28px;
-            background: rgba(24, 24, 24, 0.6);
-            border-radius: 22px;
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            box-shadow: 0 16px 40px rgba(103, 80, 164, 0.25);
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .glass-panel {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 24px;
+            padding: 3rem;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            margin-bottom: 3rem;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(138, 43, 226, 0.3);
+            transform: translateY(-2px);
         }
 
         h2 {
-            color: #FFFFFF;
-            font-size: 30px;
-            margin-bottom: 16px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            padding-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 32px;
+            background: var(--primary-accent);
+            border-radius: 4px;
         }
 
         h3 {
-            color: #CBBEFF;
-            font-size: 22px;
-            margin: 24px 0 12px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #e0e0e0;
+            margin: 2rem 0 1rem;
         }
 
-        p {
-            margin-bottom: 14px;
-            color: #CAC4D0;
+        p, ul {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
         }
 
-        .innera {
-            color: #CBBEFF;
+        ul {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--primary-accent);
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
-        section {
-            margin-bottom: 52px;
+        a:hover {
+            color: #a966ff;
+            text-decoration: underline;
+        }
+
+        strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .meta-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--surface-border);
+            margin-top: 4rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .glass-panel {
+                padding: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
-    <meta name="description"
-        content="Privacy Policy and Terms for Shizuku Game Booster. No data collection. Uses Shizuku service with user consent.">
+    <meta name="description" content="Privacy Policy and Terms for Shizuku Game Booster. Understand data handling, permissions, and service usage.">
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div class="logo"><span>Support for Shizuku Game Booster</span></div>
-        </nav>
-    </div>
+    <div class="bg-glow"></div>
+    <div class="bg-glow-2"></div>
 
-    <section id="privacy">
-        <div class="container">
-            <h2>Privacy Policy for Shizuku Game Booster</h2>
-            <p>Effective Date: January 15, 2026</p>
+    <header>
+        <a href="shizuku_game_booster.html" class="logo">
+            <img src="shizuku_game_booster_app_logo.png" alt="Logo" width="32" height="32" style="border-radius: 8px;">
+            Shizuku Game Booster Support
+        </a>
+    </header>
+
+    <div class="container">
+        <section id="privacy" class="glass-panel">
+            <h2>Privacy Policy</h2>
+            <div class="meta-text">Effective Date: January 15, 2026</div>
+            
             <h3>Introduction</h3>
             <p>
-                Privacy policy for the <strong>Shizuku Game Booster</strong> app developed by <strong>Bytes
-                    Developer</strong>.
-                This policy explains how we handle your data. Shizuku Game Booster does not collect, store, or share any
-                personal data.
+                This Privacy Policy explains how <strong>Bytes Developer</strong> handles your data when you use the <strong>Shizuku Game Booster</strong> app. We are committed to minimizing data collection and ensuring your privacy.
             </p>
-            <h3>Data Collection</h3>
+
+            <h3>Data Collection & Advertising</h3>
             <p>
-                The app does not require sign-up and does not collect personal information such as names, emails, device
-                identifiers,
-                or usage analytics. No telemetry or tracking is implemented.
+                Shizuku Game Booster does not require sign-up and does not collect personal information such as names, emails, or direct device identifiers for our own servers. However, the app is <strong>ad-supported</strong> and uses third-party advertising networks (like Google AdMob). These networks may collect anonymous usage data and unique advertising identifiers to serve relevant ads.
             </p>
-            <h3>Shizuku Service</h3>
+
+            <h3>Permissions & System Access</h3>
             <p>
-                The app uses the <strong>Shizuku</strong> service, with your consent, to access certain system-level
-                APIs necessary for performance optimization and enabling Do Not Disturb mode.
-                You control whether Shizuku is running and whether the app is permitted to use it.
+                To provide advanced configuration options, the app requires specific permissions:
             </p>
+            <ul>
+                <li><strong>Shizuku Service Access:</strong> Used to access hidden system APIs for toggling Do Not Disturb (DND), adjusting refresh rates, applying DNS profiles, scaling resolution, and forcing MSAA without requiring root access.</li>
+                <li><strong>Usage Access (PACKAGE_USAGE_STATS):</strong> Used to detect when a game is launched or closed so the app can automatically apply or remove your gaming optimizations.</li>
+                <li><strong>Overlay / System Alert Window:</strong> Used to display the real-time performance and FPS overlay over your active games.</li>
+                <li><strong>Background App Control:</strong> Used to manage background tasks and ensure a clean device state before starting a game.</li>
+                <li><strong>Internet Access:</strong> Required to apply custom DNS configurations and to load advertisements.</li>
+            </ul>
+
+            <h3>Data Security</h3>
+            <p>
+                Any optimizations made via Shizuku are executed locally on your device. We do not transmit your system settings, app usage statistics, or gaming preferences to any external servers.
+            </p>
+
             <h3>Children's Privacy</h3>
             <p>
-                Shizuku Game Booster is not intended for use by children under the age of 13. We do not knowingly
-                collect personal information from children.
+                Shizuku Game Booster is not intended for use by children under the age of 13. We do not knowingly collect personal information from children.
             </p>
-            <h3>Changes to This Privacy Policy</h3>
-            <p>
-                We may update this policy to reflect app improvements or legal requirements. Updates will be posted on
-                this page.
-            </p>
-            <h3>Contact Us</h3>
-            <p>
-                For questions about this Privacy Policy or the app, contact us at
-                <a class="innera" href="mailto:leanbytes@gmail.com">leanbytes@gmail.com</a>.
-            </p>
-        </div>
-    </section>
 
-    <section id="terms">
-        <div class="container">
-            <h2>Terms and Conditions for Shizuku Game Booster</h2>
-            <p>Effective Date: January 15, 2026</p>
+            <h3>Changes to This Policy</h3>
+            <p>
+                We may update this policy to reflect changes in our app's capabilities or legal requirements. Continued use of the app after changes are posted indicates your acceptance.
+            </p>
+        </section>
+
+        <section id="terms" class="glass-panel">
+            <h2>Terms and Conditions</h2>
+            <div class="meta-text">Effective Date: January 15, 2026</div>
+
             <h3>Acceptance of Terms</h3>
             <p>
-                By downloading and using Shizuku Game Booster, you agree to these Terms and Conditions. If you do not
-                agree, please discontinue use of the app.
+                By downloading and using Shizuku Game Booster, you agree to these Terms and Conditions. If you do not agree, please uninstall the app.
             </p>
-            <h3>Usage of the App</h3>
+
+            <h3>Usage & Restrictions</h3>
             <p>
-                1. No account required: The app is usable without registration.
-                <br /><br />
-                2. Permitted usage: Personal, non-commercial use in compliance with applicable laws.
-                <br /><br />
-                3. Prohibited activities: Do not attempt to reverse engineer, decompile, or misuse the app; do not
-                violate any applicable laws or third-party terms.
+                1. <strong>Permitted Usage:</strong> The app is intended for personal, non-commercial use to optimize local device performance.
+                <br><br>
+                2. <strong>Prohibited Activities:</strong> You may not reverse engineer, decompile, or otherwise modify the app. You must not use the app's system-level access to bypass operating system security or disrupt device operations.
             </p>
-            <h3>Permissions</h3>
+
+            <h3>Shizuku Integration</h3>
             <p>
-                Shizuku Game Booster requires certain permissions to function properly:
-                <br /><br />
-                1. Shizuku service access: When enabled by you, the app uses Shizuku to access system-level APIs
-                necessary for optimization.
-                <br /><br />
-                2. Do Not Disturb Access: Required to enable DND mode for gaming sessions.
+                Shizuku Game Booster relies on the Shizuku service, which must be set up independently by the user via ADB or root. We are not responsible for the stability of the Shizuku environment or any system instability caused by aggressive optimization settings (such as extreme resolution scaling or forced MSAA) chosen by the user.
             </p>
+
             <h3>Intellectual Property</h3>
             <p>
-                All content and materials in Shizuku Game Booster, including text, graphics, and software, are the
-                property of Bytes Developer or its licensors. Do not reproduce, distribute, or create derivative works
-                without permission.
+                All content, branding, and software within Shizuku Game Booster are the property of Bytes Developer. Unauthorized reproduction or distribution is strictly prohibited.
             </p>
+
             <h3>Liabilities and Disclaimers</h3>
             <p>
-                1. No warranty: The app is provided "as-is" without warranties of any kind.
-                <br /><br />
-                2. Limitation of liability: Bytes Developer is not liable for damages arising from use or inability to
-                use the app.
+                1. <strong>No Warranty:</strong> The app is provided "as-is". We do not guarantee that the app will increase performance on all devices or that it is compatible with all games.
+                <br><br>
+                2. <strong>Limitation of Liability:</strong> Bytes Developer is not liable for device overheating, system crashes, or data loss resulting from the use of aggressive performance tweaks.
             </p>
-            <h3>Pricing and Changes</h3>
+
+            <h3>Contact Us</h3>
             <p>
-                Pricing and available features may change. Any changes will be reflected on the distribution listing
-                (e.g., Play Store). Continued use after changes indicates acceptance of the updated terms.
+                If you have any questions regarding these terms or the privacy policy, please contact us at:
+                <a href="mailto:leanbytes@gmail.com">leanbytes@gmail.com</a>.
             </p>
-            <h3>Changes to These Terms</h3>
-            <p>
-                We may update these terms to reflect changes in the app or legal requirements. Updates will be posted on
-                this page.
-            </p>
-            <p>
-                For questions regarding these terms or Shizuku Game Booster, contact
-                <a class="innera" href="mailto:leanbytes@gmail.com">leanbytes@gmail.com</a>.
-            </p>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <footer>
-        <div class="container" style="display:flex;gap:18px;justify-content:center;">
-            <a href="#privacy" class="innera">Privacy Policy</a>
-            <a href="#terms" class="innera">Terms and Conditions</a>
-            <a href="mailto:leanbytes@gmail.com" class="innera">Contact Us</a>
+        <div class="footer-links">
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms and Conditions</a>
+            <a href="mailto:leanbytes@gmail.com">Contact Support</a>
         </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Bytes Developer. All rights reserved.</p>
     </footer>
 </body>
 
