@@ -8,9 +8,9 @@
     --text-secondary: #B8BCC8;
     --text-tertiary: #8B92A5;
 
-    --accent-primary: #4A90E2;
-    --accent-secondary: #6BB6FF;
-    --accent-gradient: linear-gradient(135deg, #4A90E2, #6BB6FF);
+    --accent-primary: #10b7a5;
+    --accent-secondary: #6af2de;
+    --accent-gradient: linear-gradient(135deg, #10b7a5, #6af2de);
 
     --border-color: rgba(255, 255, 255, 0.1);
     --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -18,7 +18,7 @@
     --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.4);
 
     /* Typography */
-    --font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 
     /* Spacing */
     --container-width: 1200px;
@@ -363,7 +363,7 @@ footer {
 
 @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-1 * (350px + 3rem) * 11)); }
+    100% { transform: translateX(calc(-1 * (350px + 3rem) * 12)); }
 }
 
 /* Ensure Carousel items are duplicated in HTML for infinite effect */
@@ -432,5 +432,67 @@ footer {
         padding: 1.5rem;
         border-radius: 18px;
         scroll-snap-align: start;
+    }
+}
+
+/* --- Responsive Subpage Back Navigation --- */
+.subpage-back-nav {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    z-index: 100;
+}
+
+.subpage-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-tertiary);
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    background: rgba(30, 41, 59, 0.7);
+    border-radius: 50px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.subpage-back-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--accent-primary);
+    background: rgba(30, 41, 59, 0.9);
+    transform: translateX(-4px);
+    box-shadow: 0 0 20px rgba(106, 242, 222, 0.15);
+}
+
+/* --- Scroll-driven Reveal Animations --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1s cubic-bezier(0.19, 1, 0.22, 1);
+    will-change: transform, opacity;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .subpage-back-nav {
+        position: static;
+        padding: 1.5rem 1rem 0;
+        margin-bottom: -4rem;
+        display: block;
+    }
+    
+    .subpage-back-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.75rem;
     }
 }

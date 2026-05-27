@@ -148,7 +148,7 @@
     <!-- Header Section -->
     <header class="pt-32 pb-16 px-8 relative overflow-hidden">
         <div class="absolute top-[-20%] left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
-        <div class="max-w-7xl mx-auto text-center relative z-10">
+        <div class="max-w-7xl mx-auto text-center relative z-10 reveal">
             <span class="label-md uppercase tracking-[0.3em] text-primary font-bold mb-6 block opacity-80">Ecosystem</span>
             <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-8 leading-[1.1]">
                 Our <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-tertiary">Applications</span>
@@ -163,6 +163,16 @@
                        class="w-full bg-surface-container/50 border border-outline-variant/15 rounded-2xl px-12 py-4 focus:ring-2 focus:ring-primary/30 focus:border-primary transition-all outline-none placeholder:text-on-surface-variant/40">
                 <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant/50 group-focus-within:text-primary transition-colors">search</span>
             </div>
+            
+            <!-- Category Filter Chips -->
+            <div class="flex flex-wrap justify-center gap-3 mt-8 max-w-2xl mx-auto" id="filterContainer">
+                <button class="filter-chip active px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-primary/20 bg-primary/10 text-primary transition-all hover:bg-primary/20" data-filter="all">All</button>
+                <button class="filter-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-outline-variant/20 bg-surface-container/30 text-on-surface-variant transition-all hover:bg-surface-container/50 hover:text-white" data-filter="gaming">Gaming</button>
+                <button class="filter-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-outline-variant/20 bg-surface-container/30 text-on-surface-variant transition-all hover:bg-surface-container/50 hover:text-white" data-filter="finance">Finance</button>
+                <button class="filter-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-outline-variant/20 bg-surface-container/30 text-on-surface-variant transition-all hover:bg-surface-container/50 hover:text-white" data-filter="widgets">Widgets</button>
+                <button class="filter-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-outline-variant/20 bg-surface-container/30 text-on-surface-variant transition-all hover:bg-surface-container/50 hover:text-white" data-filter="habits">Habits</button>
+                <button class="filter-chip px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider border border-outline-variant/20 bg-surface-container/30 text-on-surface-variant transition-all hover:bg-surface-container/50 hover:text-white" data-filter="utilities">Utilities</button>
+            </div>
         </div>
     </header>
 
@@ -171,7 +181,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="appContainer">
             
             <!-- App Card: CashTrack -->
-            <a href="cashtrack/cashtrack.html" class="app-card group">
+            <a href="cashtrack/cashtrack.html" class="app-card group reveal" data-categories="finance">
                 <div class="app-tile p-8 hover:border-[#FF8A6A]/40 transition-all duration-300 h-full flex flex-col glow-shadow border-[#FF8A6A]/20 bg-[#FF8A6A]/5">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
                         <img src="cashtrack/logo.png" alt="CashTrack" class="w-full h-full object-cover">
@@ -192,7 +202,7 @@
             </a>
             
             <!-- App Card: HabitTracker -->
-            <a href="habittracker/index.html" class="app-card group">
+            <a href="habittracker/index.html" class="app-card group reveal" data-categories="habits">
                 <div class="app-tile p-8 hover:border-[#14B8A6]/40 transition-all duration-300 h-full flex flex-col glow-shadow border-[#14B8A6]/20 bg-[#14B8A6]/5">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 relative overflow-hidden">
                         <img src="habittracker/logo.png" alt="HabitTracker" class="w-full h-full object-cover">
@@ -213,7 +223,7 @@
             </a>
             
             <!-- App Card 1: Living Gallery -->
-            <a href="photo_widget/photo_widget.html" class="app-card group">
+            <a href="photo_widget/photo_widget.html" class="app-card group reveal" data-categories="widgets">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="photo_widget/photo_widget_logo.png" alt="Living Gallery" class="w-full h-full object-cover">
@@ -233,7 +243,7 @@
             </a>
 
             <!-- App Card 2: Serene Interval -->
-            <a href="serene_interval_countdown/serene_interval_countdown.html" class="app-card group">
+            <a href="serene_interval_countdown/serene_interval_countdown.html" class="app-card group reveal" data-categories="widgets,utilities">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="serene_interval_countdown/serene_logo.png" alt="Serene Interval" class="w-full h-full object-cover">
@@ -253,7 +263,7 @@
             </a>
 
                         <!-- App Card 3: Game Turbo -->
-            <a href="game_turbo/game_turbo.html" class="app-card group">
+            <a href="game_turbo/game_turbo.html" class="app-card group reveal" data-categories="gaming">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow border-[#FF3B30]/20 bg-[#FF3B30]/5">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="game_turbo/game_turbo_logo.png" alt="Game Turbo" class="w-full h-full object-cover">
@@ -273,7 +283,7 @@
             </a>
 
             <!-- App Card 4: FPS Meter -->
-            <a href="fps_meter/fps_meter.html" class="app-card group">
+            <a href="fps_meter/fps_meter.html" class="app-card group reveal" data-categories="gaming">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="fps_meter/fps_meter_app_logo.png" alt="FPS Meter" class="w-full h-full object-cover">
@@ -293,7 +303,7 @@
             </a>
 
             <!-- App Card 5: Habit Flow -->
-            <a href="habittracker/index.html" class="app-card group">
+            <a href="habittracker/index.html" class="app-card group reveal" data-categories="habits">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="habit_tracker/habit_tracker_app_logo.png" alt="Habit Flow" class="w-full h-full object-cover">
@@ -313,7 +323,7 @@
             </a>
 
             <!-- App Card 6: GPS Speedometer -->
-            <a href="speedometer/speedometer.html" class="app-card group">
+            <a href="speedometer/speedometer.html" class="app-card group reveal" data-categories="utilities">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="speedometer/gps_speedometer_app_logo.png" alt="GPS Speedometer" class="w-full h-full object-cover">
@@ -333,7 +343,7 @@
             </a>
 
             <!-- App Card 7: Expense Tracker -->
-            <a href="expense_tracker/expense_tracker.html" class="app-card group">
+            <a href="expense_tracker/expense_tracker.html" class="app-card group reveal" data-categories="finance">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="expense_tracker/expense_tracker_app_logo.png" alt="Expense Tracker" class="w-full h-full object-cover">
@@ -352,28 +362,10 @@
                 </div>
             </a>
 
-            <!-- App Card 8: Todos & Notes -->
-            <a href="todos_and_notes/todos_and_notes.html" class="app-card group">
-                <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
-                    <div class="app-logo fallback-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300">
-                        <span class="material-symbols-outlined !text-4xl">edit_note</span>
-                    </div>
-                    <div class="flex-grow">
-                        <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-primary transition-colors">Todos & Notes</h3>
-                        <p class="text-on-surface-variant leading-relaxed">Minimalist task management designed for focused thought and clear action.</p>
-                        <div class="flex flex-wrap gap-2 mt-6">
-                            <span class="app-chip">Tasks</span>
-                            <span class="app-chip">Notes</span>
-                        </div>
-                    </div>
-                    <div class="app-action mt-8 flex items-center text-primary font-bold gap-2 text-sm uppercase tracking-widest">
-                        Launch App <span class="material-symbols-outlined !text-sm">arrow_forward</span>
-                    </div>
-                </div>
-            </a>
+
 
             <!-- App Card 9: Shizuku FPS Meter -->
-            <a href="shizuku_fps_meter/shizuku_fps_meter.html" class="app-card group">
+            <a href="shizuku_fps_meter/shizuku_fps_meter.html" class="app-card group reveal" data-categories="gaming,utilities">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="shizuku_fps_meter/shizuku_fps_meter_app_logo.png" alt="Shizuku FPS" class="w-full h-full object-cover">
@@ -393,7 +385,7 @@
             </a>
 
             <!-- App Card: Shizuku Game Booster -->
-            <a href="shizuku_booster/shizuku_booster.html" class="app-card group">
+            <a href="shizuku_booster/shizuku_booster.html" class="app-card group reveal" data-categories="gaming">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="shizuku_booster/shizuku_game_booster_app_logo.png" alt="Shizuku Game Booster" class="w-full h-full object-cover">
@@ -415,7 +407,7 @@
             
 
             <!-- App Card 10: Countdown Widget -->
-            <a href="countdownwid/countdownwidget.html" class="app-card group">
+            <a href="countdownwid/countdownwidget.html" class="app-card group reveal" data-categories="widgets,utilities">
                 <div class="app-tile p-8 hover:border-primary/30 transition-all duration-300 h-full flex flex-col glow-shadow">
                     <div class="app-logo w-16 h-16 rounded-2xl flex items-center justify-center mb-6 shadow-lg group-hover:scale-105 transition-transform duration-300 overflow-hidden">
                         <img src="countdownwid/countdown_app_logo.png" alt="Countdown Widget" class="w-full h-full object-cover">
@@ -446,22 +438,58 @@
     </footer>
 
     <script>
-        // Search functionality
+        // Search & Filter functionality
         const searchInput = document.getElementById('appSearch');
         const appCards = document.querySelectorAll('.app-card');
+        const filterChips = document.querySelectorAll('.filter-chip');
+        let currentFilter = 'all';
         
-        searchInput.addEventListener('input', (e) => {
-            const term = e.target.value.toLowerCase();
+        function updateGallery() {
+            const term = searchInput.value.toLowerCase();
             appCards.forEach(card => {
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
-                if (title.includes(term) || desc.includes(term)) {
+                const categoriesAttr = card.getAttribute('data-categories') || '';
+                const categories = categoriesAttr.split(',');
+                
+                const matchesSearch = title.includes(term) || desc.includes(term);
+                const matchesFilter = currentFilter === 'all' || categories.includes(currentFilter);
+                
+                if (matchesSearch && matchesFilter) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
             });
+        }
+        
+        searchInput.addEventListener('input', updateGallery);
+        
+        filterChips.forEach(chip => {
+            chip.addEventListener('click', (e) => {
+                filterChips.forEach(c => {
+                    c.classList.remove('active', 'border-primary/20', 'bg-primary/10', 'text-primary');
+                    c.classList.add('border-outline-variant/20', 'bg-surface-container/30', 'text-on-surface-variant');
+                });
+                
+                chip.classList.remove('border-outline-variant/20', 'bg-surface-container/30', 'text-on-surface-variant');
+                chip.classList.add('active', 'border-primary/20', 'bg-primary/10', 'text-primary');
+                
+                currentFilter = chip.getAttribute('data-filter');
+                updateGallery();
+            });
         });
+
+        // Reveal animations on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
 </body>
 </html>
