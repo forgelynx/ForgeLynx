@@ -158,9 +158,136 @@
     @media (max-width: 1024px) {
       .bento-grid { grid-template-columns: repeat(2, 1fr); }
     }
+
     @media (max-width: 768px) {
-      .bento-grid { grid-template-columns: 1fr; }
-      .feature-large { grid-column: span 1; }
+      .bento-grid {
+        grid-template-columns: 1fr;
+        margin: 2rem 0;
+        gap: 1rem;
+      }
+
+      .feature-large {
+        grid-column: span 1;
+        grid-row: span 1;
+        padding: 2rem !important;
+      }
+
+      .app-header {
+        padding: 4rem 0 2rem;
+      }
+
+      .app-logo-large {
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+        margin-bottom: 1.5rem;
+      }
+
+      .glass-card {
+        padding: 1.5rem;
+        border-radius: 18px;
+      }
+
+      /* Disable hover-lift on touch — it sticks and feels broken */
+      .glass-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .stat-value {
+        font-size: 1.5rem;
+      }
+
+      .download-badge {
+        padding: 1rem 1.8rem;
+        font-size: 0.85rem;
+      }
+
+      /* Collapse span-2 cards (Technical Compliance) */
+      .glass-card[style*="grid-column: span 2"] {
+        grid-column: span 1 !important;
+      }
+
+      /* Bottom CTA section overrides */
+      .bottom-cta {
+        padding: 2.5rem 1.5rem !important;
+        border-radius: 24px !important;
+        margin-bottom: 3rem !important;
+      }
+
+      .bottom-cta h2 {
+        font-size: 1.8rem !important;
+        letter-spacing: -1px !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      .bottom-cta .features-grid {
+        gap: 2rem !important;
+        margin-top: 1rem !important;
+      }
+
+      /* Feature-large heading */
+      .feature-large h2 {
+        font-size: 1.6rem !important;
+        letter-spacing: -1px !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .feature-large p {
+        font-size: 1rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+
+      /* Footer mobile layout */
+      .site-footer {
+        padding: 3rem 1.5rem !important;
+      }
+
+      .site-footer .footer-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 1rem !important;
+        margin-bottom: 2rem !important;
+      }
+
+      .site-footer .footer-links a {
+        margin: 0 !important;
+      }
+
+      /* Hero subtitle */
+      .hero-subtitle {
+        font-size: 1.05rem !important;
+        margin-bottom: 2rem !important;
+      }
+    }
+
+    /* Small phones (≤ 400px) */
+    @media (max-width: 400px) {
+      .app-header {
+        padding: 3rem 0 1.5rem;
+      }
+
+      .app-logo-large {
+        width: 80px;
+        height: 80px;
+      }
+
+      .download-badge {
+        padding: 0.9rem 1.4rem;
+        font-size: 0.8rem;
+        gap: 0.5rem;
+      }
+
+      .download-badge svg {
+        width: 18px;
+        height: 18px;
+      }
+
+      .permission-tag {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+      }
     }
 
     .app-title {
@@ -187,7 +314,7 @@
     <section class="app-header">
       <img src="logo.png" alt="Habit Flow Logo" class="app-logo-large">
       <h1 class="app-title">Habit Flow</h1>
-      <p style="font-size: 1.4rem; color: var(--text-dim); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+      <p class="hero-subtitle" style="font-size: 1.4rem; color: var(--text-dim); margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6;">
         Master your routine with precision. Intelligent streaks, visual progress, and absolute privacy—designed for those who build the future.
       </p>
       <a href="https://play.google.com/store/apps/details?id=com.leanbytes.habittracker" class="download-badge">
@@ -235,9 +362,9 @@
       </div>
     </section>
 
-    <section class="glass-card" style="margin-bottom: 6rem; padding: 5rem; text-align: center; border-radius: 40px;">
+    <section class="glass-card bottom-cta" style="margin-bottom: 6rem; padding: 5rem; text-align: center; border-radius: 40px;">
       <h2 style="font-size: 3.5rem; margin-bottom: 2.5rem; letter-spacing: -3px; font-weight: 800;">Habit Building Reimagined</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4rem; margin-top: 2rem;">
+      <div class="features-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4rem; margin-top: 2rem;">
         <div>
           <div style="font-size: 3.5rem; margin-bottom: 1.5rem;">🎯</div>
           <h4 style="font-weight: 800; margin-bottom: 0.8rem; font-size: 1.2rem;">Focused UI</h4>
@@ -257,8 +384,8 @@
     </section>
   </main>
 
-  <footer style="padding: 6rem 0; border-top: 1px solid var(--glass-border); background: #000000; text-align: center;">
-    <div style="margin-bottom: 3rem;">
+  <footer class="site-footer" style="padding: 6rem 0; border-top: 1px solid var(--glass-border); background: #000000; text-align: center;">
+    <div class="footer-links" style="margin-bottom: 3rem;">
         <a href="pp.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none;">Privacy Policy</a>
         <a href="tc.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none;">Terms of Service</a>
         <a href="mailto:leanbytes.in@gmail.com" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none;">Support</a>
