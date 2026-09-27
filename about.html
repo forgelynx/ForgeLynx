@@ -1,42 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Sohail | ForgeLynx</title>
+    <title>About Lean Bytes | Fast, Minimal &amp; Privacy-First Android Utilities</title>
+    <meta name="description"
+        content="Lean Bytes is an independent software studio engineering high-performance, lightweight, and privacy-conscious Android utilities and productivity apps.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Outfit:wght@300;400;600;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/svg+xml" href="assets/brand-logo.svg">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-primary": "#00594f",
+                        "background": "#070e1c",
+                        "surface-container": "#11192a",
+                        "surface-container-high": "#161f32",
+                        "surface-container-low": "#0b1323",
+                        "surface-bright": "#212c42",
+                        "on-surface": "#e2e8fc",
+                        "on-surface-variant": "#a4abbe",
+                        "primary": "#6af2de",
+                        "primary-container": "#10b7a5",
+                        "outline-variant": "#414858",
+                        "secondary": "#6ef9e2",
+                    },
+                    fontFamily: {
+                        headline: ["Outfit", "Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    }
+                },
+            },
+        }
+    </script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #070e1c;
+            color: #e2e8fc;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-headline {
+            font-family: 'Outfit', sans-serif;
         }
 
         .hero-gradient {
-            background: radial-gradient(circle at 0% 0%, rgba(106, 242, 222, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 100% 100%, rgba(74, 144, 226, 0.15) 0%, transparent 50%);
+            background: radial-gradient(circle at 10% 20%, rgba(106, 242, 222, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 90% 80%, rgba(74, 144, 226, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 50% 50%, rgba(16, 183, 165, 0.05) 0%, transparent 60%);
         }
 
         .glass-card {
-            background: rgba(15, 23, 42, 0.6);
-            backdrop-filter: blur(12px);
+            background: rgba(17, 25, 42, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            transition: all 0.3s ease;
+            border-radius: 20px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .glass-card:hover {
-            border-color: rgba(106, 242, 222, 0.3);
-            transform: translateY(-5px);
-            background: rgba(15, 23, 42, 0.8);
+            border-color: rgba(106, 242, 222, 0.35);
+            transform: translateY(-4px);
+            background: rgba(22, 31, 50, 0.85);
+            box-shadow: 0 16px 40px -12px rgba(10, 20, 35, 0.7), 0 0 24px rgba(106, 242, 222, 0.08);
         }
 
         .text-glow {
-            text-shadow: 0 0 20px rgba(106, 242, 222, 0.3);
+            text-shadow: 0 0 32px rgba(106, 242, 222, 0.3);
+        }
+
+        .pill-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
         }
 
         @media (max-width: 768px) {
@@ -54,239 +124,543 @@
             }
 
             section {
-                padding-left: 1rem !important;
-                padding-right: 1rem !important;
-            }
-
-            .glass-card {
-                padding: 1.5rem !important;
+                padding-left: 1.25rem !important;
+                padding-right: 1.25rem !important;
             }
         }
     </style>
 </head>
 
-<body class="bg-[#020617] text-[#f1f5f9] selection:bg-teal-500/30">
-    <nav class="fixed top-0 w-full z-50 bg-slate-950/40 backdrop-blur-md border-b border-slate-800/20">
-        <div class="flex justify-between items-center px-12 py-5 w-full">
+<body class="selection:bg-primary-container selection:text-on-primary-container min-h-screen flex flex-col">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/60 backdrop-blur-md border-b border-slate-800/30">
+        <div class="flex justify-between items-center px-12 py-5 w-full max-w-7xl mx-auto">
             <a href="index.html" class="flex items-center gap-3 group">
-              <img src="assets/brand-logo.svg" alt="Lean Bytes Logo" class="w-10 h-10 group-hover:scale-110 transition-transform duration-300">
-              <span class="text-2xl font-extrabold tracking-tighter text-slate-100 italic">Lean Bytes</span>
+                <img src="assets/brand-logo.svg" alt="Lean Bytes Logo"
+                    class="w-10 h-10 group-hover:scale-110 transition-transform duration-300">
+                <span class="text-2xl font-extrabold tracking-tighter text-slate-100 italic font-headline">Lean Bytes</span>
             </a>
             <div class="flex items-center md:space-x-10 space-x-4">
                 <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest"
                     href="applist/apps.html">Catalog</a>
                 <a class="text-slate-400 hover:text-teal-400 transition-colors font-medium text-sm uppercase tracking-widest"
                     href="applist/portfolio.html">Portfolio</a>
-                <a class="text-teal-400 font-bold text-sm uppercase tracking-widest border-b-2 border-teal-400/50 pb-1"
+                <a class="text-teal-400 font-bold text-sm uppercase tracking-widest border-b-2 border-teal-400/80 pb-1"
                     href="about.html">About</a>
             </div>
         </div>
     </nav>
 
-    <main class="pt-20">
+    <!-- Main Content -->
+    <main class="flex-grow pt-24">
         <!-- Hero Section -->
-        <section class="relative px-8 py-32 hero-gradient overflow-hidden">
+        <section class="relative px-8 pt-20 pb-28 hero-gradient overflow-hidden">
             <div class="max-w-5xl mx-auto relative z-10 text-center reveal">
                 <div
-                    class="inline-block px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-bold uppercase tracking-[0.2em] mb-8 animate-pulse">
-                    The Mind Behind Lean Bytes
+                    class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/25 text-teal-400 text-xs font-bold uppercase tracking-[0.2em] mb-8">
+                    <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                    Independent Software Studio
                 </div>
-                <h1 class="text-5xl md:text-8xl font-extrabold tracking-tight mb-10 leading-[0.9] text-glow">
-                    Bridging <br /><span
-                        class="text-transparent bg-clip-text bg-gradient-to-br from-[#6af2de] to-[#4a90e2]">Code &
-                        Soul</span>.
+                <h1
+                    class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tight mb-8 leading-[1.02] md:leading-[0.95] text-glow">
+                    Engineering <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-br from-[#6af2de] via-[#10b7a5] to-[#4a90e2]">
+                        High-Precision
+                    </span><br class="hidden md:inline" /> Android Utilities.
                 </h1>
-                <p class="text-xl md:text-2xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light italic">
-                    "Crafting digital tools shouldn't be about just shipping features. It's about creating moments of
-                    delight through exceptional engineering and intentional design."
+                <p class="text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light mb-12">
+                    Lean Bytes creates lightweight, micro-focused mobile applications that eliminate digital clutter, respect your device resources, and protect user privacy by design.
                 </p>
+                <div class="flex flex-wrap justify-center items-center gap-4">
+                    <a href="#what-we-do"
+                        class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-teal-400 to-[#10b7a5] text-slate-950 font-bold text-base shadow-[0_0_25px_rgba(106,242,222,0.35)] hover:shadow-[0_0_35px_rgba(106,242,222,0.5)] hover:scale-105 transition-all duration-300 inline-flex items-center gap-2">
+                        What We Do
+                        <span class="material-symbols-outlined text-lg">arrow_downward</span>
+                    </a>
+                    <a href="#contact"
+                        class="px-8 py-3.5 rounded-xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 hover:border-teal-400/40 text-slate-200 font-semibold text-base transition-all duration-300 inline-flex items-center gap-2">
+                        Contact &amp; Support
+                        <span class="material-symbols-outlined text-lg">mail</span>
+                    </a>
+                </div>
             </div>
         </section>
 
-        <!-- Content Grid -->
-        <section class="px-8 py-20">
-            <div class="max-w-6xl mx-auto space-y-20">
-
-                <!-- Journey & Philosophy -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <div class="glass-card p-12 space-y-6 reveal">
-                        <h2 class="text-3xl font-bold tracking-tight text-white mb-4">My Journey</h2>
-                        <p class="text-slate-400 leading-relaxed text-lg">
-                            My path as a solo developer began with a simple question: <span
-                                class="text-slate-200 font-medium italic">Why is modern software so noisy?</span> I
-                            decided to spend my time building the opposite.
-                        </p>
-                        <p class="text-slate-400 leading-relaxed text-lg">
-                            From the first line of code written in a late-night session to 10+ apps on the Play Store,
-                            my focus has remained constant: <strong class="text-slate-200">High-precision digital craft.</strong> I don't just 'make apps'—I
-                            build digital companions that respect your time and attention.
-                        </p>
+        <!-- Studio Highlights / Metrics -->
+        <section class="px-8 -mt-10 mb-20 relative z-20">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+                    <div class="glass-card p-7 text-center group border-teal-500/20 hover:border-teal-500/40 reveal">
+                        <div
+                            class="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(106,242,222,0.35)]">
+                            11+
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-bold">
+                            Published Apps
+                        </div>
                     </div>
-
-                    <div class="glass-card p-12 space-y-6 reveal">
-                        <h2 class="text-3xl font-bold tracking-tight text-white mb-4">The Philosophy</h2>
-                        <ul class="space-y-6">
-                            <li class="flex gap-4">
-                                <span
-                                    class="bg-teal-500/20 text-teal-400 w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold">1</span>
-                                <p class="text-slate-400 leading-snug"><strong class="text-slate-200">Lean by
-                                        Choice:</strong> Every feature must earn its place. If it doesn't add value, it
-                                    adds noise.</p>
-                            </li>
-                            <li class="flex gap-4">
-                                <span
-                                    class="bg-teal-500/20 text-teal-400 w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold">2</span>
-                                <p class="text-slate-400 leading-snug"><strong class="text-slate-200">Aesthetic
-                                        Precision:</strong> Design isn't just how it looks; it's how it feels when you
-                                    tap that button.</p>
-                            </li>
-                            <li class="flex gap-4">
-                                <span
-                                    class="bg-teal-500/20 text-teal-400 w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 font-bold">3</span>
-                                <p class="text-slate-400 leading-snug"><strong class="text-slate-200">Privacy
-                                        Focus:</strong> Your data belongs to you. We prioritize privacy by using minimal, 
-                                    essential SDKs only where necessary for app functionality.</p>
-                            </li>
-                        </ul>
+                    <div class="glass-card p-7 text-center group border-blue-500/20 hover:border-blue-500/40 reveal">
+                        <div
+                            class="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(74,144,226,0.35)]">
+                            100k+
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-bold">
+                            Global Downloads
+                        </div>
+                    </div>
+                    <div class="glass-card p-7 text-center group border-emerald-500/20 hover:border-emerald-500/40 reveal">
+                        <div
+                            class="text-4xl md:text-5xl font-black text-white mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(16,185,129,0.35)]">
+                            100%
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-bold">
+                            Indie &amp; Self-Funded
+                        </div>
+                    </div>
+                    <div class="glass-card p-7 text-center group border-purple-500/20 hover:border-purple-500/40 reveal">
+                        <div
+                            class="text-3xl md:text-4xl font-black text-white mb-2 tracking-tight drop-shadow-[0_0_15px_rgba(168,85,247,0.35)] flex items-center justify-center h-[52px]">
+                            Essential
+                        </div>
+                        <div class="text-[11px] uppercase tracking-[0.2em] text-slate-400 font-bold">
+                            SDKs Only (No Bloat)
+                        </div>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Vision/Current Focus -->
-                <div class="glass-card p-16 text-center reveal">
-                    <h2 class="text-4xl font-bold mb-8 tracking-tighter">The Vision for <span
-                            class="italic text-teal-400">Lean Bytes</span></h2>
-                    <p class="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed mb-12">
-                        I am currently focused on building a coherent ecosystem of productivity tools that work
-                        seamlessly together. From performance monitors like <span class="text-white font-bold">Shizuku
-                            FPS</span> to utility gems like <span class="text-white font-bold">Photo Widget</span>, the
-                        goal is to define a new standard for independent software.
+        <!-- What Lean Bytes Does Section -->
+        <section id="what-we-do" class="px-8 py-20 bg-slate-950/40 border-y border-slate-800/30">
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <span class="text-teal-400 font-bold text-xs uppercase tracking-[0.25em] block mb-3">Our Core Mission</span>
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+                        What Does <span class="text-teal-400 italic">Lean Bytes</span> Do?
+                    </h2>
+                    <p class="text-slate-400 text-lg leading-relaxed">
+                        At <strong class="text-slate-200">Lean Bytes</strong>, we build single-purpose, highly refined software products. Instead of bloated all-in-one suites filled with advertisements and background trackers, we craft specialized tools that do one job exceptionally well.
                     </p>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div class="glass-card p-8 text-center group border-teal-500/20 hover:border-teal-500/40 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-teal-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="relative z-10">
-                                <div class="text-5xl font-black text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(106,242,222,0.4)]">11+</div>
-                                <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-extrabold">Apps Published</div>
+                </div>
+
+                <!-- 3 Pillars of Applications -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Pillar 1: Performance & System Utilities -->
+                    <div class="glass-card p-8 flex flex-col justify-between reveal border-teal-500/20">
+                        <div class="space-y-5">
+                            <div class="w-14 h-14 rounded-2xl bg-teal-500/10 border border-teal-500/25 flex items-center justify-center text-teal-400 shadow-[0_0_20px_rgba(106,242,222,0.15)]">
+                                <span class="material-symbols-outlined text-3xl">speed</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight">System &amp; Gaming Optimization</h3>
+                            <p class="text-slate-400 leading-relaxed text-sm">
+                                Deep Android system monitors and gaming enhancers. We leverage modern Android APIs and Shizuku framework integration to provide real-time hardware telemetry, framerate tracking, and system stabilization without needing device root.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-800/60">
+                            <div class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-3">Featured Apps</div>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="applist/shizuku_fps_meter/shizuku_fps_meter.html"
+                                    class="pill-tag bg-teal-500/10 text-teal-300 border border-teal-500/20 hover:border-teal-400 transition-colors">
+                                    Shizuku FPS Meter
+                                </a>
+                                <a href="applist/game_turbo/game_turbo.html"
+                                    class="pill-tag bg-teal-500/10 text-teal-300 border border-teal-500/20 hover:border-teal-400 transition-colors">
+                                    Game Turbo
+                                </a>
+                                <a href="applist/shizuku_booster/shizuku_booster.html"
+                                    class="pill-tag bg-teal-500/10 text-teal-300 border border-teal-500/20 hover:border-teal-400 transition-colors">
+                                    Shizuku Booster
+                                </a>
                             </div>
                         </div>
-                        <div class="glass-card p-8 text-center group border-blue-500/20 hover:border-blue-500/40 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="relative z-10">
-                                <div class="text-5xl font-black text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(74,144,226,0.4)] text-[2.5rem] leading-tight flex items-center justify-center">Essential</div>
-                                <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-extrabold">SDKs Only</div>
+                    </div>
+
+                    <!-- Pillar 2: Focus & Habit Architecture -->
+                    <div class="glass-card p-8 flex flex-col justify-between reveal border-blue-500/20">
+                        <div class="space-y-5">
+                            <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/25 flex items-center justify-center text-blue-400 shadow-[0_0_20px_rgba(74,144,226,0.15)]">
+                                <span class="material-symbols-outlined text-3xl">timelapse</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight">Habit &amp; Focus Architecture</h3>
+                            <p class="text-slate-400 leading-relaxed text-sm">
+                                Visual productivity companions designed to cultivate consistency and mental clarity. From streak-based habit engines to interval meditation and focus timers, we help users regain control of their routines without cognitive noise.
+                            </p>
+                        </div>
+                        <div class="mt-8 pt-6 border-t border-slate-800/60">
+                            <div class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-3">Featured Apps</div>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="applist/habittracker/index.html"
+                                    class="pill-tag bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:border-blue-400 transition-colors">
+                                    HabitTracker
+                                </a>
+                                <a href="applist/serene_interval_countdown/serene_interval_countdown.html"
+                                    class="pill-tag bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:border-blue-400 transition-colors">
+                                    Serene Interval
+                                </a>
+                                <a href="applist/countdownwid/countdownwidget.html"
+                                    class="pill-tag bg-blue-500/10 text-blue-300 border border-blue-500/20 hover:border-blue-400 transition-colors">
+                                    Countdown Widget
+                                </a>
                             </div>
                         </div>
-                        <div class="glass-card p-8 text-center group border-purple-500/20 hover:border-purple-500/40 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="relative z-10">
-                                <div class="text-5xl font-black text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(168,85,247,0.4)]">100k+</div>
-                                <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-extrabold">Downloads</div>
+                    </div>
+
+                    <!-- Pillar 3: Everyday Mobile Utilities & Widgets -->
+                    <div class="glass-card p-8 flex flex-col justify-between reveal border-purple-500/20">
+                        <div class="space-y-5">
+                            <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/25 flex items-center justify-center text-purple-400 shadow-[0_0_20px_rgba(168,85,247,0.15)]">
+                                <span class="material-symbols-outlined text-3xl">widgets</span>
                             </div>
+                            <h3 class="text-2xl font-bold text-white tracking-tight">Everyday Utilities &amp; Widgets</h3>
+                            <p class="text-slate-400 leading-relaxed text-sm">
+                                Elegant, tactile Android widgets and micro-utilities that bring your device home screen to life. Includes cinematic photo frames, transparent offline expense tracking, GPS speedometers, and quick notes.
+                            </p>
                         </div>
-                        <div class="glass-card p-8 text-center group border-emerald-500/20 hover:border-emerald-500/40 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-gradient-to-br from-emerald-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <div class="relative z-10">
-                                <div class="text-5xl font-black text-white mb-2 tracking-tighter drop-shadow-[0_0_15px_rgba(16,185,129,0.4)]">100%</div>
-                                <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-extrabold">Independent</div>
+                        <div class="mt-8 pt-6 border-t border-slate-800/60">
+                            <div class="text-xs uppercase tracking-wider text-slate-500 font-bold mb-3">Featured Apps</div>
+                            <div class="flex flex-wrap gap-2">
+                                <a href="applist/photo_widget/photo_widget.html"
+                                    class="pill-tag bg-purple-500/10 text-purple-300 border border-purple-500/20 hover:border-purple-400 transition-colors">
+                                    Living Gallery
+                                </a>
+                                <a href="applist/cashtrack/cashtrack.html"
+                                    class="pill-tag bg-purple-500/10 text-purple-300 border border-purple-500/20 hover:border-purple-400 transition-colors">
+                                    CashTrack
+                                </a>
+                                <a href="applist/speedometer/speedometer.html"
+                                    class="pill-tag bg-purple-500/10 text-purple-300 border border-purple-500/20 hover:border-purple-400 transition-colors">
+                                    GPS Speedometer
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Connect -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 reveal">
-                    <div class="space-y-6">
-                        <h2 class="text-3xl font-bold tracking-tight">Let's Connect</h2>
-                        <p class="text-slate-400 text-lg leading-relaxed">
-                            I'm always open to talking about software design, Android development, or potential
-                            collaborations. Follow the journey as it unfolds.
-                        </p>
+                <!-- The "Lean" Engineering Principles -->
+                <div class="glass-card p-10 md:p-14 reveal">
+                    <div class="text-center max-w-2xl mx-auto mb-12">
+                        <span class="text-teal-400 font-bold text-xs uppercase tracking-[0.25em] block mb-2">Our Engineering Standard</span>
+                        <h3 class="text-3xl font-extrabold text-white">The Four Lean Principles</h3>
                     </div>
-                    <div class="grid grid-cols-1 gap-4">
-                        <a href="https://x.com/leanbytes0" target="_blank"
-                            class="flex items-center gap-6 p-6 rounded-3xl bg-[#1DA1F2]/10 border border-[#1DA1F2]/20 hover:bg-[#1DA1F2]/20 transition-all group">
-                            <div
-                                class="w-14 h-14 rounded-2xl bg-[#1DA1F2] flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(29,161,242,0.3)]">
-                                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold text-lg border border-teal-500/20">
+                                01
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Sub-MB Focus</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                We aggressively optimize binary size and avoid unnecessary library dependencies. Fast cold boots, tiny install sizes, and zero battery drain.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold text-lg border border-teal-500/20">
+                                02
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Privacy By Default</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Data remains stored on your local device. We never sell user data, implement predatory tracking SDKs, or harvest personal analytics.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold text-lg border border-teal-500/20">
+                                03
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Aesthetic Precision</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Thoughtfully designed interfaces built with modern Material Design principles, ergonomic dark modes, fluid micro-interactions, and haptic feedback.
+                            </p>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="w-10 h-10 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center font-bold text-lg border border-teal-500/20">
+                                04
+                            </div>
+                            <h4 class="text-xl font-bold text-white">Indie Craftsmanship</h4>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Every line of code, icon, and screen is created with direct artisan care. Direct communication with the engineer who actually built the tool.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Behind the Code / Founder Section -->
+        <section class="px-8 py-20">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-5 reveal">
+                        <div class="relative">
+                            <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-teal-500 to-blue-600 opacity-20 blur-xl"></div>
+                            <div class="relative glass-card p-10 text-center border-teal-500/30">
+                                <div class="w-28 h-28 mx-auto mb-6 rounded-full bg-gradient-to-tr from-teal-400 to-blue-500 p-1 flex items-center justify-center shadow-[0_0_30px_rgba(106,242,222,0.3)]">
+                                    <div class="w-full h-full rounded-full bg-slate-950 flex items-center justify-center">
+                                        <span class="text-4xl font-extrabold text-teal-400 font-headline">MS</span>
+                                    </div>
+                                </div>
+                                <h3 class="text-2xl font-bold text-white mb-1">Md Sohail</h3>
+                                <p class="text-teal-400 text-sm font-semibold tracking-wide uppercase mb-4">Founder &amp; Solo Engineer</p>
+                                <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                                    Crafting clean Android software from India. Obsessed with high framerates, memory efficiency, and intuitive interfaces.
+                                </p>
+                                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700/60 text-xs text-slate-300">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                    Active Development &amp; Support
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7 space-y-6 reveal">
+                        <span class="text-teal-400 font-bold text-xs uppercase tracking-[0.25em] block">The Story Behind The Studio</span>
+                        <h2 class="text-3xl md:text-4xl font-black text-white tracking-tight">
+                            "Why is modern software so noisy?"
+                        </h2>
+                        <p class="text-slate-300 text-lg leading-relaxed font-light">
+                            Lean Bytes was born out of frustration with everyday mobile applications. What once were lightweight utilities have turned into bloated subscription traps loaded with aggressive ads, unnecessary account registrations, and intrusive trackers.
+                        </p>
+                        <p class="text-slate-400 leading-relaxed text-base">
+                            I decided to build the exact opposite: tools that open in milliseconds, do their job without begging for your attention, respect your battery life, and treat your privacy as sacred. Every tool in the Lean Bytes portfolio is built to be a quiet digital companion that respects your time and device.
+                        </p>
+                        <div class="pt-4 flex flex-wrap gap-4">
+                            <a href="applist/apps.html"
+                                class="inline-flex items-center gap-2 text-teal-400 font-bold hover:text-teal-300 transition-colors">
+                                Explore published apps <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                            <span class="text-slate-600">•</span>
+                            <a href="applist/portfolio.html"
+                                class="inline-flex items-center gap-2 text-slate-400 font-bold hover:text-slate-300 transition-colors">
+                                Technical transparency report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Details & Outreach Section -->
+        <section id="contact" class="px-8 py-24 bg-gradient-to-b from-slate-950/60 to-[#070e1c] border-t border-slate-800/30">
+            <div class="max-w-6xl mx-auto space-y-16">
+                <div class="text-center max-w-3xl mx-auto reveal">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/25 text-teal-400 text-xs font-bold uppercase tracking-[0.2em] mb-4">
+                        <span class="material-symbols-outlined text-sm">contact_support</span>
+                        Direct Communication
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-6">
+                        Contact &amp; Connect With Us
+                    </h2>
+                    <p class="text-slate-400 text-lg leading-relaxed">
+                        Have a feature request, bug report, question about our apps, or a collaboration opportunity? Reach out directly—all communications go directly to the developer.
+                    </p>
+                </div>
+
+                <!-- Contact Channels Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Email Card -->
+                    <div class="glass-card p-8 flex flex-col justify-between reveal border-teal-500/30 relative overflow-hidden group">
+                        <div class="absolute -right-8 -top-8 w-28 h-28 bg-teal-500/10 rounded-full blur-2xl group-hover:bg-teal-500/20 transition-all"></div>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-teal-500/20 border border-teal-500/30 flex items-center justify-center text-teal-400 shadow-[0_0_15px_rgba(106,242,222,0.2)]">
+                                <span class="material-symbols-outlined text-2xl">mail</span>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase font-extrabold tracking-widest text-teal-400 block mb-1">Official Email</span>
+                                <h3 class="text-xl font-bold text-white break-all">leanbytes.in@gmail.com</h3>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Primary channel for general inquiries, technical support, bug reports, and business opportunities.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-slate-800/80 flex flex-col gap-2.5">
+                            <a href="mailto:leanbytes.in@gmail.com"
+                                class="w-full py-2.5 px-4 rounded-xl bg-teal-400 hover:bg-teal-300 text-slate-950 font-bold text-sm text-center transition-colors inline-flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-base">send</span>
+                                Send Email Now
+                            </a>
+                            <button onclick="copyEmail(this)"
+                                class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700/80 text-slate-200 font-semibold text-sm transition-colors inline-flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-base copy-icon">content_copy</span>
+                                <span class="copy-text">Copy Address</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Twitter / X Card -->
+                    <div class="glass-card p-8 flex flex-col justify-between reveal border-blue-500/20 relative overflow-hidden group">
+                        <div class="absolute -right-8 -top-8 w-28 h-28 bg-[#1DA1F2]/10 rounded-full blur-2xl group-hover:bg-[#1DA1F2]/20 transition-all"></div>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#1DA1F2]/20 border border-[#1DA1F2]/30 flex items-center justify-center text-[#1DA1F2] shadow-[0_0_15px_rgba(29,161,242,0.2)]">
+                                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
                                     <path
-                                        d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                                        d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Follow on X
-                                </div>
-                                <div class="text-xl font-bold text-white group-hover:text-[#1DA1F2] transition-colors">
-                                    @leanbytes0</div>
+                                <span class="text-xs uppercase font-extrabold tracking-widest text-[#1DA1F2] block mb-1">X / Twitter</span>
+                                <h3 class="text-xl font-bold text-white">@leanbytes0</h3>
                             </div>
-                        </a>
-                        <a href="https://instagram.com/leanbytes.in" target="_blank"
-                            class="flex items-center gap-6 p-6 rounded-3xl bg-[#E1306C]/10 border border-[#E1306C]/20 hover:bg-[#E1306C]/20 transition-all group">
-                            <div
-                                class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-[#FFDC80] via-[#E1306C] to-[#833AB4] flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(225,48,108,0.3)]">
-                                <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24">
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Follow for real-time development updates, build logs, app releases, and engineering discussions.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-slate-800/80">
+                            <a href="https://x.com/leanbytes0" target="_blank" rel="noopener noreferrer"
+                                class="w-full py-2.5 px-4 rounded-xl bg-[#1DA1F2]/20 hover:bg-[#1DA1F2]/30 border border-[#1DA1F2]/40 text-white font-bold text-sm text-center transition-all inline-flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-base">open_in_new</span>
+                                Follow @leanbytes0
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Card -->
+                    <div class="glass-card p-8 flex flex-col justify-between reveal border-pink-500/20 relative overflow-hidden group">
+                        <div class="absolute -right-8 -top-8 w-28 h-28 bg-[#E1306C]/10 rounded-full blur-2xl group-hover:bg-[#E1306C]/20 transition-all"></div>
+                        <div class="space-y-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#E1306C]/20 border border-[#E1306C]/30 flex items-center justify-center text-[#E1306C] shadow-[0_0_15px_rgba(225,48,108,0.2)]">
+                                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
                                     <path
                                         d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Catch up on
-                                    Instagram</div>
-                                <div class="text-xl font-bold text-white group-hover:text-[#E1306C] transition-colors">
-                                    leanbytes.in</div>
+                                <span class="text-xs uppercase font-extrabold tracking-widest text-[#E1306C] block mb-1">Instagram</span>
+                                <h3 class="text-xl font-bold text-white">leanbytes.in</h3>
                             </div>
-                        </a>
-                        <a href="mailto:leanbytes.in@gmail.com"
-                            class="flex items-center gap-6 p-6 rounded-3xl bg-teal-500/10 border border-teal-500/20 hover:bg-teal-500/20 transition-all group">
-                            <div
-                                class="w-14 h-14 rounded-2xl bg-teal-500 flex items-center justify-center text-white group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(106,242,222,0.3)]">
-                                <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.5"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Behind-the-scenes previews, product release announcements, and visual UI design showcases.
+                            </p>
+                        </div>
+                        <div class="mt-6 pt-5 border-t border-slate-800/80">
+                            <a href="https://instagram.com/leanbytes.in" target="_blank" rel="noopener noreferrer"
+                                class="w-full py-2.5 px-4 rounded-xl bg-[#E1306C]/20 hover:bg-[#E1306C]/30 border border-[#E1306C]/40 text-white font-bold text-sm text-center transition-all inline-flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-base">open_in_new</span>
+                                View Instagram
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Inquiry Composer -->
+                <div class="glass-card p-8 md:p-12 reveal border-teal-500/20 max-w-4xl mx-auto">
+                    <div class="text-center max-w-xl mx-auto mb-8">
+                        <h3 class="text-2xl font-bold text-white mb-2">Send a Quick Message</h3>
+                        <p class="text-slate-400 text-sm">
+                            Select your topic and compose a message below. Clicking send will open your default email app with everything pre-filled to <strong class="text-teal-400">leanbytes.in@gmail.com</strong>.
+                        </p>
+                    </div>
+                    <form id="contact-form" class="space-y-6" onsubmit="handleFormSubmit(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="sender-name" class="block text-xs uppercase tracking-wider font-bold text-slate-300 mb-2">Your Name</label>
+                                <input type="text" id="sender-name" placeholder="e.g. Alex Smith"
+                                    class="w-full bg-slate-900/80 border border-slate-700/80 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-400 transition-colors text-sm" />
                             </div>
                             <div>
-                                <div class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-1">Direct
-                                    Outreach</div>
-                                <div class="text-xl font-bold text-white group-hover:text-teal-400 transition-colors">
-                                    leanbytes.in@gmail.com</div>
+                                <label for="inquiry-type" class="block text-xs uppercase tracking-wider font-bold text-slate-300 mb-2">Subject / Topic</label>
+                                <select id="inquiry-type"
+                                    class="w-full bg-slate-900/80 border border-slate-700/80 rounded-xl px-4 py-3 text-slate-100 focus:outline-none focus:border-teal-400 transition-colors text-sm">
+                                    <option value="Feature Request">Feature Request / Suggestion</option>
+                                    <option value="Bug Report">Bug Report &amp; Technical Support</option>
+                                    <option value="General Inquiry">General Inquiry</option>
+                                    <option value="Collaboration">Collaboration / Business Opportunity</option>
+                                </select>
                             </div>
-                        </a>
-                    </div>
+                        </div>
+                        <div>
+                            <label for="message-body" class="block text-xs uppercase tracking-wider font-bold text-slate-300 mb-2">Message</label>
+                            <textarea id="message-body" rows="4" required
+                                placeholder="Describe your question, request, or issue (include app name and device model if applicable)..."
+                                class="w-full bg-slate-900/80 border border-slate-700/80 rounded-xl px-4 py-3 text-slate-100 placeholder-slate-500 focus:outline-none focus:border-teal-400 transition-colors text-sm"></textarea>
+                        </div>
+                        <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-2">
+                            <div class="flex items-center gap-2 text-xs text-slate-400">
+                                <span class="material-symbols-outlined text-teal-400 text-base">schedule</span>
+                                Typical reply within 24–48 hours
+                            </div>
+                            <button type="submit"
+                                class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-gradient-to-r from-teal-400 to-[#10b7a5] text-slate-950 font-bold text-sm shadow-[0_0_20px_rgba(106,242,222,0.3)] hover:scale-105 transition-all duration-300 inline-flex items-center justify-center gap-2">
+                                <span class="material-symbols-outlined text-base">outgoing_mail</span>
+                                Launch Email Draft
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-black/40 border-t border-slate-800/20 py-20 px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+    <!-- Footer -->
+    <footer class="bg-black/60 border-t border-slate-800/40 py-16 px-8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-8">
             <div>
-                <div class="flex items-center gap-2 mb-3">
-                  <img src="assets/brand-logo.svg" alt="Lean Bytes Logo" class="w-6 h-6">
-                  <div class="text-2xl font-black text-slate-100 italic">Lean Bytes</div>
+                <div class="flex items-center justify-center md:justify-start gap-2.5 mb-3">
+                    <img src="assets/brand-logo.svg" alt="Lean Bytes Logo" class="w-7 h-7">
+                    <div class="text-2xl font-black text-slate-100 italic font-headline">Lean Bytes</div>
                 </div>
-                <p class="text-slate-500 text-sm font-medium">© 2026 ForgeLynx Studios. <br class="md:hidden" />Crafted
-                    with precision by Sohail.</p>
+                <p class="text-slate-500 text-sm font-medium">
+                    © 2026 Lean Bytes. High-precision digital craft by Md Sohail.
+                </p>
             </div>
-            <div class="flex gap-12 text-xs uppercase font-bold tracking-[0.2em] mt-10 md:mt-0">
-                <a class="text-slate-500 hover:text-teal-400 transition-colors" href="index.html">Home</a>
-                <a class="text-slate-500 hover:text-teal-400 transition-colors" href="applist/apps.html">Catalog</a>
-                <a class="text-slate-500 hover:text-teal-400 transition-colors" href="applist/portfolio.html">Portfolio</a>
-                <a class="text-slate-500 hover:text-teal-400 transition-colors" href="#">Legal</a>
+            <div class="flex flex-wrap justify-center gap-8 text-xs uppercase font-bold tracking-[0.2em]">
+                <a class="text-slate-400 hover:text-teal-400 transition-colors" href="index.html">Home</a>
+                <a class="text-slate-400 hover:text-teal-400 transition-colors" href="applist/apps.html">Catalog</a>
+                <a class="text-slate-400 hover:text-teal-400 transition-colors" href="applist/portfolio.html">Portfolio</a>
+                <a class="text-teal-400 transition-colors" href="about.html">About</a>
+                <a class="text-slate-400 hover:text-teal-400 transition-colors" href="mailto:leanbytes.in@gmail.com">Contact</a>
             </div>
         </div>
     </footer>
+
+    <!-- Interactive Scripts -->
     <script>
-        // Reveal animations on scroll
+        // Scroll Reveal Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('active');
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Copy email helper
+        function copyEmail(button) {
+            const email = "leanbytes.in@gmail.com";
+            navigator.clipboard.writeText(email).then(() => {
+                const textSpan = button.querySelector('.copy-text');
+                const iconSpan = button.querySelector('.copy-icon');
+                const originalText = textSpan.textContent;
+                const originalIcon = iconSpan.textContent;
+
+                textSpan.textContent = "Copied!";
+                iconSpan.textContent = "check";
+                button.classList.add('bg-teal-500/20', 'text-teal-300');
+
+                setTimeout(() => {
+                    textSpan.textContent = originalText;
+                    iconSpan.textContent = originalIcon;
+                    button.classList.remove('bg-teal-500/20', 'text-teal-300');
+                }, 2500);
+            }).catch(err => {
+                window.location.href = "mailto:" + email;
+            });
+        }
+
+        // Quick message form handling
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('sender-name').value.trim();
+            const topic = document.getElementById('inquiry-type').value;
+            const message = document.getElementById('message-body').value.trim();
+
+            const subject = encodeURIComponent(`[Lean Bytes Inquiry] ${topic}${name ? ' from ' + name : ''}`);
+            let bodyText = message;
+            if (name) {
+                bodyText += `\n\n---\nSender: ${name}`;
+            }
+            const body = encodeURIComponent(bodyText);
+
+            window.location.href = `mailto:leanbytes.in@gmail.com?subject=${subject}&body=${body}`;
+        }
     </script>
 </body>
 
