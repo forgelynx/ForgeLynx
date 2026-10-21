@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unreel: Know Your Scroll. Reclaim Your Time. - App Details</title>
+  <meta name="description"
+    content="Unreel is a high-performance cross-platform application (Kotlin Multiplatform + Jetpack Compose / SwiftUI) that tracks and limits short-video scrolling with 100% on-device privacy.">
+  <link rel="icon" href="logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Space+Grotesk:wght@300;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <style>
+    :root {
+      /* Design Tokens from Unreel Architecture (Theme.kt / UnreelTheme.swift) */
+      --accent-primary: #6366F1;
+      --accent-secondary: #06B6D4;
+      --accent-emerald: #10B981;
+      --accent-dim: rgba(99, 102, 241, 0.2);
+      --bg-deep: #0A0A0C;
+      --bg-surface: #11192A;
+      --bg-card-dark: #070E1C;
+      --glass-bg: rgba(17, 25, 42, 0.75);
+      --glass-border: rgba(99, 102, 241, 0.25);
+      --text-on-surface: #F8FAFC;
+      --text-dim: #94A3B8;
+    }
+
+    body {
+      background-color: var(--bg-deep);
+      color: var(--text-on-surface);
+      font-family: 'Manrope', sans-serif;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .display-font {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .ambient-glow-1 {
+      position: fixed;
+      top: -250px;
+      left: -250px;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .ambient-glow-2 {
+      position: fixed;
+      bottom: -250px;
+      right: -250px;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .app-header {
+      text-align: center;
+      padding: 8rem 0 4rem;
+      position: relative;
+    }
+
+    .app-logo-large {
+      width: 140px;
+      height: 140px;
+      border-radius: 28px;
+      box-shadow: 0 20px 45px rgba(99, 102, 241, 0.35);
+      margin-bottom: 2rem;
+      border: 1px solid var(--glass-border);
+      object-fit: cover;
+    }
+
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin: 4rem 0;
+    }
+
+    .feature-large {
+      grid-column: span 2;
+      grid-row: span 2;
+      padding: 3.5rem;
+      background: linear-gradient(135deg, var(--bg-card-dark), var(--bg-deep), #10162A);
+    }
+
+    .stat-label {
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-value {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-primary);
+      letter-spacing: -1px;
+    }
+
+    .stat-value-cyan {
+      color: var(--accent-secondary);
+    }
+
+    .stat-value-emerald {
+      color: var(--accent-emerald);
+    }
+
+    .download-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: #FFFFFF;
+      padding: 1.1rem 2.4rem;
+      border-radius: 50px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+      text-decoration: none;
+    }
+
+    .download-badge:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 15px 35px rgba(99, 102, 241, 0.5);
+      color: #FFFFFF;
+    }
+
+    .permission-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1.1rem;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      border-radius: 14px;
+      font-size: 0.82rem;
+      color: #A5B4FC;
+      margin: 0.25rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .permission-tag-cyan {
+      background: rgba(6, 182, 212, 0.12);
+      border-color: rgba(6, 182, 212, 0.25);
+      color: #67E8F9;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      background: rgba(99, 102, 241, 0.1);
+      color: #A5B4FC;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 1024px) {
+      .bento-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .bento-grid { grid-template-columns: 1fr; }
+      .feature-large { grid-column: span 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ambient-glow-1"></div>
+  <div class="ambient-glow-2"></div>
+
+  <div class="subpage-back-nav">
+    <a href="../apps.html" class="subpage-back-btn">
+      <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z" /></svg>
+      Catalog
+    </a>
+  </div>
+
+  <main class="container">
+    <section class="app-header">
+      <img src="logo.png" alt="Unreel Logo" class="app-logo-large">
+      <br>
+      <div class="pill-badge">✨ Cross-Platform Focus & Wellbeing</div>
+      <h1 style="font-size: 4.5rem; letter-spacing: -3px; margin-bottom: 1rem; font-weight: 800;">Unreel</h1>
+      <p style="font-size: 1.4rem; color: #A5B4FC; margin-bottom: 1.5rem; font-weight: 700; letter-spacing: -0.5px;">
+        Know your scroll. Reclaim your time.
+      </p>
+      <p style="font-size: 1.15rem; color: var(--text-dim); margin-bottom: 2.5rem; max-width: 720px; margin-left: auto; margin-right: auto; line-height: 1.7;">
+        A high-performance application engineered to detect, count, and curb short-video doomscrolling across Instagram Reels, YouTube Shorts, and TikTok. 100% on-device processing with zero screen inspection.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="#architecture" class="download-badge">
+          Explore Architecture
+        </a>
+        <a href="pp.html" class="download-badge" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--glass-border); box-shadow: none;">
+          Privacy Policy
+        </a>
+      </div>
+    </section>
+
+    <section class="bento-grid">
+      <!-- Feature Large: Strict Privacy by Design -->
+      <div class="glass-card feature-large">
+        <div class="pill-badge" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.1); color: #6EE7B7;">
+          🛡️ Privacy Core
+        </div>
+        <h2 style="font-size: 2.8rem; margin-bottom: 1.5rem; letter-spacing: -2px; font-weight: 800; color: #FFFFFF;">
+          Zero Content Inspection
+        </h2>
+        <p style="color: var(--text-dim); font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem;">
+          Unreel observes structural scroll transitions without ever reading text, comments, captions, creator names, or video streams. Our Android AccessibilityService explicitly declares <code style="color: #67E8F9; background: rgba(6, 182, 212, 0.1); padding: 2px 6px; border-radius: 4px;">canRetrieveWindowContent="false"</code>.
+        </p>
+        <div style="display: flex; gap: 0.6rem; flex-wrap: wrap;">
+          <span class="permission-tag">100% On-Device</span>
+          <span class="permission-tag permission-tag-cyan">Zero Telemetry</span>
+          <span class="permission-tag" style="color: #6EE7B7; border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.1);">Local SQLite Only</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Dual-Platform Engine -->
+      <div class="glass-card">
+        <div class="stat-label">Engine Design</div>
+        <div class="stat-value stat-value-cyan">Dual Engine</div>
+        <p style="font-size: 0.95rem; color: var(--text-dim); margin-top: 1.2rem; line-height: 1.6;">
+          <strong>Android:</strong> Exact reel counting via Accessibility node detection (<span style="color: #67E8F9;">EXACT</span>).<br>
+          <strong>iOS:</strong> Screen Time DeviceActivity threshold ticks (<span style="color: #A5B4FC;">ESTIMATED</span>).
+        </p>
+      </div>
+
+      <!-- Card 3: Friction & Limit Rules -->
+      <div class="glass-card">
+        <div class="stat-label">Enforcement</div>
+        <div class="stat-value stat-value-emerald">Smart Shields</div>
+        <p style="font-size: 0.95rem; color: var(--text-dim); margin-top: 1.2rem; line-height: 1.6;">
+          Progressive friction shields, gentle haptic nudges, and time-out locks activate dynamically as you approach your daily reel target.
+        </p>
+      </div>
+
+      <!-- Card 4: Technical Compliance & Permissions -->
+      <div class="glass-card" style="grid-column: span 2; background: var(--bg-surface);">
+        <h3 style="font-size: 1.6rem; margin-bottom: 1.2rem; font-weight: 800;">Technical Compliance & Permissions</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+          <div class="permission-tag">BIND_ACCESSIBILITY_SERVICE</div>
+          <div class="permission-tag">SYSTEM_ALERT_WINDOW</div>
+          <div class="permission-tag">PACKAGE_USAGE_STATS</div>
+          <div class="permission-tag">FOREGROUND_SERVICE</div>
+          <div class="permission-tag permission-tag-cyan">FamilyControls</div>
+          <div class="permission-tag permission-tag-cyan">DeviceActivity</div>
+          <div class="permission-tag permission-tag-cyan">WidgetKit & Live Activity</div>
+        </div>
+        <p style="font-size: 0.9rem; color: var(--text-dim); margin-top: 1.5rem; line-height: 1.6;">
+          Transparency-first model: Permissions are restricted strictly to scroll event detection and user-configured limit overlays. Zero user data leaves the local hardware sandbox.
+        </p>
+      </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="glass-card" style="margin-bottom: 6rem; padding: 4.5rem; border-radius: 32px;">
+      <div style="text-align: center; max-width: 700px; margin: 0 auto 3.5rem;">
+        <div class="pill-badge">🏛 Clean Architecture</div>
+        <h2 style="font-size: 3rem; margin-bottom: 1rem; letter-spacing: -2px; font-weight: 800;">Engineered for Precision</h2>
+        <p style="color: var(--text-dim); font-size: 1.1rem; line-height: 1.7;">
+          Built following Hexagonal Ports & Adapters, Unidirectional Data Flow (MVI), and rigorous Test-Driven Development (TDD).
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 3rem;">
+        <div>
+          <div style="font-size: 2.8rem; margin-bottom: 1.2rem;">⚡</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.6rem; font-size: 1.25rem;">Pure Kotlin Domain</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">
+            Zero framework coupling in domain logic. Rule engines and aggregators operate on immutable events via dependency-injected ports.
+          </p>
+        </div>
+        <div>
+          <div style="font-size: 2.8rem; margin-bottom: 1.2rem;">📱</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.6rem; font-size: 1.25rem;">Native Platform UI</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">
+            Jetpack Compose + Material 3 on Android; SwiftUI + Swift Charts on iOS. Snappy 120Hz responsiveness tailored to each platform.
+          </p>
+        </div>
+        <div>
+          <div style="font-size: 2.8rem; margin-bottom: 1.2rem;">🧩</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.6rem; font-size: 1.25rem;">Home Screen Glance</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">
+            Glance AppWidgets for Android and WidgetKit + ActivityKit Live Activities on iOS for effortless ambient awareness.
+          </p>
+        </div>
+        <div>
+          <div style="font-size: 2.8rem; margin-bottom: 1.2rem;">🔒</div>
+          <h4 style="font-weight: 800; margin-bottom: 0.6rem; font-size: 1.25rem;">Local SQLDelight</h4>
+          <p style="color: var(--text-dim); font-size: 0.95rem; line-height: 1.6;">
+            High-performance SQLite persistence with WAL mode. Stored strictly in local app sandboxes and shared App Group containers.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer style="padding: 5rem 0; border-top: 1px solid var(--glass-border); background: #070A12; text-align: center;">
+    <div style="margin-bottom: 2.5rem;">
+        <a href="pp.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none;">Privacy Policy</a>
+        <a href="tc.html" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none;">Terms of Service</a>
+        <a href="mailto:leanbytes.in@gmail.com" style="color: var(--text-dim); margin: 0 1.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; text-decoration: none;">Support</a>
+    </div>
+    <p style="color: var(--text-dim); font-size: 0.85rem; opacity: 0.6; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;">&copy; 2026 Lean Bytes &bull; Engineering Excellence</p>
+  </footer>
+</body>
+
+</html>
