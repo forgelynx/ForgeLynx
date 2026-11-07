@@ -94,6 +94,14 @@
             align-items: center;
         }
 
+        .subpage-back-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+        }
+
+        .subpage-back-btn,
         .back-btn {
             display: inline-flex;
             align-items: center;
@@ -107,9 +115,11 @@
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             text-decoration: none;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
+        .subpage-back-btn:hover,
         .back-btn:hover {
             color: var(--text-primary);
             background: rgba(255, 255, 255, 0.1);
@@ -360,6 +370,18 @@
         }
 
         @media (max-width: 768px) {
+            .subpage-back-nav {
+                position: static;
+                padding: 1.5rem 1rem 0;
+                margin-bottom: -2rem;
+                display: block;
+            }
+
+            .subpage-back-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
+
             h1 {
                 font-size: 2.5rem;
             }
@@ -380,12 +402,12 @@
     <div class="ambient-glow-2"></div>
 
     <div class="subpage-back-nav">
-        <a href="../../index.html" class="subpage-back-btn">
+        <a href="../../index.html" class="subpage-back-btn" onclick="handleBack(event)">
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
-            Back to Portfolio
+            Back to Home
         </a>
     </div>
 
@@ -548,6 +570,13 @@
     </footer>
 
     <script>
+        function handleBack(event) {
+            if (window.history.length > 1 && document.referrer && (window.location.host ? document.referrer.includes(window.location.host) : true)) {
+                event.preventDefault();
+                window.history.back();
+            }
+        }
+
         // Smooth reveal animation on scroll
         const observerOptions = {
             root: null,

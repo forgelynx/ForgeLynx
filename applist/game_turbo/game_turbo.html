@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Game Turbo | Pro Gaming Performance</title>
-        <meta name="description" content="Elevate your gaming experience with Game Turbo. Real-time performance monitoring, AI-powered optimization, and seamless gameplay.">
+    <title>Game Turbo | Pro Gaming Performance - Astrix Tech</title>
+    <meta name="description" content="Elevate your gaming experience with Game Turbo. Real-time performance monitoring, AI-powered optimization, and seamless gameplay. Published and managed by Astrix Tech.">
+    <meta name="author" content="Astrix Tech">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -266,6 +267,56 @@
             0% { top: -10%; }
             100% { top: 110%; }
         }
+
+        /* --- Responsive Subpage Back Navigation --- */
+        .subpage-back-nav {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+        }
+
+        .subpage-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--text-dim);
+            font-weight: 700;
+            padding: 0.75rem 1.25rem;
+            background: rgba(20, 20, 22, 0.75);
+            border-radius: 50px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .subpage-back-btn:hover {
+            color: var(--text-main);
+            border-color: var(--accent);
+            background: rgba(20, 20, 22, 0.95);
+            transform: translateX(-4px);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        @media (max-width: 768px) {
+            .subpage-back-nav {
+                position: static;
+                padding: 1.5rem 1rem 0;
+                margin-bottom: -4rem;
+                display: block;
+            }
+
+            .subpage-back-btn {
+                padding: 0.6rem 1rem;
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -273,7 +324,7 @@
     <div class="scanline"></div>
 
     <div class="subpage-back-nav">
-        <a href="../../index.html" class="subpage-back-btn">
+        <a href="../../index.html" class="subpage-back-btn" onclick="handleBack(event)">
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"/></svg>
             BACK
         </a>
@@ -283,6 +334,7 @@
         <div class="container">
                         <img src="game_turbo_logo.png" alt="Game Turbo Logo" class="hero-logo">
             <h1 class="reveal">GAME TURBO</h1>
+            <p class="reveal" style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-top: -1rem; margin-bottom: 1.5rem; font-weight: 700;">Published &amp; Managed by Astrix Tech</p>
             <p class="reveal">Next-generation gaming optimization for Android. Eliminate latency, stabilize frame rates, and unleash your device's true potential.</p>
             <div class="reveal">
                 <a href="https://play.google.com/store/apps/details?id=com.neural.boost.pro" class="btn-primary">
@@ -350,11 +402,18 @@
                 <a href="pp.html#terms">Terms of Service</a>
                 <a href="mailto:leanbytes.in@gmail.com">Support Node</a>
             </div>
-                        <p class="copyright">&copy; 2026 Lean Bytes Labs. Game Turbo is a professional utility for performance management.</p>
+                        <p class="copyright">&copy; 2026 Astrix Tech. Game Turbo is published and managed by Astrix Tech.</p>
         </div>
     </footer>
 
     <script>
+        function handleBack(event) {
+            if (window.history.length > 1 && document.referrer && (window.location.host ? document.referrer.includes(window.location.host) : true)) {
+                event.preventDefault();
+                window.history.back();
+            }
+        }
+
         // Reveal Logic
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
